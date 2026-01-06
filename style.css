@@ -1,3 +1,5 @@
+/* --- START OF FILE style.css --- */
+
 /* 全域設定 */
 :root {
     --primary-color: #b73e3e; /* 類似鳥居的紅色 */
@@ -15,7 +17,7 @@
 
 body {
     font-family: 'Noto Sans TC', sans-serif;
-    background-color: --bg-color;
+    background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
 }
@@ -87,12 +89,12 @@ body {
     color: var(--primary-color);
 }
 
-/* 時間軸樣式 (核心部分) */
+/* --- 時間軸樣式 (核心修改區塊) --- */
 .timeline-container {
     max-width: 1000px;
     margin: 0 auto;
     position: relative;
-    padding: 20px;
+    padding: 20px 0;
 }
 
 /* 中間的線 */
@@ -105,63 +107,72 @@ body {
     bottom: 0;
     left: 50%;
     margin-left: -2px;
+    z-index: 0; /* 確保線在底層 */
 }
 
+/* 時間軸項目容器 (設定為 Flexbox) */
 .timeline-item {
-    padding: 10px 40px;
+    display: flex;             
+    justify-content: space-between; 
+    align-items: center;       /* 垂直置中 */
+    width: 100%;               
+    margin-bottom: 60px;
     position: relative;
-    background-color: inherit;
-    width: 50%;
-    margin-bottom: 40px;
-    display: flex;
-    flex-direction: column;
+    opacity: 0; /* 配合 JS 動畫初始狀態 */
 }
 
-/* 左側項目 */
+/* --- 單數與雙數的排列邏輯 --- */
+
+/* 單數 (1, 3, 5...)：文字在左，圖片在右 */
 .timeline-item:nth-child(odd) {
-    left: 0;
-    align-items: flex-end;
-    text-align: right;
+    flex-direction: row; 
 }
-
-.timeline-item:nth-child(odd) .timeline-content,
-.timeline-item:nth-child(odd) .timeline-img {
-    margin-right: 0; 
+.timeline-item:nth-child(odd) .timeline-content {
+    text-align: right; /* 文字靠右 (靠近中線) */
 }
-
-/* 右側項目 */
-.timeline-item:nth-child(even) {
-    left: 50%;
-    align-items: flex-start;
+/* 讓心得區塊保持靠左閱讀，或者你喜歡靠右也可以拿掉這行 */
+.timeline-item:nth-child(odd) .thoughts {
     text-align: left;
 }
 
-/* 時間點圓圈 */
+/* 雙數 (2, 4, 6...)：圖片在左，文字在右 (反轉排列) */
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+.timeline-item:nth-child(even) .timeline-content {
+    text-align: left; /* 文字靠左 (靠近中線) */
+}
+
+/* --- 內容與圖片通用寬度 --- */
+.timeline-content,
+.timeline-img {
+    width: 45%; /* 左右各佔 45%，中間留 10% 空隙 */
+    position: relative;
+    z-index: 1; /* 確保內容蓋在線上面(如果有重疊) */
+}
+
+/* --- 時間點圓圈 --- */
 .timeline-item::after {
     content: '';
     position: absolute;
     width: 20px;
     height: 20px;
-    right: -14px; /* 左側項目的圓圈位置 */
     background-color: white;
     border: 4px solid var(--primary-color);
-    top: 20px;
     border-radius: 50%;
-    z-index: 1;
+    z-index: 2;
+    top: 50%; /* 垂直置中 */
+    left: 50%; /* 水平置中 */
+    transform: translate(-50%, -50%); /* 修正中心點偏移 */
 }
 
-.timeline-item:nth-child(even)::after {
-    left: -14px; /* 右側項目的圓圈位置 */
-}
-
-/* 內容卡片 */
+/* 內容卡片樣式 */
 .timeline-content {
     background: white;
-    padding: 20px;
+    padding: 25px;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    width: 100%;
-    margin-bottom: 15px;
+    /* 移除舊有的 margin 設定 */
 }
 
 .date {
@@ -181,16 +192,16 @@ body {
     border-left: 4px solid #888;
     font-size: 0.95rem;
     font-style: italic;
-    text-align: left; /* 心得統一靠左比較好閱讀 */
 }
 
+/* 圖片樣式 */
 .timeline-img img {
     width: 100%;
-    max-width: 400px;
+    display: block;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     transition: transform 0.3s;
-    height: auto; 
+    height: auto;
 }
 
 .timeline-img img:hover {
@@ -228,36 +239,41 @@ footer {
     margin-top: 50px;
 }
 
-/* RWD 手機版調整 */
+/* --- RWD 手機版調整 --- */
 @media screen and (max-width: 768px) {
     .timeline-container::after {
-        left: 31px;
+        left: 31px; /* 線移到左側 */
     }
     
     .timeline-item {
-        width: 100%;
-        padding-left: 70px;
-        padding-right: 25px;
-    }
-    
-    .timeline-item:nth-child(odd), 
-    .timeline-item:nth-child(even) {
-        left: 0;
+        flex-direction: column !important; /* 強制垂直排列 */
         align-items: flex-start;
-        text-align: left;
-    }
-    
-    /* 1. 控制「單數」項目 (第 1, 3, 5... 個) */
-    .timeline-item:nth-child(odd)::after {
-        left: -3px;  /* 試著改這個數字 */
+        padding-left: 70px; /* 左側留空給線和圓圈 */
+        padding-right: 20px;
     }
 
-    /* 2. 控制「雙數」項目 (第 2, 4, 6... 個) */
-    .timeline-item:nth-child(even)::after {
-        left: -3px;  /* 試著改這個數字，可以跟上面不一樣 */
+    /* 讓內容和圖片都變回 100% 寬度 */
+    .timeline-content,
+    .timeline-img {
+        width: 100%;
+        text-align: left; /* 強制文字靠左 */
+    }
+
+    /* 圖片與上方文字拉開距離 */
+    .timeline-img {
+        margin-top: 20px; 
+    }
+    
+    /* 調整圓圈位置到左側 */
+    .timeline-item::after {
+        left: 31px;
+        top: 25px; /* 固定在第一行標題附近的高度 */
+        transform: translate(-50%, 0);
+    }
+
+    /* LCP 優化：讓第一個時間軸項目直接顯示 */
+    .timeline-item:first-child {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
 }
-/* LCP 優化：讓第一個時間軸項目直接顯示，不要跑淡入動畫 */
-.timeline-item:first-child {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-}}
