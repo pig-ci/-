@@ -142,7 +142,7 @@ body {
     position: absolute;
     width: 20px;
     height: 20px;
-    right: -18px; /* 左側項目的圓圈位置 */
+    right: -14px; /* 左側項目的圓圈位置 */
     background-color: white;
     border: 4px solid var(--primary-color);
     top: 20px;
