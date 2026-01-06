@@ -250,3 +250,8 @@ footer {
         left: 21px;
     }
 }
+/* LCP 優化：讓第一個時間軸項目直接顯示，不要跑淡入動畫 */
+.timeline-item:first-child {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
