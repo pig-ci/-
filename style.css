@@ -100,7 +100,7 @@ body {
     flex-direction: row; 
 }
 .timeline-item:nth-child(odd) .timeline-content {
-    text-align: right; /* 文字靠右 (靠近中線) */
+    text-align: right;
 }
 .timeline-item:nth-child(odd) .thoughts {
     text-align: left;
@@ -109,7 +109,7 @@ body {
     flex-direction: row-reverse;
 }
 .timeline-item:nth-child(even) .timeline-content {
-    text-align: left; /* 文字靠左 (靠近中線) */
+    text-align: left;
 }
 .timeline-content,
 .timeline-img {
