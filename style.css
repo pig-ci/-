@@ -1,28 +1,21 @@
-/* --- START OF FILE style.css --- */
-
-/* 全域設定 */
 :root {
-    --primary-color: #b73e3e; /* 類似鳥居的紅色 */
+    --primary-color: #b73e3e;
     --secondary-color: #333;
     --bg-color: #f9f9f9;
     --card-bg: #ffffff;
     --text-color: #444;
 }
-
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-
 body {
     font-family: 'Noto Sans TC', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
 }
-
-/* 導覽列 */
 .navbar {
     background-color: white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -34,70 +27,55 @@ body {
     top: 0;
     z-index: 1000;
 }
-
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--primary-color);
 }
-
 .nav-links {
     list-style: none;
     display: flex;
     gap: 20px;
 }
-
 .nav-links a {
     text-decoration: none;
     color: var(--secondary-color);
     font-weight: 500;
     transition: color 0.3s;
 }
-
 .nav-links a.active, .nav-links a:hover {
     color: var(--primary-color);
     border-bottom: 2px solid var(--primary-color);
 }
-
-/* 頁面切換機制 */
 .page-section {
     display: none; /* 預設隱藏 */
     padding-bottom: 50px;
     animation: fadeIn 0.5s ease;
 }
-
 .page-section.active-section {
     display: block; /* 加上 active 類別時顯示 */
 }
-
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
-
-/* Hero 區塊 */
 .hero {
     text-align: center;
     padding: 60px 20px;
     background: linear-gradient(135deg, #fff5f5 0%, #fff 100%);
     margin-bottom: 40px;
 }
-
 .hero h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
     color: var(--primary-color);
 }
-
-/* --- 時間軸樣式 (核心修改區塊) --- */
 .timeline-container {
     max-width: 1000px;
     margin: 0 auto;
     position: relative;
     padding: 20px 0;
 }
-
-/* 中間的線 */
 .timeline-container::after {
     content: '';
     position: absolute;
@@ -109,49 +87,36 @@ body {
     margin-left: -2px;
     z-index: 0; /* 確保線在底層 */
 }
-
-/* 時間軸項目容器 (設定為 Flexbox) */
 .timeline-item {
     display: flex;             
     justify-content: space-between; 
-    align-items: center;       /* 垂直置中 */
+    align-items: center; /* 垂直置中 */
     width: 100%;               
     margin-bottom: 60px;
     position: relative;
     opacity: 0; /* 配合 JS 動畫初始狀態 */
 }
-
-/* --- 單數與雙數的排列邏輯 --- */
-
-/* 單數 (1, 3, 5...)：文字在左，圖片在右 */
 .timeline-item:nth-child(odd) {
     flex-direction: row; 
 }
 .timeline-item:nth-child(odd) .timeline-content {
     text-align: right; /* 文字靠右 (靠近中線) */
 }
-/* 讓心得區塊保持靠左閱讀，或者你喜歡靠右也可以拿掉這行 */
 .timeline-item:nth-child(odd) .thoughts {
     text-align: left;
 }
-
-/* 雙數 (2, 4, 6...)：圖片在左，文字在右 (反轉排列) */
 .timeline-item:nth-child(even) {
     flex-direction: row-reverse;
 }
 .timeline-item:nth-child(even) .timeline-content {
     text-align: left; /* 文字靠左 (靠近中線) */
 }
-
-/* --- 內容與圖片通用寬度 --- */
 .timeline-content,
 .timeline-img {
     width: 45%; /* 左右各佔 45%，中間留 10% 空隙 */
     position: relative;
     z-index: 1; /* 確保內容蓋在線上面(如果有重疊) */
 }
-
-/* --- 時間點圓圈 --- */
 .timeline-item::after {
     content: '';
     position: absolute;
@@ -165,8 +130,6 @@ body {
     left: 50%; /* 水平置中 */
     transform: translate(-50%, -50%); /* 修正中心點偏移 */
 }
-
-/* 內容卡片樣式 */
 .timeline-content {
     background: white;
     padding: 25px;
@@ -174,7 +137,6 @@ body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     /* 移除舊有的 margin 設定 */
 }
-
 .date {
     display: inline-block;
     background: var(--primary-color);
@@ -184,7 +146,6 @@ body {
     font-size: 0.9rem;
     margin-bottom: 10px;
 }
-
 .thoughts {
     margin-top: 15px;
     padding: 10px;
@@ -193,8 +154,6 @@ body {
     font-size: 0.95rem;
     font-style: italic;
 }
-
-/* 圖片樣式 */
 .timeline-img img {
     width: 100%;
     display: block;
@@ -203,12 +162,9 @@ body {
     transition: transform 0.3s;
     height: auto;
 }
-
 .timeline-img img:hover {
     transform: scale(1.02);
 }
-
-/* 第二頁：實人教育樣式 */
 .education-content {
     max-width: 800px;
     margin: 0 auto;
@@ -216,21 +172,17 @@ body {
     display: grid;
     gap: 30px;
 }
-
 .card {
     background: white;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
-
 .card img {
     width: 100%;
     margin-top: 15px;
     border-radius: 5px;
 }
-
-/* Footer */
 footer {
     text-align: center;
     padding: 20px;
@@ -238,42 +190,30 @@ footer {
     color: white;
     margin-top: 50px;
 }
-
-/* --- RWD 手機版調整 --- */
 @media screen and (max-width: 768px) {
     .timeline-container::after {
         left: 31px; /* 線移到左側 */
     }
-    
     .timeline-item {
         flex-direction: column !important; /* 強制垂直排列 */
         align-items: flex-start;
         padding-left: 70px; /* 左側留空給線和圓圈 */
         padding-right: 20px;
     }
-
-    /* 讓內容和圖片都變回 100% 寬度 */
     .timeline-content,
     .timeline-img {
         width: 100%;
         text-align: left; /* 強制文字靠左 */
     }
-
-    /* 圖片與上方文字拉開距離 */
     .timeline-img {
         margin-top: 20px; 
     }
-    
-    /* 調整圓圈位置到左側 */
     .timeline-item::after {
         left: 31px;
         top: 25px; /* 固定在第一行標題附近的高度 */
         transform: translate(-50%, 0);
     }
-
-    /* LCP 優化：讓第一個時間軸項目直接顯示 */
     .timeline-item:first-child {
         opacity: 1 !important;
         transform: translateY(0) !important;
-    }
-}
+    }}
