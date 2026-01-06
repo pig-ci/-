@@ -18,25 +18,18 @@ function switchPage(pageName) {
 }
 document.addEventListener("DOMContentLoaded", () => {
     
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.2
-    };
+    const observerOptions={root:null,rootMargin:'0px',threshold:0.2};
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = "1";
                 entry.target.style.transform = "translateY(0)";
                 observer.unobserve(entry.target); // 動畫只執行一次
-            }
-        });
-    }, observerOptions);
+            }});},observerOptions);
     const timelineItems = document.querySelectorAll('.timeline-item');
-    timelineItems.forEach(item => {
+    timelineItems.forEach(item=>{
         item.style.opacity = "0";
         item.style.transform = "translateY(50px)";
         item.style.transition = "all 0.6s ease-out";
         observer.observe(item);
-    });
-});
+    });});
