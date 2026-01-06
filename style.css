@@ -151,7 +151,7 @@ body {
 }
 
 .timeline-item:nth-child(even)::after {
-    left: -10px; /* 右側項目的圓圈位置 */
+    left: -14px; /* 右側項目的圓圈位置 */
 }
 
 /* 內容卡片 */
