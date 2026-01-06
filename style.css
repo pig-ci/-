@@ -1,0 +1,252 @@
+/* 全域設定 */
+:root {
+    --primary-color: #b73e3e; /* 類似鳥居的紅色 */
+    --secondary-color: #333;
+    --bg-color: #f9f9f9;
+    --card-bg: #ffffff;
+    --text-color: #444;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background-color: --bg-color;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* 導覽列 */
+.navbar {
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a.active, .nav-links a:hover {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+/* 頁面切換機制 */
+.page-section {
+    display: none; /* 預設隱藏 */
+    padding-bottom: 50px;
+    animation: fadeIn 0.5s ease;
+}
+
+.page-section.active-section {
+    display: block; /* 加上 active 類別時顯示 */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hero 區塊 */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #fff5f5 0%, #fff 100%);
+    margin-bottom: 40px;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+/* 時間軸樣式 (核心部分) */
+.timeline-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    padding: 20px;
+}
+
+/* 中間的線 */
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: var(--primary-color);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 左側項目 */
+.timeline-item:nth-child(odd) {
+    left: 0;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.timeline-item:nth-child(odd) .timeline-content,
+.timeline-item:nth-child(odd) .timeline-img {
+    margin-right: 0; 
+}
+
+/* 右側項目 */
+.timeline-item:nth-child(even) {
+    left: 50%;
+    align-items: flex-start;
+    text-align: left;
+}
+
+/* 時間點圓圈 */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: -10px; /* 左側項目的圓圈位置 */
+    background-color: white;
+    border: 4px solid var(--primary-color);
+    top: 20px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-item:nth-child(even)::after {
+    left: -10px; /* 右側項目的圓圈位置 */
+}
+
+/* 內容卡片 */
+.timeline-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.date {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.thoughts {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-left: 4px solid #888;
+    font-size: 0.95rem;
+    font-style: italic;
+    text-align: left; /* 心得統一靠左比較好閱讀 */
+}
+
+.timeline-img img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: transform 0.3s;
+}
+
+.timeline-img img:hover {
+    transform: scale(1.02);
+}
+
+/* 第二頁：實人教育樣式 */
+.education-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    gap: 30px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.card img {
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    margin-top: 50px;
+}
+
+/* RWD 手機版調整 */
+@media screen and (max-width: 768px) {
+    .timeline-container::after {
+        left: 31px;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+    
+    .timeline-item:nth-child(odd), 
+    .timeline-item:nth-child(even) {
+        left: 0;
+        align-items: flex-start;
+        text-align: left;
+    }
+    
+    .timeline-item::after {
+        left: 21px;
+    }
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台日交流平台</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">台日交流</div>
+        <ul class="nav-links">
+            <li><a href="#" class="active" onclick="switchPage('exchange')">台日交流</a></li>
+            <li><a href="#" onclick="switchPage('education')">實人教育</a></li>
+        </ul>
+    </nav>
+
+    <!-- 頁面一：台日交流經驗 (預設顯示) -->
+    <main id="page-exchange" class="page-section active-section">
+        <header class="hero">
+            <h1>台日交流歷程</h1>
+            <p>台日交流</p>
+        </header>
+
+        <section class="timeline-container">
+            <!-- 時間軸項目 1 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="date">2023.04</span>
+                    <h2>1</h2>
+                    <p class="details">2</p>
+                    <div class="thoughts">
+                        <strong>心得：</strong>
+                        <p>123</p>
+                    </div>
+                </div>
+                <div class="timeline-img">
+                    <img src="https://placehold.co/600x400?text=Arrival+Japan" alt="抵達日本">
+                </div>
+            </div>
+
+            <!-- 時間軸項目 2 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="date">2023.08</span>
+                    <h2>1234</h2>
+                    <p class="details">1234567</p>
+                    <div class="thoughts">
+                        <strong>當時心得：</strong>
+                        <p>qwertyu</p>
+                    </div>
+                </div>
+                <div class="timeline-img">
+                    <img src="https://placehold.co/600x400?text=Summer+Festival" alt="夏日祭典">
+                </div>
+            </div>
+
+            <!-- 時間軸項目 3 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="date">2024.01</span>
+                    <h2>promot 3</h2>
+                    <p class="details">qwertyu</p>
+                    <div class="thoughts">
+                        <strong>心得：</strong>
+                        <p>。</p>
+                    </div>
+                </div>
+                <div class="timeline-img">
+                    <img src="https://placehold.co/600x400?text=Internship" alt="企業實習">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 頁面二：實人教育 (預設隱藏) -->
+    <main id="page-education" class="page-section">
+        <header class="hero education-hero">
+            <h1>實人教育</h1>
+            <p>探討教育理念與實踐哲學</p>
+        </header>
+
+        <div class="education-content">
+            <div class="card">
+                <h3>教育理念</h3>
+                <p>這裡可以填寫關於「實人教育」的核心理念，例如實踐等內容。</p>
+            </div>
+            <div class="card">
+                <h3>實踐案例</h3>
+                <p>列舉一些具體的教育案例或台日教育差異的比較分析。</p>
+                <img src="https://placehold.co/600x300?text=Education+Case" alt="教育案例">
+            </div>
+            <div class="card">
+                <h3>未來展望</h3>
+                <p>對於未來台日教育交流的期許與計畫。</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 台日交流分享平台 | Designed for Exchange</p>
+    </footer>
+
+    <!-- 引入 JS -->
+    <script src="script.js"></script>
+</body>
+</html>
