@@ -247,12 +247,17 @@ footer {
         text-align: left;
     }
     
-    .timeline-item::after {
-        left: 21px;
+    /* 1. 控制「單數」項目 (第 1, 3, 5... 個) */
+    .timeline-item:nth-child(odd)::after {
+        left: -3px;  /* 試著改這個數字 */
     }
+
+    /* 2. 控制「雙數」項目 (第 2, 4, 6... 個) */
+    .timeline-item:nth-child(even)::after {
+        left: -3px;  /* 試著改這個數字，可以跟上面不一樣 */
 }
 /* LCP 優化：讓第一個時間軸項目直接顯示，不要跑淡入動畫 */
 .timeline-item:first-child {
     opacity: 1 !important;
     transform: translateY(0) !important;
-}
+}}
