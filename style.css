@@ -15,7 +15,7 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
-    letter-spacing: 0.05rem; /* 增加一點點字距 */
+    letter-spacing: 0.05rem; 
 }
 h2 {
     margin-bottom: 15px;
@@ -150,8 +150,8 @@ h2 {
     opacity: 0.3;
     transition: all 0.4s ease;
 }
-.timeline-item:hover .timeline-img::before {
-    transform: translate(-10px, -10px); /* 懸停時縮小偏移，產生回彈感 */
+.timeline-img:has(img:hover)::before {
+    transform: translate(-10px, -10px); /* 裝飾框往反方向回彈 */
     opacity: 0.6;
 }
 .timeline-item::after {
@@ -250,6 +250,7 @@ h2 {
     transform: translateY(-8px);
     box-shadow: 0 12px 30px rgba(183, 62, 62, 0.1); /* 使用主題色的淺陰影 */
 }
+
 footer {
     text-align: center;
     padding: 20px;
