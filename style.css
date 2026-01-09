@@ -296,48 +296,33 @@ footer {
     70% { box-shadow: 0 0 0 10px rgba(183, 62, 62, 0); }
     100% { box-shadow: 0 0 0 0 rgba(183, 62, 62, 0); }
 }
-
-.timeline-item::after {
-    /* 保持您原本的樣式 */
-    animation: pulse 2s infinite; /* 加入持續的脈衝感 */
-}
-@media screen and (max-width: 768px) {
-    .timeline-container::after {
-        left: 31px; /* 線移到左側 */
-    }
-    .timeline-item {
-        flex-direction: column !important; /* 強制垂直排列 */
-        align-items: flex-start;
-        padding-left: 70px; /* 左側留空給線和圓圈 */
-        padding-right: 20px;
+.timeline-item::after{animation: pulse 2s infinite;}
+@media screen and (max-width:768px){
+    .timeline-container::after{left:31px;}
+    .timeline-item{
+        flex-direction: column !important;
+        align-items:flex-start;
+        padding-left:70px;
+        padding-right:20px;
     }
     .timeline-content,
     .timeline-img {
         width: 100%;
-        text-align: left; /* 強制文字靠左 */
+        text-align: left;
     }
-    .timeline-img {
-        margin-top: 20px; 
-    }
+    .timeline-img{margin-top:20px;}
     .timeline-item::after {
         left: 31px;
-        top: 25px; /* 固定在第一行標題附近的高度 */
+        top: 25px;
         transform: translate(-50%, 0);
     }
     .timeline-item:first-child {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-    }}
-::-webkit-scrollbar {
-    width: 8px;
-}
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
+        opacity:1!important;
+        transform:translateY(0)!important;}}
+::-webkit-scrollbar{width:8px;}
+::-webkit-scrollbar-track{background:#f1f1f1;}
 ::-webkit-scrollbar-thumb {
     background: var(--primary-color);
     border-radius: 10px;
 }
-::-webkit-scrollbar-thumb:hover {
-    background: #963232; /* 稍微加深 */
-}
+::-webkit-scrollbar-thumb:hover{background:#963232;}
