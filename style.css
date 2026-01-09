@@ -4,6 +4,15 @@
     --bg-color: #f9f9f9;
     --card-bg: #ffffff;
     --text-color: #444;
+    --primary-color: #a63434; 
+    --secondary-color: #3e3e3e;
+    
+    /* 修改：背景色改為米白/和紙色 */
+    --bg-color: #f7f5f0; 
+    --card-bg: #ffffff;
+    
+    /* 修改：文字顏色改為深灰，不要全黑，比較柔和 */
+    --text-color: #2c2c2c;
 }
 * {
     box-sizing: border-box;
@@ -74,14 +83,42 @@ h2 {
 }
 .hero {
     text-align: center;
-    padding: 60px 20px;
     background: linear-gradient(135deg, #fff5f5 0%, #fff 100%);
     margin-bottom: 40px;
+    /* 上方保留空間給導覽列，下方留空間給漸層 */
+    padding: 120px 20px 80px; 
+    
+    /* 關鍵：背景漸層 */
+    /* 從上方的白色(0%) 漸變到 下方的完全透明(100%) */
+    /* 這樣底部的米色紙張紋理就會慢慢透出來 */
+    background: linear-gradient(
+        to bottom, 
+        rgba(255, 255, 255, 1) 0%, 
+        rgba(255, 255, 255, 0.8) 80%, 
+        rgba(255, 255, 255, 0) 100%
+    );
+    
+    margin-bottom: 20px; /* 縮小與下方內容的距離 */
+    position: relative;  /* 為了放置裝飾線 */
 }
 .hero h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
     color: var(--primary-color);
+}
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10%; /* 左邊留空 */
+    width: 80%; /* 線條寬度 */
+    height: 1px; /* 極細線 */
+    /* 徑向漸層：中間深(主題色)，向兩側變透明 */
+    background: radial-gradient(
+        circle, 
+        rgba(166, 52, 52, 0.3) 0%, /* 中間：淡淡的紅色 */
+        transparent 70%            /* 兩側：透明 */
+    );
 }
 .timeline-container {
     max-width: 1000px;
@@ -188,12 +225,6 @@ h2 {
     color: var(--primary-color);
     transition: color 0.3s ease;
 }
-
-/* 確保圖片懸停維持獨立 (你原本的寫法) */
-.timeline-img img:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
 .date {
     display: inline-block;
     background: var(--primary-color);
@@ -215,6 +246,8 @@ h2 {
 }
 .timeline-img img {
     width: 100%;
+    aspect-ratio: 3 / 2; /* 強制固定長寬比 (例如 3:2 或 16:9) */
+    object-fit: cover;   /* 圖片填滿並裁切，不會變形 */
     display: block;
     border-radius: 8px;
     border: 1px solid rgba(0,0,0,0.05);
@@ -223,7 +256,6 @@ h2 {
     height: auto;
 }
 .timeline-img img:hover {
-    transform: scale(1.02);
     transform: translateY(-5px) scale(1.02);
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
