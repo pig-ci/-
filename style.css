@@ -301,14 +301,14 @@ h2 {
 
 /* 全螢幕圓角視窗 */
 .modal-content {
-    background-color: var(--bg-color); /* 使用您定義的米色背景 */
-    margin: 2vh auto; /* 距離頂部與底部 2% 的間距 */
-    padding: 60px 40px;
-    border-radius: 30px; /* 大圓角設計 */
-    width: 95vw; /* 寬度佔螢幕 95% */
-    height: 96vh; /* 高度佔螢幕 96% */
-    position: relative;
-    overflow-y: auto; /* 內容過長時可捲動 */
+    background-color: var(--bg-color);
+    margin: 2vh auto;
+    padding: 60px 40px; /* 保持足夠內距 */
+    border-radius: 30px;
+    width: 95vw;
+    height: 96vh;
+    position: relative; /* 重要：讓按鈕以這裡為基準 */
+    overflow-y: auto;
     box-shadow: 0 25px 50px rgba(0,0,0,0.3);
     animation: modalSlideUp 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
@@ -318,33 +318,42 @@ h2 {
     from { transform: translateY(100px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
-
-/* 關閉按鈕 - 改為固定在右上角 */
+/* 關閉按鈕 - 初始狀態：紅底白叉 */
 .close-btn {
-    position: fixed;
-    right: 40px;
-    top: 40px;
-    font-size: 35px;
-    color: var(--secondary-color);
-    cursor: pointer;
-    z-index: 2001;
+    position: absolute; /* 從 fixed 改為 absolute */
+    right: 25px;       /* 距離視窗右側 */
+    top: 25px;         /* 距離視窗頂部 */
     width: 50px;
     height: 50px;
+    
+    background-color: var(--primary-color);
+    color: #ffffff;
+    
     display: flex;
     align-items: center;
     justify-content: center;
-    background: white;
+    font-size: 32px;
     border-radius: 50%;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: all 0.3s;
+    cursor: pointer;
+    z-index: 2100; /* 確保在最上層 */
+    
+    border: 2px solid var(--primary-color);
+    
+    /* 動畫效果保持不變 */
+    transition: 
+        background-color 0.4s ease, 
+        color 0.4s ease, 
+        transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+        box-shadow 0.3s ease;
+    
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
-
 .close-btn:hover {
-    transform: rotate(90deg);
-    color: var(--primary-color);
+    background-color: #ffffff;      /* 變為白底 */
+    color: var(--primary-color);   /* 叉叉變為紅色 */
+    transform: rotate(180deg);     /* 旋轉 180 度 */
+    box-shadow: 0 6px 20px rgba(166, 52, 52, 0.3); /* 增加帶有主題色的陰影 */
 }
-
-/* 彈出視窗內的文字排版優化 */
 #modal-title {
     font-size: 2.2rem;
     color: var(--primary-color);
