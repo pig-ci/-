@@ -379,7 +379,7 @@ footer {
 /* 定義脈衝動畫 */
 @keyframes pulse {
     0% { box-shadow: 0 0 0 0 rgba(183, 62, 62, 0.4); }
-    70% { box-shadow: 0 0 0 20px rgba(183, 62, 62, 0); }
+    70% { box-shadow: 0 0 0 15px rgba(183, 62, 62, 0); }
     100% { box-shadow: 0 0 0 0 rgba(183, 62, 62, 0); }
 }
 @media screen and (max-width: 768px) {
