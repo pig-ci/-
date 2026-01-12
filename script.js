@@ -17,7 +17,6 @@ function switchPage(pageName) {
     window.scrollTo(0, 0);
 }
 document.addEventListener("DOMContentLoaded", () => {
-    
     const observerOptions={root:null,rootMargin:'0px',threshold:0.2};
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
@@ -37,12 +36,10 @@ function openModal(element) {
     const modal = document.getElementById("detail-modal");
     const modalTitle = document.getElementById("modal-title");
     const modalBody = document.getElementById("modal-body");
-
     const title = element.querySelector("h2").innerText;
     // 取得該區塊內所有的文字內容（包含原本隱藏的詳細文字）
     const detailText = element.querySelector(".full-text") ? element.querySelector(".full-text").innerHTML : "內容準備中...";
     const thoughts = element.querySelector(".thoughts") ? element.querySelector(".thoughts").innerHTML : "";
-
     modalTitle.innerText = title;
     modalBody.innerHTML = `
         <div class="content-wrapper">
@@ -50,26 +47,37 @@ function openModal(element) {
             ${thoughts ? `<div style="margin-top:40px; padding:20px; background:#eee; border-radius:15px; font-style:italic;">${thoughts}</div>` : ''}
         </div>
     `;
-
     modal.style.display = "block";
     document.body.style.overflow = "hidden"; // 鎖定背景捲動
 }
-
 function closeModal() {
     const modal = document.getElementById("detail-modal");
-    modal.style.display = "none";
-    document.body.style.overflow = "auto"; // 恢復背景捲動
+    if (modal) {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+        const modalTitle = document.getElementById("modal-title");
+        const modalBody = document.getElementById("modal-body");
+        if (modalTitle) modalTitle.innerText = "";
+        if (modalBody) modalBody.innerHTML = "";
+    }
 }
-
-// 點擊事件監聽
 window.onclick = function(event) {
     const modal = document.getElementById("detail-modal");
     if (event.target == modal) {
         closeModal();
     }
 }
-
-// 綁定關閉按鈕（針對之後動態產生的 close-btn）
+document.addEventListener('keydown', function(event) {
+    if (event.key === "Escape") {
+        closeModal();
+    }
+});
+window.onclick = function(event) {
+    const modal = document.getElementById("detail-modal");
+    if (event.target == modal) {
+        closeModal();
+    }
+}
 document.addEventListener('click', function(e){
     if(e.target && e.target.classList.contains('close-btn')){
         closeModal();
