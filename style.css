@@ -282,7 +282,83 @@ h2 {
     transform: translateY(-8px);
     box-shadow: 0 12px 30px rgba(183, 62, 62, 0.1); /* 使用主題色的淺陰影 */
 }
+/* 讓文字方塊看起來可以點擊 */
+.timeline-content {
+    cursor: pointer;
+}
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* 背景稍微變淡，強調模糊 */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
 
+/* 全螢幕圓角視窗 */
+.modal-content {
+    background-color: var(--bg-color); /* 使用您定義的米色背景 */
+    margin: 2vh auto; /* 距離頂部與底部 2% 的間距 */
+    padding: 60px 40px;
+    border-radius: 30px; /* 大圓角設計 */
+    width: 95vw; /* 寬度佔螢幕 95% */
+    height: 96vh; /* 高度佔螢幕 96% */
+    position: relative;
+    overflow-y: auto; /* 內容過長時可捲動 */
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+    animation: modalSlideUp 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* 進場動畫：從下方滑入並淡入 */
+@keyframes modalSlideUp {
+    from { transform: translateY(100px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* 關閉按鈕 - 改為固定在右上角 */
+.close-btn {
+    position: fixed;
+    right: 40px;
+    top: 40px;
+    font-size: 35px;
+    color: var(--secondary-color);
+    cursor: pointer;
+    z-index: 2001;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+}
+
+.close-btn:hover {
+    transform: rotate(90deg);
+    color: var(--primary-color);
+}
+
+/* 彈出視窗內的文字排版優化 */
+#modal-title {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+#modal-body {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+}
 footer {
     text-align: center;
     padding: 20px;
