@@ -32,8 +32,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 獲取所有時間軸項目並啟動監聽
     const timelineItems = document.querySelectorAll('.timeline-item');
-    timelineItems.forEach(item => observer.observe(item));
-});
+    timelineItems.forEach((item, index) => {
+    if (index === 0) {
+        item.classList.add('is-visible'); // 第一項直接顯示，不跑動畫
+    } else {
+        observer.observe(item); // 剩下的才跑監聽動畫
+    }});});
 
 /**
  * 彈窗控制功能
