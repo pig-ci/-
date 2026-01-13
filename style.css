@@ -120,6 +120,9 @@ h2 {
         transparent 70%            /* 兩側：透明 */
     );
 }
+.full-text {
+    display: none;
+}
 .timeline-container {
     max-width: 1000px;
     margin: 0 auto;
