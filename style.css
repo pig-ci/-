@@ -155,6 +155,7 @@ h2 {
     margin-bottom: 60px;
     position: relative;
     opacity: 0; /* 配合 JS 動畫初始狀態 */
+    will-change: transform, opacity;
 }
 .timeline-item:nth-child(odd) {
     flex-direction: row; 
@@ -258,6 +259,7 @@ h2 {
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     transition: transform 0.3s;
     height: auto;
+    backface-visibility: hidden;
 }
 .timeline-img img:hover {
     transform: translateY(-5px) scale(1.02);
