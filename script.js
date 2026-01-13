@@ -1,23 +1,24 @@
 function switchPage(pageName) {
+    // 1. 切換區塊：只針對變動的部分操作，減少排版重算
     const sections = document.querySelectorAll('.page-section');
     sections.forEach(section => {
-        section.classList.remove('active-section');
+        const isActive = section.id === `page-${pageName}`;
+        section.classList.toggle('active-section', isActive);
     });
-    const targetSection = document.getElementById(`page-${pageName}`);
-    if (targetSection) {
-        targetSection.classList.add('active-section');
-    }
+
+    // 2. 切換導覽標籤：精確匹配而不是使用 includes
     const navLinks = document.querySelectorAll('.nav-links a');
     navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('onclick').includes(pageName)) {
-            link.classList.add('active');
-        }
+        // 建議在 HTML 中加上 data-page="exchange" 屬性會比解析 onclick 字串更快
+        const isTarget = link.getAttribute('onclick').includes(pageName);
+        link.classList.toggle('active', isTarget);
     });
-    window.scrollTo(0, 0);
+
+    // 3. 滾動優化：改用 'instant' 避免滑動中的動畫衝突
+    window.scrollTo({ top: 0, behavior: 'instant' });
 }
 document.addEventListener("DOMContentLoaded", () => {
-    const observerOptions={root:null,rootMargin:'0px',threshold:0.2};
+    const observerOptions={root:null,rootMargin:'0px',threshold:0.05};
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {

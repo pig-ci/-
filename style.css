@@ -156,6 +156,7 @@ h2 {
     position: relative;
     opacity: 0; /* 配合 JS 動畫初始狀態 */
     will-change: transform, opacity;
+    transform: translateZ(0);
 }
 .timeline-item:nth-child(odd) {
     flex-direction: row; 
