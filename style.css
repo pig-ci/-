@@ -336,39 +336,59 @@ h2 {
 }
 /* 關閉按鈕 - 初始狀態：紅底白叉 */
 .close-btn {
-    position: absolute; /* 從 fixed 改為 absolute */
-    right: 25px;       /* 距離視窗右側 */
-    top: 25px;         /* 距離視窗頂部 */
+    position: absolute;
+    right: 25px;
+    top: 25px;
     width: 50px;
     height: 50px;
-    
     background-color: var(--primary-color);
-    color: #ffffff;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 32px;
     border-radius: 50%;
     cursor: pointer;
-    z-index: 2100; /* 確保在最上層 */
-    
+    z-index: 2100;
     border: 2px solid var(--primary-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     
-    /* 動畫效果保持不變 */
+    /* 核心修改：使用 transition 處理旋轉與顏色 */
     transition: 
         background-color 0.4s ease, 
-        color 0.4s ease, 
         transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
         box-shadow 0.3s ease;
-    
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
+
+/* 使用偽元素畫出 X 的兩條線 */
+.close-btn::before,
+.close-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 24px;         /* X 的長度 */
+    height: 3px;          /* X 的粗細 */
+    background-color: #ffffff; /* 初始為白色 */
+    border-radius: 2px;
+    transition: background-color 0.4s ease;
+}
+
+/* 第一條線旋轉 45 度 */
+.close-btn::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* 第二條線旋轉 -45 度 */
+.close-btn::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* 懸停效果：背景變白，線變紅 */
 .close-btn:hover {
-    background-color: #ffffff;      /* 變為白底 */
-    color: var(--primary-color);   /* 叉叉變為紅色 */
-    transform: rotate(180deg);     /* 旋轉 180 度 */
-    box-shadow: 0 6px 20px rgba(166, 52, 52, 0.3); /* 增加帶有主題色的陰影 */
+    background-color: #ffffff;
+    transform: rotate(180deg); /* 這裡的 180 度旋轉會帶動偽元素一起轉 */
+    box-shadow: 0 6px 20px rgba(166, 52, 52, 0.3);
+}
+
+.close-btn:hover::before,
+.close-btn:hover::after {
+    background-color: var(--primary-color); /* 懸停時 X 變為紅色 */
 }
 #modal-title {
     font-size: 2.2rem;
