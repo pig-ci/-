@@ -37,23 +37,26 @@ function openModal(element) {
     const modalTitle = document.getElementById("modal-title");
     const modalBody = document.getElementById("modal-body");
 
-    // 取得標題
+    // 1. 取得標題
     const title = element.querySelector("h2").innerText;
     
-    // 取得該區塊內詳細文字內容（.full-text），若無則顯示預設文字
-    const detailText = element.querySelector(".full-text") ? element.querySelector(".full-text").innerHTML : "內容準備中...";
+    // 2. 取得隱藏的詳細文字 HTML
+    const detailHTML = element.querySelector(".full-text") ? element.querySelector(".full-text").innerHTML : "<p>內容準備中...</p>";
 
-    // 設定彈窗內容（已移除 thoughts 區塊）
+    // 3. 設定彈窗內容
+    // 注意：這裡手動加上 class="modal-full-text"，避免用到原本 index.html 裡隱藏的 .full-text class
     modalTitle.innerText = title;
     modalBody.innerHTML = `
         <div class="content-wrapper">
-            ${detailText}
+            <div class="modal-full-text">
+                ${detailHTML}
+            </div>
         </div>
     `;
 
-    // 顯示彈窗並鎖定背景捲動
+    // 4. 顯示彈窗並鎖定背景捲動
     modal.style.display = "block";
-    document.body.style.overflow = "hidden"; 
+    document.body.style.overflow = "hidden";
 }
 function closeModal() {
     const modal = document.getElementById("detail-modal");
