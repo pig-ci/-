@@ -3,7 +3,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('fonts/noto-sans-tc-v35-latin_chinese-traditional-regular.woff2') format('woff2');
+  src: url('fonts/noto-sans-tc-400.woff2') format('woff2');
 }
 :root {
     --primary-color: #b73e3e;
