@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Noto Sans TC';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/noto-sans-tc-v35-latin_chinese-traditional-regular.woff2') format('woff2');
+}
 :root {
     --primary-color: #b73e3e;
     --secondary-color: #333;
@@ -86,21 +93,15 @@ h2 {
     text-align: center;
     background: linear-gradient(135deg, #fff5f5 0%, #fff 100%);
     margin-bottom: 40px;
-    /* 上方保留空間給導覽列，下方留空間給漸層 */
     padding: 120px 20px 80px; 
-    
-    /* 關鍵：背景漸層 */
-    /* 從上方的白色(0%) 漸變到 下方的完全透明(100%) */
-    /* 這樣底部的米色紙張紋理就會慢慢透出來 */
     background: linear-gradient(
         to bottom, 
         rgba(255, 255, 255, 1) 0%, 
         rgba(255, 255, 255, 0.8) 80%, 
         rgba(255, 255, 255, 0) 100%
     );
-    
-    margin-bottom: 20px; /* 縮小與下方內容的距離 */
-    position: relative;  /* 為了放置裝飾線 */
+    margin-bottom: 20px;
+    position: relative;
 }
 .hero h1 {
     font-size: 2.5rem;
@@ -111,14 +112,13 @@ h2 {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 10%; /* 左邊留空 */
-    width: 80%; /* 線條寬度 */
-    height: 1px; /* 極細線 */
-    /* 徑向漸層：中間深(主題色)，向兩側變透明 */
+    left: 10%;
+    width: 80%;
+    height: 1px;
     background: radial-gradient(
         circle, 
-        rgba(166, 52, 52, 0.3) 0%, /* 中間：淡淡的紅色 */
-        transparent 70%            /* 兩側：透明 */
+        rgba(166, 52, 52, 0.3) 0%,
+        transparent 70%
     );
 }
 .full-text {
@@ -134,7 +134,6 @@ h2 {
     content: '';
     position: absolute;
     width: 4px;
-/* 修改背景：從透明到主題色，再到透明 */
     background: linear-gradient(
         to bottom, 
         transparent 0%, 
@@ -161,13 +160,9 @@ h2 {
     transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), 
                 transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
-.timeline-item.show {
+.timeline-item.show, .timeline-item.is-visible {
     opacity: 1;
-    transform: translateY(0);
-}
-.timeline-item.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
 }
 .timeline-item:nth-child(odd) {
     flex-direction: row; 
@@ -175,17 +170,13 @@ h2 {
 .timeline-item:nth-child(odd) .timeline-content {
     text-align: right;
 }
-.timeline-item:nth-child(odd) .thoughts {
+.timeline-item:nth-child(odd) .thoughts, .timeline-item:nth-child(even) .timeline-content {
     text-align: left;
 }
 .timeline-item:nth-child(even) {
     flex-direction: row-reverse;
 }
-.timeline-item:nth-child(even) .timeline-content {
-    text-align: left;
-}
-.timeline-content,
-.timeline-img {
+.timeline-content, .timeline-img {
     width: 45%; /* 左右各佔 45%，中間留 10% 空隙 */
     position: relative;
     z-index: 1; /* 確保內容蓋在線上面(如果有重疊) */
@@ -263,8 +254,8 @@ h2 {
 }
 .timeline-img img {
     width: 100%;
-    aspect-ratio: 3 / 2; /* 強制固定長寬比 (例如 3:2 或 16:9) */
-    object-fit: cover;   /* 圖片填滿並裁切，不會變形 */
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
     display: block;
     border-radius: 8px;
     border: 1px solid rgba(0,0,0,0.05);
@@ -298,9 +289,8 @@ h2 {
 }
 .card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(183, 62, 62, 0.1); /* 使用主題色的淺陰影 */
+    box-shadow: 0 12px 30px rgba(183, 62, 62, 0.1);
 }
-/* 讓文字方塊看起來可以點擊 */
 .timeline-content {
     cursor: pointer;
 }
@@ -316,39 +306,32 @@ h2 {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
 }
-
-/* 全螢幕圓角視窗 */
 .modal-content {
     background-color: var(--bg-color);
     margin: 2vh auto;
-    padding: 60px 40px; /* 保持足夠內距 */
+    padding: 60px 40px;
     border-radius: 30px;
     width: 95vw;
     height: 96vh;
-    position: relative; /* 重要：讓按鈕以這裡為基準 */
+    position: relative;
     overflow-y: auto;
     box-shadow: 0 25px 50px rgba(0,0,0,0.3);
     animation: modalSlideUp 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
-/* 確保彈窗內的段落正確顯示 */
 .modal-full-text p {
-    display: block !important;    /* 強制顯示，防止繼承隱藏屬性 */
-    text-indent: 2em;             /* 首行空兩格 */
-    margin-bottom: 1.5rem;        /* 段落後空一行 */
-    line-height: 1.8;             /* 增加行高讓閱讀更舒適 */
-    color: var(--text-color);     /* 使用您定義的深灰色 */
+    display: block !important;
+    text-indent: 2em;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    color: var(--text-color);
 }
-
-/* 移除最後一個段落多餘的空白 */
 .modal-full-text p:last-child {
     margin-bottom: 0;
 }
-/* 進場動畫：從下方滑入並淡入 */
 @keyframes modalSlideUp {
     from { transform: translateY(100px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
-/* 關閉按鈕 - 初始狀態：紅底白叉 */
 .close-btn {
     position: absolute;
     right: 25px;
@@ -361,15 +344,11 @@ h2 {
     z-index: 2100;
     border: 2px solid var(--primary-color);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    
-    /* 核心修改：使用 transition 處理旋轉與顏色 */
     transition: 
         background-color 0.4s ease, 
         transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
         box-shadow 0.3s ease;
 }
-
-/* 使用偽元素畫出 X 的兩條線 */
 .close-btn::before,
 .close-btn::after {
     content: '';
@@ -378,24 +357,18 @@ h2 {
     left: 50%;
     width: 24px;         /* X 的長度 */
     height: 3px;          /* X 的粗細 */
-    background-color: #ffffff; /* 初始為白色 */
+    background-color: #fff; /* 初始為白色 */
     border-radius: 2px;
     transition: background-color 0.4s ease;
 }
-
-/* 第一條線旋轉 45 度 */
 .close-btn::before {
     transform: translate(-50%, -50%) rotate(45deg);
 }
-
-/* 第二條線旋轉 -45 度 */
 .close-btn::after {
     transform: translate(-50%, -50%) rotate(-45deg);
 }
-
-/* 懸停效果：背景變白，線變紅 */
 .close-btn:hover {
-    background-color: #ffffff;
+    background-color: #fff;
     transform: rotate(180deg); /* 這裡的 180 度旋轉會帶動偽元素一起轉 */
     box-shadow: 0 6px 20px rgba(166, 52, 52, 0.3);
 }
@@ -425,7 +398,6 @@ footer {
     color: white;
     margin-top: 50px;
 }
-/* 定義脈衝動畫 */
 @keyframes pulse {
     0% { box-shadow: 0 0 0 0 rgba(183, 62, 62, 0.4); }
     70% { box-shadow: 0 0 0 15px rgba(183, 62, 62, 0); }
