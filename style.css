@@ -21,6 +21,7 @@
 }
 body {
     font-family: 'Noto Sans TC', sans-serif;
+    font-display: swap;
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
@@ -157,8 +158,14 @@ h2 {
     opacity: 0; /* 配合 JS 動畫初始狀態 */
     will-change: transform, opacity;
     transform: translateZ(0);
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 .timeline-item.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.timeline-item.is-visible {
     opacity: 1;
     transform: translateY(0);
 }
