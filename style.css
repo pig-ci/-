@@ -316,7 +316,17 @@ h2 {
     box-shadow: 0 25px 50px rgba(0,0,0,0.3);
     animation: modalSlideUp 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
+/* 針對彈窗內的詳細內容段落進行美化 */
+#modal-body .full-text p {
+    text-indent: 2em;         /* 首行縮進兩個字元單位 */
+    margin-bottom: 1.5rem;    /* 段落下方留白，達到空一行的視覺效果 */
+    display: block;           /* 確保是區塊元素 */
+}
 
+/* 移除最後一個段落的下邊距，避免彈窗底部留白過多 */
+#modal-body .full-text p:last-child {
+    margin-bottom: 0;
+}
 /* 進場動畫：從下方滑入並淡入 */
 @keyframes modalSlideUp {
     from { transform: translateY(100px); opacity: 0; }

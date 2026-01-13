@@ -36,19 +36,24 @@ function openModal(element) {
     const modal = document.getElementById("detail-modal");
     const modalTitle = document.getElementById("modal-title");
     const modalBody = document.getElementById("modal-body");
+
+    // 取得標題
     const title = element.querySelector("h2").innerText;
-    // 取得該區塊內所有的文字內容（包含原本隱藏的詳細文字）
+    
+    // 取得該區塊內詳細文字內容（.full-text），若無則顯示預設文字
     const detailText = element.querySelector(".full-text") ? element.querySelector(".full-text").innerHTML : "內容準備中...";
-    const thoughts = element.querySelector(".thoughts") ? element.querySelector(".thoughts").innerHTML : "";
+
+    // 設定彈窗內容（已移除 thoughts 區塊）
     modalTitle.innerText = title;
     modalBody.innerHTML = `
         <div class="content-wrapper">
             ${detailText}
-            ${thoughts ? `<div style="margin-top:40px; padding:20px; background:#eee; border-radius:15px; font-style:italic;">${thoughts}</div>` : ''}
         </div>
     `;
+
+    // 顯示彈窗並鎖定背景捲動
     modal.style.display = "block";
-    document.body.style.overflow = "hidden"; // 鎖定背景捲動
+    document.body.style.overflow = "hidden"; 
 }
 function closeModal() {
     const modal = document.getElementById("detail-modal");
