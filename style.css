@@ -158,6 +158,10 @@ h2 {
     will-change: transform, opacity;
     transform: translateZ(0);
 }
+.timeline-item.show {
+    opacity: 1;
+    transform: translateY(0);
+}
 .timeline-item:nth-child(odd) {
     flex-direction: row; 
 }
