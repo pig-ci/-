@@ -443,3 +443,242 @@ footer {
 ::-webkit-scrollbar-thumb:hover {
     background: #963232; /* 稍微加深 */
 }
+/* 預設隱藏漢堡按鈕 */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+/* 手機版樣式 */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* 窄螢幕時顯示 */
+        z-index: 1001;
+    }
+
+    .nav-links {
+        position: fixed;
+        right: -100%; /* 預設在螢幕外 */
+        top: 70px;    /* 根據導覽列高度調整 */
+        flex-direction: column;
+        background-color: rgba(255, 255, 255, 0.95);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+        padding: 20px 0;
+        gap: 0;
+    }
+
+    .nav-links.active {
+        right: 0; /* 點擊後滑入 */
+    }
+
+    .nav-links li {
+        padding: 15px 0;
+    }
+
+    /* 漢堡動畫：變為 X */
+    .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
+    .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+}
+/* 修正 1：在 body 或全域容器加上 overflow-x 隱藏，防止橫向捲軸 */
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    letter-spacing: 0.05rem;
+    overflow-x: hidden; /* 加入這一行，防止任何元素超出右邊界 */
+    width: 100%;
+}
+
+/* 修正 2：在手機版樣式中優化隱藏方式 */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        right: -100%; 
+        top: 0;         /* 建議從 0 開始，或是配合導覽列高度 */
+        height: 100vh;  /* 讓選單佔滿全螢幕高度 */
+        flex-direction: column;
+        background-color: rgba(255, 255, 255, 0.98);
+        width: 70%;     /* 寬度不用 100%，通常 70%-80% 更有質感 */
+        text-align: center;
+        transition: transform 0.3s ease-in-out; /* 使用 transform 效能更好 */
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        padding: 80px 0 20px; /* 頂部留空間給 X 按鈕 */
+        z-index: 1000;
+        visibility: hidden;   /* 未開啟時完全隱藏，防止誤點 */
+    }
+
+    .nav-links.active {
+        right: 0;
+        visibility: visible;  /* 開啟時顯示 */
+    }
+}
+@media screen and (max-width: 768px) {
+    .nav-links {
+        /* 1. 改用固定定位並佔滿高度 */
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 250px; /* 設定選單寬度 */
+        background-color: white;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        
+        /* 2. 佈局調整 */
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 80px; /* 留出頂部空間給漢堡按鈕 */
+        gap: 10px;
+        
+        /* 3. 動畫核心：預設平移到螢幕右側外 (100%) */
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        
+        z-index: 999;
+    }
+
+    /* 4. 當選單激活時，平移回原位 (0) */
+    .nav-links.active {
+        transform: translateX(0);
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* 讓漢堡按鈕始終處於最上層 */
+    .menu-toggle {
+        display: flex;
+        z-index: 1001; 
+        position: relative;
+    }
+}
+.menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 998; /* 低於選單，高於內容 */
+    backdrop-filter: blur(4px);
+}
+.menu-overlay.active {
+    display: block;
+}
+/* 1. 強制隱藏全域橫向溢出，這是防止撐開的最基本防線 */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 250px;
+        background-color: white;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        
+        display: flex; /* 確保在手機版也是 flex 佈局 */
+        flex-direction: column;
+        padding-top: 80px;
+        z-index: 999;
+
+        /* --- 修正核心 --- */
+        transform: translateX(100%); /* 預設推到右邊外面 */
+        visibility: hidden;         /* 關閉時徹底隱藏，不佔據空間也不可被點擊 */
+        transition: transform 0.4s ease, visibility 0.4s; 
+    }
+
+    /* 2. 當選單開啟時 */
+    .nav-links.active {
+        transform: translateX(0);
+        visibility: visible;        /* 開啟時恢復可見 */
+    }
+
+    /* 3. 漢堡按鈕層級必須最高，且不能被隱藏 */
+    .menu-toggle {
+        display: flex;
+        z-index: 1001;
+        position: relative;
+    }
+}
+
+/* 4. 遮罩層樣式 */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+/* 1. 最關鍵修正：同時鎖定 html 與 body 的寬度與溢出 */
+html, body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* 防止橫向捲動 */
+    position: relative;
+    touch-action: pan-y; /* 限制只允許垂直方向的觸摸動作，禁止水平晃動 */
+}
+
+@media screen and (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 250px;
+        background-color: white;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        
+        display: flex;
+        flex-direction: column;
+        padding-top: 80px;
+        z-index: 999;
+
+        /* 2. 使用 transform 搭配 visibility */
+        transform: translateX(100%); 
+        visibility: hidden;
+        /* 確保過渡效果流暢 */
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s;
+        
+        /* 3. 防止選單內部的內容反而撐開選單 */
+        overflow-x: hidden; 
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+        visibility: visible;
+    }
+}
