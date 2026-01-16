@@ -9,22 +9,27 @@
     --primary-color: #b73e3e;
     --secondary-color: #333;
     --bg-color: #f9f9f9;
-    --card-bg: #ffffff;
+    --card-bg: #fff;
     --text-color: #444;
     --primary-color: #a63434; 
     --secondary-color: #3e3e3e;
-    
-    /* 修改：背景色改為米白/和紙色 */
     --bg-color: #f7f5f0; 
-    --card-bg: #ffffff;
-    
-    /* 修改：文字顏色改為深灰，不要全黑，比較柔和 */
+    --card-bg: #fff;
     --text-color: #2c2c2c;
 }
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+html, body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* 核心：禁止橫向溢出 */
+    position: relative;
+    touch-action: pan-y; /* 核心：只允許垂直滾動，禁止手機左右手勢晃動 */
 }
 body {
     font-family: 'Noto Sans TC', sans-serif;
@@ -404,15 +409,7 @@ footer {
     100% { box-shadow: 0 0 0 0 rgba(183, 62, 62, 0); }
 }
 /* --- 1. 全域防晃動鎖定 --- */
-html, body {
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* 核心：禁止橫向溢出 */
-    position: relative;
-    touch-action: pan-y; /* 核心：只允許垂直滾動，禁止手機左右手勢晃動 */
-}
+
 
 /* --- 2. 導覽列與漢堡按鈕 --- */
 .menu-toggle {
@@ -432,55 +429,7 @@ html, body {
 }
 
 /* --- 3. 手機版媒體查詢 (768px 以下) --- */
-@media screen and (max-width: 768px) {
-    .menu-toggle {
-        display: flex; /* 手機版顯示漢堡 */
-    }
 
-    /* 漢堡動畫：變為 X */
-    .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
-    .menu-toggle.is-active .bar:first-child { transform: translateY(8px) rotate(45deg); }
-    .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
-    .nav-links {
-        /* 基礎佈局 */
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 10px;
-        padding-top: 80px;
-        
-        /* 固定在右側 */
-        position: fixed;
-        top: 0;
-        right: 0;
-        height: 100vh;
-        width: 250px; /* 您可以調整寬度 */
-        background-color: #fff;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-        z-index: 999;
-
-        /* 滑入滑出動畫核心 */
-        transform: translateX(100%); /* 預設完全藏在右側外面 */
-        visibility: hidden;         /* 徹底隱藏，防止撐開頁面 */
-        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s;
-        
-        overflow-x: hidden; /* 防止選單內容溢出 */
-    }
-
-    /* 選單開啟狀態 */
-    .nav-links.active {
-        transform: translateX(0);
-        visibility: visible;
-    }
-
-    .nav-links li {
-        width: 100%;
-        text-align: center;
-        padding: 15px 0;
-    }
-}
 
 /* --- 4. 背景遮罩 (Overlay) --- */
 .menu-overlay {
@@ -527,7 +476,43 @@ html, body {
     .timeline-item:first-child {
         opacity: 1 !important;
         transform: translateY(0) !important;
-    }}
+    }
+    .menu-toggle {
+        display: flex; /* 手機版顯示漢堡 */
+    }
+    .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
+    .menu-toggle.is-active .bar:first-child { transform: translateY(8px) rotate(45deg); }
+    .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+        padding-top: 80px;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 250px; /* 您可以調整寬度 */
+        background-color: #fff;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        z-index: 999;
+        transform: translateX(100%); /* 預設完全藏在右側外面 */
+        visibility: hidden;         /* 徹底隱藏，防止撐開頁面 */
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s;
+        overflow-x: hidden;
+    }
+    .nav-links.active {
+        transform: translateX(0);
+        visibility: visible;
+    }
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        padding: 15px 0;
+    }
+}
 ::-webkit-scrollbar {
     width: 8px;
 }
