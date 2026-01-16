@@ -8,7 +8,7 @@
 <link rel="icon"type="image/png" href="images/favicon.png">
     <link rel="preload"as="image" href="images/24.01.avif">
     <link rel="preload" href="fonts/noto-sans-tc-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet"href="style.min.css">
+    <link rel="stylesheet"href="style.css">
 </head>
 <body>
     <div id="menu-overlay" class="menu-overlay"></div>
@@ -23,6 +23,7 @@
             <li><a href="#"class="active"onclick="switchPage('exchange')">台日交流</a></li>
             <li><a href="#"onclick="switchPage('education')">實人教育</a></li>
             <li><a href="#" onclick="switchPage('interview')">特殊採訪</a></li>
+            <li><a href="#" onclick="switchPage('gallery')">影像專區</a></li>
         </ul>
     </nav>
     <!-- 頁面一：台日交流經驗 (預設顯示) -->
@@ -170,6 +171,60 @@
         </div>
     </div>
 </main>
+<main id="page-gallery" class="page-section">
+        <header class="hero">
+            <h1>影像專區</h1>
+            <p>捕捉交流的精彩瞬間</p>
+        </header>
+        <div class="gallery-container">
+            <div class="gallery-grid">
+                <!-- 範例圖片項目 -->
+                <div class="gallery-item">
+                    <img data-src="images/24.01.avif" alt="台日交流的起點" loading="lazy" decoding="async">
+                    <div class="caption">
+                        <h3>台日交流的起點</h3>
+                        <p>2024.01</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img data-src="images/24.05.avif" alt="去日本福島縣交流" loading="lazy" decoding="async">
+                    <div class="caption">
+                        <h3>前進日本福島</h3>
+                        <p>2024.05</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img data-src="images/25.01.avif" alt="福島學生來台" loading="lazy" decoding="async">
+                    <div class="caption">
+                        <h3>福島學生來台</h3>
+                        <p>2025.01</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img data-src="images/25.09.avif" alt="三崎小學教師來台" loading="lazy" decoding="async">
+                    <div class="caption">
+                        <h3>三崎小學教師來台</h3>
+                        <p>2025.09</p>
+                    </div>
+                </div>
+                 <div class="gallery-item">
+                    <img data-src="images/25.11.avif" alt="線上英文交流" loading="lazy" decoding="async">
+                    <div class="caption">
+                        <h3>線上英文交流</h3>
+                        <p>2025.11</p>
+                    </div>
+                </div>
+                 <div class="gallery-item">
+                    <img data-src="images/25.12.avif" alt="三崎小學入班學習" loading="lazy" decoding="async">
+                    <div class="caption">
+                        <h3>三崎小學入班學習</h3>
+                        <p>2025.12</p>
+                    </div>
+                </div>
+                <!-- 您可以繼續新增更多 .gallery-item -->
+            </div>
+        </div>
+    </main>
     <footer>
         <p>&copy; 實人教育</p>
     </footer>
@@ -182,6 +237,11 @@
         <div id="modal-body" class="modal-body-container">
             </div>
     </div>
+</div>
+<div id="image-modal" class="image-modal">
+    <span class="image-close-btn" onclick="closeImageModal()">&times;</span>
+    <img class="image-modal-content" id="modal-img-src">
+    <div id="modal-img-caption" class="image-modal-caption"></div>
 </div>
     <script src="script.js" defer></script>
 </body>
