@@ -27,9 +27,9 @@ html, body {
     max-width: 100%;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* 核心：禁止橫向溢出 */
+    overflow-x: hidden;
     position: relative;
-    touch-action: pan-y; /* 核心：只允許垂直滾動，禁止手機左右手勢晃動 */
+    touch-action: pan-y;
 }
 body {
     font-family: 'Noto Sans TC', sans-serif;
@@ -54,7 +54,7 @@ h2 {
     top: 0;
     z-index: 1000;
     background-color: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(12px); /* 讓背景內容模糊透出 */
+    backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 }
 .logo {
@@ -78,7 +78,7 @@ h2 {
     border-bottom: 2px solid var(--primary-color);
 }
 .page-section {
-    display: none; /* 預設隱藏 */
+    display: none;
     padding-bottom: 50px;
     animation: fadeIn 0.5s ease;
     opacity: 0;
@@ -90,13 +90,8 @@ h2 {
     opacity: 1;
     transform: translateY(0);
 }
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
 .hero {
     text-align: center;
-    background: linear-gradient(135deg, #fff5f5 0%, #fff 100%);
     margin-bottom: 40px;
     padding: 120px 20px 80px; 
     background: linear-gradient(
@@ -150,16 +145,16 @@ h2 {
     bottom: 0;
     left: 50%;
     margin-left: -2px;
-    z-index: 0; /* 確保線在底層 */
+    z-index: 0;
 }
 .timeline-item {
     display: flex;             
     justify-content: space-between; 
-    align-items: center; /* 垂直置中 */
+    align-items: center;
     width: 100%;               
     margin-bottom: 60px;
     position: relative;
-    opacity: 0; /* 配合 JS 動畫初始狀態 */
+    opacity: 0;
     will-change: transform, opacity;
     transform: translate3d(0, 30px, 0);
     transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), 
@@ -182,9 +177,9 @@ h2 {
     flex-direction: row-reverse;
 }
 .timeline-content, .timeline-img {
-    width: 45%; /* 左右各佔 45%，中間留 10% 空隙 */
+    width: 45%;
     position: relative;
-    z-index: 1; /* 確保內容蓋在線上面(如果有重疊) */
+    z-index: 1;
 }
 .timeline-img::before {
     content: '';
@@ -192,7 +187,7 @@ h2 {
     width: 100%;
     height: 100%;
     border: 2px solid var(--primary-color);
-    top: 15px; /* 偏移量 */
+    top: 15px;
     left: 15px;
     border-radius: 8px;
     z-index: -1;
@@ -200,7 +195,7 @@ h2 {
     transition: all 0.4s ease;
 }
 .timeline-img:has(img:hover)::before {
-    transform: translate(-10px, -10px); /* 裝飾框往反方向回彈 */
+    transform: translate(-10px, -10px);
     opacity: 0.6;
 }
 .timeline-item::after {
@@ -212,12 +207,12 @@ h2 {
     border: 4px solid var(--primary-color);
     border-radius: 50%;
     z-index: 2;
-    top: 50%; /* 垂直置中 */
-    left: 50%; /* 水平置中 */
-    transform: translate(-50%, -50%); /* 修正中心點偏移 */
-    background-color: var(--primary-color); /* 實心圓顏色 */
-    border: 4px solid white;               /* 白色間隔層 */
-    outline: 4px solid var(--primary-color); /* 最外層線條 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--primary-color);
+    border: 4px solid white;
+    outline: 4px solid var(--primary-color);
     animation: pulse 2s infinite;
 }
 .timeline-content {
@@ -226,14 +221,12 @@ h2 {
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
+    cursor: pointer;
 }
-/* 修改：只在滑鼠直接懸停於「文字方塊」時才浮起 */
 .timeline-content:hover {
-    transform: translateY(-8px); /* 稍微增加幅度，更有感 */
+    transform: translateY(-8px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
-
-/* 修改：標題變色也改為只針對文字方塊懸停 */
 .timeline-content:hover h2 {
     color: var(--primary-color);
     transition: color 0.3s ease;
@@ -296,160 +289,6 @@ h2 {
     transform: translateY(-8px);
     box-shadow: 0 12px 30px rgba(183, 62, 62, 0.1);
 }
-.timeline-content {
-    cursor: pointer;
-}
-.modal {
-    display: none; 
-    position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* 背景稍微變淡，強調模糊 */
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-}
-.modal-content {
-    background-color: var(--bg-color);
-    margin: 2vh auto;
-    padding: 60px 40px;
-    border-radius: 30px;
-    width: 95vw;
-    height: 96vh;
-    position: relative;
-    overflow-y: auto;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-    animation: modalSlideUp 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-.modal-full-text p {
-    display: block !important;
-    text-indent: 2em;
-    margin-bottom: 1.5rem;
-    line-height: 1.8;
-    color: var(--text-color);
-}
-.modal-full-text p:last-child {
-    margin-bottom: 0;
-}
-@keyframes modalSlideUp {
-    from { transform: translateY(100px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-.close-btn {
-    position: absolute;
-    right: 25px;
-    top: 25px;
-    width: 50px;
-    height: 50px;
-    background-color: var(--primary-color);
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 2100;
-    border: 2px solid var(--primary-color);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: 
-        background-color 0.4s ease, 
-        transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
-        box-shadow 0.3s ease;
-}
-.close-btn::before,
-.close-btn::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 24px;         /* X 的長度 */
-    height: 3px;          /* X 的粗細 */
-    background-color: #fff; /* 初始為白色 */
-    border-radius: 2px;
-    transition: background-color 0.4s ease;
-}
-.close-btn::before {
-    transform: translate(-50%, -50%) rotate(45deg);
-}
-.close-btn::after {
-    transform: translate(-50%, -50%) rotate(-45deg);
-}
-.close-btn:hover {
-    background-color: #fff;
-    transform: rotate(180deg); /* 這裡的 180 度旋轉會帶動偽元素一起轉 */
-    box-shadow: 0 6px 20px rgba(166, 52, 52, 0.3);
-}
-
-.close-btn:hover::before,
-.close-btn:hover::after {
-    background-color: var(--primary-color); /* 懸停時 X 變為紅色 */
-}
-#modal-title {
-    font-size: 2.2rem;
-    color: var(--primary-color);
-    margin-bottom: 30px;
-    border-bottom: 2px solid var(--primary-color);
-    padding-bottom: 10px;
-    display: inline-block;
-}
-
-#modal-body {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: var(--text-color);
-}
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #333;
-    color: white;
-    margin-top: 50px;
-}
-@keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(183, 62, 62, 0.4); }
-    70% { box-shadow: 0 0 0 15px rgba(183, 62, 62, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(183, 62, 62, 0); }
-}
-/* --- 1. 全域防晃動鎖定 --- */
-
-
-/* --- 2. 導覽列與漢堡按鈕 --- */
-.menu-toggle {
-    display: none; /* 預設電腦版隱藏 */
-    cursor: pointer;
-    flex-direction: column;
-    gap: 5px;
-    z-index: 1001;
-    position: relative;
-}
-
-.menu-toggle .bar {
-    width: 25px;
-    height: 3px;
-    background-color: var(--primary-color);
-    transition: all 0.3s ease;
-}
-
-/* --- 3. 手機版媒體查詢 (768px 以下) --- */
-
-
-/* --- 4. 背景遮罩 (Overlay) --- */
-.menu-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    backdrop-filter: blur(4px);
-    z-index: 998; /* 低於選單，高於內容 */
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease;
-}
-
-.menu-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
 .gallery-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -457,7 +296,6 @@ footer {
 }
 .gallery-grid {
     display: grid;
-    /* 響應式網格：自動填充，每個項目最小 300px */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 25px;
 }
@@ -466,13 +304,13 @@ footer {
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    aspect-ratio: 4 / 3; /* 讓所有圖片容器比例一致 */
+    aspect-ratio: 4 / 3;
     cursor: pointer;
 }
 .gallery-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* 確保圖片填滿容器且不變形 */
+    object-fit: cover;
     display: block;
     transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
@@ -503,78 +341,237 @@ footer {
     margin: 0;
     font-size: 0.9rem;
 }
-.image-modal {
-    display: none;
+.modal {
+    display: none; 
     position: fixed;
-    z-index: 3000;
-    padding-top: 50px;
+    z-index: 2000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.85);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+.modal-content {
+    background-color: var(--bg-color);
+    margin: 2vh auto;
+    padding: 60px 40px;
+    border-radius: 30px;
+    width: 95vw;
+    height: 96vh;
+    position: relative;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+    animation: modalSlideUp 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.modal-full-text p {
+    display: block !important;
+    text-indent: 2em;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    color: var(--text-color);
+}
+.modal-full-text p:last-child {
+    margin-bottom: 0;
+}
+#modal-title {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+#modal-body {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+}
+.close-btn {
+    position: fixed; /* 改為 fixed，確保在滾動時位置不變 */
+    right: 25px;
+    top: 25px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 3100; /* 確保在所有彈窗內容之上 */
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: 
+        background-color 0.4s ease, 
+        transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+        box-shadow 0.3s ease;
+}
+.close-btn::before,
+.close-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 24px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: background-color 0.4s ease;
+}
+.close-btn::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+.close-btn::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+.close-btn:hover {
+    background-color: #fff;
+    transform: rotate(180deg);
+    box-shadow: 0 6px 20px rgba(166, 52, 52, 0.3);
+}
+.close-btn:hover::before,
+.close-btn:hover::after {
+    background-color: var(--primary-color);
+}
+
+/* --- ▼▼▼ 全新圖片彈窗 (Lightbox) 樣式 (已整合) ▼▼▼ --- */
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 3000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    overflow: auto; 
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.image-modal.visible {
+    opacity: 1;
+}
+.image-content-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .image-modal-content {
-    margin: auto;
     display: block;
+    margin: auto;
     width: auto;
     height: auto;
     max-width: 90%;
-    max-height: 85vh;
+    max-height: 90vh;
     animation: zoomIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.3s ease;
+    cursor: zoom-in;
 }
-.image-modal-caption {
-    margin: 20px auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-    text-align: center;
-    color: #ccc;
+.image-modal-content.zoomed {
+    max-width: none;
+    max-height: none;
+    cursor: grab;
+}
+#modal-img-caption {
+    position: fixed;
+    top: 25px;
+    left: 25px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 6px;
     font-size: 1.1rem;
+    z-index: 3001;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
-.image-close-btn {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-    cursor: pointer;
+.image-modal.visible #modal-img-caption {
+    opacity: 1;
+    transform: translateY(0);
 }
-.image-close-btn:hover,
-.image-close-btn:focus {
-    color: #bbb;
-    text-decoration: none;
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    margin-top: 50px;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes modalSlideUp {
+    from { transform: translateY(100px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(183, 62, 62, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(183, 62, 62, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(183, 62, 62, 0); }
 }
 @keyframes zoomIn {
     from { transform: scale(0.8); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
 }
+
+/* --- Mobile Menu --- */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 1001;
+    position: relative;
+}
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(4px);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
 @media screen and (max-width: 768px) {
     .timeline-container::after {
-        left: 31px; /* 線移到左側 */
+        left: 31px;
     }
     .timeline-item {
-        flex-direction: column !important; /* 強制垂直排列 */
+        flex-direction: column !important;
         align-items: flex-start;
-        padding-left: 70px; /* 左側留空給線和圓圈 */
+        padding-left: 70px;
         padding-right: 20px;
     }
     .timeline-content,
     .timeline-img {
         width: 100%;
-        text-align: left; /* 強制文字靠左 */
+        text-align: left;
     }
     .timeline-img {
         margin-top: 20px; 
     }
     .timeline-item::after {
         left: 31px;
-        top: 25px; /* 固定在第一行標題附近的高度 */
+        top: 25px;
         transform: translate(-50%, 0);
     }
     .timeline-item:first-child {
@@ -582,7 +579,7 @@ footer {
         transform: translateY(0) !important;
     }
     .menu-toggle {
-        display: flex; /* 手機版顯示漢堡 */
+        display: flex;
     }
     .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
     .menu-toggle.is-active .bar:first-child { transform: translateY(8px) rotate(45deg); }
@@ -598,12 +595,12 @@ footer {
         top: 0;
         right: 0;
         height: 100vh;
-        width: 250px; /* 您可以調整寬度 */
+        width: 250px;
         background-color: #fff;
         box-shadow: -5px 0 15px rgba(0,0,0,0.1);
         z-index: 999;
-        transform: translateX(100%); /* 預設完全藏在右側外面 */
-        visibility: hidden;         /* 徹底隱藏，防止撐開頁面 */
+        transform: translateX(100%);
+        visibility: hidden;
         transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s;
         overflow-x: hidden;
     }
@@ -628,5 +625,5 @@ footer {
     border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #963232; /* 稍微加深 */
+    background: #963232;
 }
