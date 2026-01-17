@@ -43,6 +43,18 @@ h2 {
     margin-bottom: 15px;
     color: var(--secondary-color);
 }
+/* 1. 尚未點擊過的連結（預設通常是藍色） */
+a:link {
+  color: blue;
+}
+/* 2. 已經點擊過的連結（設定為紫色） */
+a:visited {
+  color: purple;
+}
+/* 3. 滑鼠滑過連結時（選用，增加互動感） */
+a:hover {
+  color: red;
+}
 .navbar {
     background-color: white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
