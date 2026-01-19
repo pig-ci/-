@@ -505,6 +505,92 @@ a:hover {
     opacity: 1;
     transform: translateY(0);
 }
+.faq-card {
+    margin-top: 2rem;
+}
+
+.faq-container {
+    margin-top: 1.5rem;
+}
+
+.faq-item {
+    border-bottom: 1px solid rgba(166, 52, 52, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+/* 標題欄位 */
+.faq-item summary {
+    padding: 1.2rem 1rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    cursor: pointer;
+    list-style: disclosure-closed; /* 確保顯示預設三角形 */
+    display: list-item;           /* 修正部分瀏覽器不顯示三角形的問題 */
+    transition: color 0.3s ease;
+    outline: none;
+}
+
+/* 當滑鼠懸停或開啟時改變標題顏色 */
+.faq-item summary:hover,
+.faq-item[open] summary {
+    color: var(--primary-color);
+}
+
+/* 展開時的三角形 */
+.faq-item[open] summary {
+    list-style: disclosure-open;
+}
+
+/* 滑出動畫核心：利用 Grid 實作 0 到 1fr 的高度過渡 */
+.faq-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.faq-item[open] + .faq-content, /* 如果是用相鄰選擇器，但 details 包裹的話改用下面方式 */
+.faq-item[open] .faq-content {
+    grid-template-rows: 1fr;
+}
+
+/* 內容內距與動畫 */
+.faq-answer {
+    min-height: 0;
+    visibility: hidden;
+    transition: visibility 0.4s;
+}
+
+.faq-item[open] .faq-answer {
+    visibility: visible;
+    padding: 0 1rem 1.5rem 2.2rem; /* 左邊留白避開三角形位置 */
+}
+
+.faq-answer p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.faq-item[open] .faq-answer p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 行動裝置優化 */
+@media (max-width: 768px) {
+    .faq-item summary {
+        padding: 1rem 0.5rem;
+        font-size: 1rem;
+    }
+}
 footer {
     text-align: center;
     padding: 20px;
