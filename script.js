@@ -74,12 +74,26 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
-    const modalImg = document.getElementById('modal-img-src');
-    if (modalImg) {
-        modalImg.addEventListener('click', function() {
-            this.classList.toggle('zoomed'); // 切換 .zoomed class 來放大/縮小圖片
-        });
-    }
+const modalImg = document.getElementById('modal-img-src');
+const zoomContainer = document.querySelector('.image-zoom-container');
+if (modalImg && zoomContainer) {
+    modalImg.addEventListener('click', function(e) {
+        if (!this.classList.contains('zoomed')) {
+            const rect = this.getBoundingClientRect();
+            const offsetX = e.clientX - rect.left;
+            const offsetY = e.clientY - rect.top;
+            const xRatio = offsetX / rect.width;
+            const yRatio = offsetY / rect.height;
+            this.style.transformOrigin = `${xRatio * 100}% ${yRatio * 100}%`;
+            this.classList.add('zoomed');
+        } else {
+            this.classList.remove('zoomed');
+            setTimeout(() => {
+                this.style.transformOrigin = 'center center';
+            }, 300);
+        }
+    });
+}
 });
 function closeMobileMenu() {
     const menuToggle = document.getElementById('mobile-menu');
@@ -91,8 +105,10 @@ function closeMobileMenu() {
     if (overlay) overlay.classList.remove('active');
     const detailModal = document.getElementById("detail-modal");
     const imageModal = document.getElementById("image-modal");
-    if (detailModal.style.display !== 'block' && imageModal.style.display !== 'block') {
-         document.body.style.overflow = "auto";
+    if (detailModal && imageModal) {
+        if (detailModal.style.display !== 'block' && imageModal.style.display !== 'block') {
+             document.body.style.overflow = "auto";
+        }
     }
 }
 function openModal(element) {
@@ -131,10 +147,10 @@ function openImageModal(element) {
 
     if (imageModal && modalImg && sourceImg && sourceImg.dataset.src) {
         modalImg.classList.remove('zoomed');
+        modalImg.style.transformOrigin = 'center';
         imageModal.style.display = "block";
         setTimeout(() => imageModal.classList.add('visible'), 10); 
-        
-        modalImg.src = sourceImg.dataset.src; // 從 data-src 獲取最可靠的路徑
+        modalImg.src = sourceImg.dataset.src; 
         captionText.innerHTML = sourceCaption ? sourceCaption.innerHTML : '';
         document.body.style.overflow = "hidden";
     }
@@ -147,7 +163,8 @@ function closeImageModal() {
             imageModal.style.display = "none";
             const modalImg = document.getElementById('modal-img-src');
             if (modalImg) {
-                modalImg.classList.remove('zoomed'); // 重置圖片 zoom 狀態
+                modalImg.classList.remove('zoomed'); 
+                modalImg.style.transformOrigin = 'center';
             }
         }, 300);
         const navLinksContainer = document.querySelector('.nav-links');
