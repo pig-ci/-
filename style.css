@@ -3,7 +3,9 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('fonts/noto-sans-tc-400.woff2') format('woff2');
+  src: local('Noto Sans TC Regular'), 
+       local('NotoSansTC-Regular'), 
+       url('fonts/noto-sans-tc-400.woff2') format('woff2');
 }
 :root {
     --primary-color: #b73e3e;
