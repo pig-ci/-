@@ -3,6 +3,7 @@
   "short_name": "台日交流",
   "description": "實人教育的台日交流平台，分享交流經驗與教育理念",
   "start_url": "/index.html",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#f7f5f0",
   "theme_color": "#a63434",
