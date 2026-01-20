@@ -8,11 +8,6 @@
        url('fonts/noto-sans-tc-400.woff2') format('woff2');
 }
 :root {
-    --primary-color: #b73e3e;
-    --secondary-color: #333;
-    --bg-color: #f9f9f9;
-    --card-bg: #fff;
-    --text-color: #444;
     --primary-color: #a63434; 
     --secondary-color: #3e3e3e;
     --bg-color: #f7f5f0; 
