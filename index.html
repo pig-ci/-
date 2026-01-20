@@ -13,11 +13,22 @@
     <meta property="twitter:title" content="台日交流平台 | 實人教育">
     <meta property="twitter:description" content="分享台日交流經驗與教育理念。">
     <meta property="twitter:image" content="https://pig-ci.github.io/-/images/25.11.avif">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#a63434">
     <title>台日交流平台</title>
 <link rel="icon"type="image/png" href="images/favicon.png">
     <link rel="preload"as="image" href="images/24.01.avif">
     <link rel="stylesheet"href="style.min.css">
 </head>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then(reg => console.log('Service Worker 註冊成功'))
+        .catch(err => console.log('註冊失敗', err));
+    });
+  }
+</script>
 <body>
     <div id="menu-overlay" class="menu-overlay"></div>
     <nav class="navbar">
