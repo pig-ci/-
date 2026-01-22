@@ -256,6 +256,15 @@ a:hover {
     font-size: 0.95rem;
     font-style: italic;
 }
+/* 讓 thoughts 內的段落之間有空行 */
+.thoughts p {
+    margin-bottom: 1.5rem; /* 增加下方的間距 */
+}
+
+/* 移除最後一個段落的下邊距，避免區塊底部留白過多 */
+.thoughts p:last-child {
+    margin-bottom: 0;
+}
 .timeline-img img {
     width: 100%;
     aspect-ratio: 3 / 2;
