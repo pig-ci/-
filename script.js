@@ -7,25 +7,20 @@ const translations = {
         'nav-interview': '特殊採訪',
         'nav-gallery': '影像專區',
         'nav-contact': '聯絡我們',
-
         // 頁面一：台日交流 (預設頁面)
         'exchange-hero-title': '台日交流歷程',
         'exchange-hero-subtitle': '台日交流',
-
         // 時間軸事件 2024.01
         'event-202401-title': '「台日交流的起點，一封信！」',
         'event-202401-details': '——手寫信關心能登半島',
         'event-202401-thought': '有意義，可以關心其他國際的事情——可可',
-
         // 時間軸事件 2024.05
         'event-202405-title': '「福島地獄交流挑戰記——用三個月學會日文」',
         'event-202405-details': '——日本福島交流',
         'event-202405-thought': '第一次去日本跟那麼多人交流，我體驗到了當地的文化...——貝貝',
-
         // 時間軸事件 2025.01
         'event-202501-title': '福島學生來台',
         'event-202501-thought': '在這次的交流中，我們練習到了日文，也讓日本人了解在台灣將軍村的文化...——Andrew',
-
         // 頁面二：實人教育
         'edu-hero-title': '實人教育',
         'edu-hero-subtitle': '探討教育理念與實踐哲學',
@@ -33,15 +28,12 @@ const translations = {
         'edu-card1-content': '實人教育是一個以「原型教育」為核心的非學制態實驗教育團體...',
         'edu-card2-title': '簡介',
         'edu-card3-title': '結語',
-
         // 頁面三：特殊採訪
         'interview-hero-title': '特殊採訪',
         'interview-hero-subtitle': '深入報導與專訪紀錄',
-
         // 頁面四：影像專區
         'gallery-hero-title': '影像專區',
         'gallery-hero-subtitle': '捕捉交流的精彩瞬間',
-
         // 頁面五：聯絡我們
         'contact-hero-title': '聯絡我們',
         'contact-hero-subtitle': '如有任何問題或建議，歡迎與我們聯繫',
@@ -56,25 +48,20 @@ const translations = {
         'nav-interview': '特別インタビュー',
         'nav-gallery': 'フォトギャラリー',
         'nav-contact': 'お問い合わせ',
-
         // 頁面一：台日交流
         'exchange-hero-title': '日台交流の歩み',
         'exchange-hero-subtitle': '日台交流',
-
         // 時間軸事件 2024.01
         'event-202401-title': '「交流の原点、一通の手紙から」',
         'event-202401-details': '——能登半島への寄せ書き',
         'event-202401-thought': '意味のあることで、国際的な出来事に関心を持つきっかけになった。——Coco',
-
         // 時間軸事件 2024.05
         'event-202405-title': '「福島地獄の交流挑戦記——3ヶ月で日本語をマスター」',
         'event-202405-details': '——日本福島交流',
         'event-202405-thought': '初めて日本で多くの人と交流し、現地の文化を体験しました...——Beibei',
-
         // 時間軸事件 2025.01
         'event-202501-title': '福島の学生が台湾へ',
         'event-202501-thought': '日本語を練習し、日本の方々に台湾の将軍村の文化を知ってもらえました...——Andrew',
-
         // 頁面二：實人教育
         'edu-hero-title': '実人教育',
         'edu-hero-subtitle': '教育理念と実践哲学の探求',
@@ -82,15 +69,12 @@ const translations = {
         'edu-card1-content': '実人教育は「原型教育」を核としたオルタナティブ教育団体です...',
         'edu-card2-title': '紹介',
         'edu-card3-title': '結び',
-
         // 頁面三：特殊採訪
         'interview-hero-title': '特別インタビュー',
         'interview-hero-subtitle': '詳細レポートとインタビュー記録',
-
         // 頁面四：影像專區
         'gallery-hero-title': 'ギャラリー',
         'gallery-hero-subtitle': '交流の輝かしい瞬間',
-
         // 頁面五：聯絡我們
         'contact-hero-title': 'お問い合わせ',
         'contact-hero-subtitle': 'ご質問やご提案がございましたら、お気軽にご連絡ください',
