@@ -34,7 +34,8 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
-    letter-spacing: 0.05rem; 
+    letter-spacing: 0.05rem;
+    padding-top: 70px;
 }
 h2 {
     margin-bottom: 15px;
@@ -50,18 +51,20 @@ a:hover {
   color: red;
 }
 .navbar {
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 5%;
-    position: sticky;
+    position: fixed; /* 改為 fixed 確保在所有情況下都固定在視窗頂部 */
     top: 0;
-    z-index: 1000;
-    background-color: rgba(255, 255, 255, 0.8);
+    left: 0;
+    width: 100%;
+    align-items: center;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    background-color: rgba(255, 255, 255, 0.85); /* 稍微增加不透明度 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 5%;
+    z-index: 1000; /* 確保在所有元素最上層 */
+    transition: all 0.3s ease; /* 增加過渡動畫，讓返回更平滑 */
 }
 .logo {
     font-size: 1.5rem;
