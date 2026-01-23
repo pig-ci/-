@@ -42,18 +42,22 @@
             <span class="bar"></span>
         </div>
         <ul class="nav-links">
-            <li><a href="#"class="active"onclick="switchPage('exchange')">台日交流</a></li>
-            <!-- <li><a href="#"onclick="switchPage('education')">實人教育</a></li> -->
-            <!-- <li><a href="#"onclick="switchPage('interview')">特殊採訪</a></li> -->
-            <li><a href="#"onclick="switchPage('gallery')">影像專區</a></li>
-            <li><a href="#"onclick="switchPage('contact')">聯絡我們</a></li>
+            <li><a href="#" class="active" onclick="switchPage('exchange')" data-i18n="nav-exchange">台日交流</a></li>
+            <!-- <li><a href="#" onclick="switchPage('education')" data-i18n="nav-education">實人教育</a></li>
+            <li><a href="#" onclick="switchPage('interview')" data-i18n="nav-interview">特殊採訪</a></li> -->
+            <li><a href="#" onclick="switchPage('gallery')" data-i18n="nav-gallery">影像專區</a></li>
+            <li><a href="#" onclick="switchPage('contact')" data-i18n="nav-contact">聯絡我們</a></li>
+            <li class="lang-switch" style="margin-left: 15px; font-size: 0.9em;">
+                <span onclick="setLanguage('zh-TW')" style="cursor:pointer; color:var(--primary-color);">TW</span> | 
+                <span onclick="setLanguage('ja')" style="cursor:pointer; color:var(--primary-color);">JP</span>
+            </li>
         </ul>
     </nav>
     <!-- 頁面一：台日交流經驗 (預設顯示) -->
     <main id="page-exchange" class="page-section active-section">
         <header class="hero">
-            <h1>台日交流歷程</h1>
-            <p>台日交流</p>
+            <h1 data-i18n="hero-title">台日交流歷程</h1>
+            <p data-i18n="hero-subtitle">台日交流</p>
         </header>
         <section class="timeline-container">
             <!-- 時間軸項目 1 -->
@@ -206,9 +210,9 @@
     </main>
     <!-- 頁面二：實人教育 -->
     <main id="page-education" class="page-section">
-        <header class="hero education-hero">
-            <h1>實人教育</h1>
-            <p>探討教育理念與實踐哲學</p>
+        <header class="hero">
+            <h1 data-i18n="edu-hero-title">實人教育</h1>
+            <p data-i18n="edu-hero-subtitle">探討教育理念與實踐哲學</p>
         </header>
         <div class="education-content">
             <div class="card">
@@ -249,8 +253,8 @@
 </main>
 <main id="page-gallery" class="page-section">
         <header class="hero">
-            <h1>影像專區</h1>
-            <p>捕捉交流的精彩瞬間</p>
+            <h1 data-i18n="gallery-hero-title">影像專區</h1>
+            <p data-i18n="gallery-hero-subtitle">捕捉交流的精彩瞬間</p>
         </header>
         <div class="gallery-container">
             <div class="gallery-grid">
@@ -455,8 +459,8 @@
     </main>
     <main id="page-contact" class="page-section">
     <header class="hero">
-        <h1>聯絡我們</h1>
-        <p>如有任何問題或建議，歡迎與我們聯繫</p>
+        <h1 data-i18n="contact-hero-title">聯絡我們</h1>
+        <p data-i18n="contact-hero-subtitle">如有任何問題或建議，歡迎與我們聯繫</p>
     </header>
     <div class="education-content">
         <div class="card contact-card">
