@@ -232,6 +232,13 @@ a:hover {
     transition: all 0.3s ease;
     cursor: pointer;
 }
+.timeline-content h2 {
+    font-size: 1.5rem; /* 強制設定固定大小，不隨內容變動 */
+    line-height: 1.4;
+    min-height: 1.8em; /* 預留兩行的空間，防止文字變多時下方內容移位 */
+    display: block;
+    word-break: break-word; /* 避免長單字撐破版面 */
+}
 .timeline-content:hover {
     transform: translateY(-8px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
