@@ -2,6 +2,17 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
+    <script>
+        (function() {
+            var isIE = !!window.MSInputMethodContext && !!document.documentMode;
+            if (isIE) {
+                window.location.href = "browser-update.html";
+            }
+        })();
+    </script>
+    <noscript>
+        <meta http-equiv="refresh" content="0; url=browser-update.html">
+    </noscript>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="實人教育的台日交流平台，分享交流經驗與教育理念">
     <meta property="og:type" content="website">
@@ -24,13 +35,13 @@
     <link rel="stylesheet"href="style.min.css">
 </head>
 <script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./sw.js', { scope: '/-/' })
-        .then(reg => console.log('Service Worker 註冊成功'))
-        .catch(err => console.log('註冊失敗', err));
-    });
-  }
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./sw.js', { scope: '/-/' })
+                .then(reg => console.log('Service Worker 註冊成功'))
+                .catch(err => console.log('註冊失敗', err));
+        });
+    }
 </script>
 <body>
     <div id="menu-overlay" class="menu-overlay"></div>
