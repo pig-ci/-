@@ -1,4 +1,5 @@
 let galleryImagesLoaded = false;
+let currentOpenEventKey = "";
 const translations = {
     'zh-TW': {
         // 導覽列
@@ -211,20 +212,26 @@ function closeMobileMenu() {
         }
     }
 }
-function openModal(element) {
-    const modal = document.getElementById("detail-modal");
-    const modalTitle = document.getElementById("modal-title");
-    const modalBody = document.getElementById("modal-body");
-    const title = element.querySelector("h2") ? element.querySelector("h2").innerText : "";
-    const detailHTML = element.querySelector(".full-text") ? element.querySelector(".full-text").innerHTML : "<p>內容準備中...</p>";
-
-    if (modalTitle) modalTitle.innerText = title;
-    if (modalBody) modalBody.innerHTML = `<div class="modal-full-text">${detailHTML}</div>`;
-    
-    if (modal) {
-        modal.style.display = "block";
-        document.body.style.overflow = "hidden";
+function openModal(eventKey) {
+    currentOpenEventKey = eventKey;
+    const lang = localStorage.getItem('preferredLang') || 'zh-TW';
+    const title = translations[lang][eventKey + "-title"] || "";
+    const details = translations[lang][eventKey + "-details"] || "";
+    const thought = translations[lang][eventKey + "-thought"] || "";
+    const imagePath = translations[lang][eventKey + "-image"];
+    document.getElementById("modal-title").textContent = title;
+    document.getElementById("modal-details").textContent = details;
+    document.getElementById("modal-thought").textContent = thought;
+    const modalImage = document.getElementById("modal-image");
+    if (imagePath) {
+        modalImage.src = imagePath;
+        modalImage.style.display = "block";
+    } else {
+        modalImage.style.display = "none";
     }
+    const modal = document.getElementById("detail-modal");
+    modal.style.display = "block";
+    document.body.style.overflow = "hidden"; 
 }
 function closeModal() {
     const modal = document.getElementById("detail-modal");
@@ -275,15 +282,19 @@ function closeImageModal() {
     }
 }
 function setLanguage(lang) {
-    // 1. 尋找所有帶有 data-i18n 屬性的元素
     const elements = document.querySelectorAll('[data-i18n]');
-    
     elements.forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (translations[lang][key]) {
+        if (translations[lang] && translations[lang][key]) {
             el.textContent = translations[lang][key];
         }
     });
+    const detailModal = document.getElementById("detail-modal");
+    if (detailModal.style.display === "block" && currentOpenEventKey) {
+        document.getElementById("modal-title").textContent = translations[lang][currentOpenEventKey + "-title"] || "";
+        document.getElementById("modal-details").textContent = translations[lang][currentOpenEventKey + "-details"] || "";
+        document.getElementById("modal-thought").textContent = translations[lang][currentOpenEventKey + "-thought"] || "";
+    }
     localStorage.setItem('preferredLang', lang);
     document.documentElement.lang = lang;
 }
