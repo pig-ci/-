@@ -21,6 +21,14 @@ const translations = {
         // 時間軸事件 2025.01
         'event-202501-title': '福島學生來台',
         'event-202501-thought': '在這次的交流中，我們練習到了日文，也讓日本人了解在台灣將軍村的文化...——Andrew',
+        // 時間軸事件 2025.09
+        'event-202509-title': '三崎小學教師來台',
+        // 時間軸事件 2025.11
+        'event-202511-title': '壓力超大——三浦市百位教師線上觀摩台日交流',
+        // 時間軸事件 2025.12
+        'event-202512-title': '直接體驗日本小學——三崎小學校入班學習',
+        // 時間軸事件 2026.01
+        'event-202601-title': '訪問山口廣輝',
         // 頁面二：實人教育
         'edu-hero-title': '實人教育',
         'edu-hero-subtitle': '探討教育理念與實踐哲學',
@@ -62,6 +70,14 @@ const translations = {
         // 時間軸事件 2025.01
         'event-202501-title': '福島の学生が台湾へ',
         'event-202501-thought': '日本語を練習し、日本の方々に台湾の将軍村の文化を知ってもらえました...——Andrew',
+        // 時間軸事件 2025.09
+        'event-202509-title': '三崎小学校教師の訪台',
+        // 時間軸事件 2025.11
+        'event-202511-title': 'プレッシャー最大——100名の教師によるオンライン参観',
+        // 時間軸事件 2025.12
+        'event-202512-title': '日本小学校体験——三崎小学校への入級学習',
+        // 時間軸事件 2026.01
+        'event-202601-title': '山口広輝氏へのインタビュー',
         // 頁面二：實人教育
         'edu-hero-title': '実人教育',
         'edu-hero-subtitle': '教育理念と実践哲学の探求',
@@ -265,7 +281,7 @@ function setLanguage(lang) {
     elements.forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (translations[lang][key]) {
-            el.innerText = translations[lang][key];
+            el.textContent = translations[lang][key];
         }
     });
     localStorage.setItem('preferredLang', lang);
