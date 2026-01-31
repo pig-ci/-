@@ -141,23 +141,21 @@ function closeMobileMenu() {
         }
     }
 }
-function openModal(eventKey) {
-    currentOpenEventKey = eventKey;
-    const lang = localStorage.getItem('preferredLang') || 'zh-TW';
-    const title = translations[lang][eventKey + "-title"] || "";
-    const details = translations[lang][eventKey + "-details"] || "";
-    const thought = translations[lang][eventKey + "-thought"] || "";
-    const imagePath = translations[lang][eventKey + "-image"];
+function openModal(element) {
+    // 1. 獲取標題：從點擊的元素中尋找 h2
+    const title = element.querySelector('h2').textContent;
+    
+    // 2. 獲取詳細內容：從點擊的元素中尋找 .full-text 的內容
+    const fullTextContent = element.querySelector('.full-text').innerHTML;
+
+    // 3. 填充到彈窗中
     document.getElementById("modal-title").textContent = title;
-    document.getElementById("modal-details").textContent = details;
-    document.getElementById("modal-thought").textContent = thought;
-    const modalImage = document.getElementById("modal-image");
-    if (imagePath) {
-        modalImage.src = imagePath;
-        modalImage.style.display = "block";
-    } else {
-        modalImage.style.display = "none";
-    }
+    
+    // 這裡我們把內容放入 modal-body-container
+    const modalBody = document.getElementById("modal-body");
+    modalBody.innerHTML = `<div class="modal-full-text">${fullTextContent}</div>`;
+
+    // 4. 顯示彈窗
     const modal = document.getElementById("detail-modal");
     modal.style.display = "block";
     document.body.style.overflow = "hidden"; 
