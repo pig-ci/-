@@ -264,7 +264,7 @@ a:hover {
     background-color: #f1f1f1;
     border-left: 4px solid #888;
     font-size: 0.95rem;
-    font-style: italic;
+    font-style: normal;
 }
 /* 讓 thoughts 內的段落之間有空行 */
 .thoughts p {
