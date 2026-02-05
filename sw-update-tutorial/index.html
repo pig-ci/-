@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>更新網站教學程式</title>
+    <script>
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/sw.js')
+            .then((reg) => console.log('註冊成功！範圍是:', reg.scope))
+            .catch((err) => console.log('註冊失敗:', err));
+        }
+    </script>
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --warning-color: #ff4757;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            transition: background-color 0.3s;
+        }
+
+        /* 預設隱藏偵測面板 */
+        .dev-panel {
+            display: none;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            max-width: 400px;
+            border-top: 8px solid var(--warning-color);
+            animation: slideIn 0.5s ease;
+        }
+
+        /* 核心邏輯：當寬度小於某個數值（模擬側邊控制台開啟） */
+        @media (max-width: 700px) {
+            .dev-panel { display: block; }
+            .welcome-panel { display: none; }
+            body { background-color: #ffeaea; }
+        }
+
+        .welcome-panel {
+            text-align: center;
+            color: #555;
+        }
+
+        .instruction {
+            text-align: left;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.9em;
+        }
+
+        kbd {
+            background: #eee;
+            border: 1px solid #ccc;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="welcome-panel">
+        <h1>更新網站教學</h1>
+        <p>按下 <kbd>F12</kbd> 並將控制台<strong>固定在右側</strong></p>
+        <p>且把控制台拉大</p>
+    </div>
+
+    <div class="dev-panel">
+        <h2 style="color: var(--warning-color);">成功！</h2>
+        <p>現在，讓我們學習如何更新網頁：</p>
+        
+        <div class="instruction">
+            <strong>更新步驟：</strong>
+            <ol>
+                <li>確保控制台已開啟。</li>
+                <li>找到最上方的 <strong>「Application (應用程式)」</strong> 分頁。</li>
+                <li>點擊左側 <strong>Service Workers</strong>。</li>
+                <li>按 <strong>取消註冊（Unregister）</strong>。</li>
+            </ol>
+            <p>然後對著<kbd>重新載入</kbd>按<kbd>右鍵</kbd></p>
+            <p>按「清除快取並重新載入」</p>
+            <p>嗯。對。就這樣。</p>
+        </div>
+    </div>
+
+</body>
+</html>
