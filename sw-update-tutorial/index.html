@@ -6,7 +6,7 @@
     <title>更新網站教學程式</title>
     <script>
         if ('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('/sw.js')
+          navigator.serviceWorker.register('./sw.js')
             .then((reg) => console.log('註冊成功！範圍是:', reg.scope))
             .catch((err) => console.log('註冊失敗:', err));
         }
@@ -89,3 +89,4 @@
     </div>
 </body>
 </html>
+
