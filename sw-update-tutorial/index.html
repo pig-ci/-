@@ -16,7 +16,6 @@
             --primary-color: #007bff;
             --warning-color: #ff4757;
         }
-
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: #f4f7f6;
@@ -27,8 +26,6 @@
             margin: 0;
             transition: background-color 0.3s;
         }
-
-        /* 預設隱藏偵測面板 */
         .dev-panel {
             display: none;
             background: white;
@@ -39,19 +36,15 @@
             border-top: 8px solid var(--warning-color);
             animation: slideIn 0.5s ease;
         }
-
-        /* 核心邏輯：當寬度小於某個數值（模擬側邊控制台開啟） */
         @media (max-width: 700px) {
             .dev-panel { display: block; }
             .welcome-panel { display: none; }
             body { background-color: #ffeaea; }
         }
-
         .welcome-panel {
             text-align: center;
             color: #555;
         }
-
         .instruction {
             text-align: left;
             background: #f9f9f9;
@@ -59,7 +52,6 @@
             border-radius: 8px;
             font-size: 0.9em;
         }
-
         kbd {
             background: #eee;
             border: 1px solid #ccc;
@@ -67,7 +59,6 @@
             border-radius: 3px;
             font-family: monospace;
         }
-
         @keyframes slideIn {
             from { transform: translateY(20px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
@@ -75,17 +66,14 @@
     </style>
 </head>
 <body>
-
     <div class="welcome-panel">
         <h1>更新網站教學</h1>
-        <p>按下 <kbd>F12</kbd> 並將控制台<strong>固定在右側</strong></p>
+        <p>按下 <kbd>F12</kbd> 或 <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd> 並將控制台<strong>固定在右側</strong></p>
         <p>且把控制台拉大</p>
     </div>
-
     <div class="dev-panel">
         <h2 style="color: var(--warning-color);">成功！</h2>
         <p>現在，讓我們學習如何更新網頁：</p>
-        
         <div class="instruction">
             <strong>更新步驟：</strong>
             <ol>
@@ -99,6 +87,5 @@
             <p>嗯。對。就這樣。</p>
         </div>
     </div>
-
 </body>
 </html>
