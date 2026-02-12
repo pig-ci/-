@@ -286,3 +286,30 @@ document.addEventListener('click', function(e){
         }
     }
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const cursor = document.querySelector('.custom-cursor');
+
+    // 鼠標移動跟隨
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+    });
+
+    // 按下時變為實心縮小
+    document.addEventListener('mousedown', () => {
+        cursor.classList.add('active');
+    });
+
+    // 放開時恢復
+    document.addEventListener('mouseup', () => {
+        cursor.classList.remove('active');
+    });
+
+    // 處理鼠標離開視窗時隱藏
+    document.addEventListener('mouseleave', () => {
+        cursor.style.display = 'none';
+    });
+    document.addEventListener('mouseenter', () => {
+        cursor.style.display = 'block';
+    });
+});
