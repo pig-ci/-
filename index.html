@@ -75,7 +75,7 @@
         <section class="timeline-container">
             <!-- 時間軸項目 1 -->
             <div class="timeline-item">
-                <div class="timeline-content" onclick="openModal(this)" data-event-id="event-202401"> <!-- 加上data-event-id="event-202401" -->
+                <div class="timeline-content" onclick="openModal(this)" data-event-id="event-202401" > <!-- 加上data-event-id="event-202401" -->
                     <span class="date">2024.01</span>
                     <h2 data-i18n="event-202401-title">「台日交流的起點，一封信！」</h2>
                     <p class="details" data-i18n="event-202401-details">——手寫信關心能登半島</p>
@@ -519,7 +519,7 @@
         <span class="close-btn" onclick="closeModal()"></span>
         <div class="modal-header" style="display: flex; align-items: center; gap: 15px;">
             <h2 id="modal-title"></h2>
-            <button id="tts-btn" onclick="toggleAudio()" class="audio-btn">
+            <button id="tts-btn" onclick="toggleAudio()" class="audio-btn" data-tts-enabled="true">
                 <span id="audio-icon-container">
                     <svg id="svg-play" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
                         <path d="M8 5v14l11-7z"/>
