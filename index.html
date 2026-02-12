@@ -134,6 +134,7 @@
                     <p class="details" data-i18n="event-202501-details">——福島學生來台</p>
                     <div class="thoughts">
                         <p>在這次的交流中，我們練習到了日文，也讓日本人了解在台灣將軍村的文化，希望之後可以讓更多人認識台灣，讓台灣被更多人看見。——Andrew</p> 
+                        <p>這次日本童玩的交流讓我們，通過「同年時期」的玩具進行交流體驗。由日本帶來的劍玉、紙相撲、及福笑來傳達他們日本獨有的文化。我們這邊也拿出眷村童玩：盎仔標、彈珠、沙包等與他們來了一場「深度體驗」對方的文化。經由用僅有的日文分享，讓我們能夠在互動中獲得更多切磋的機會，我們也用「努力學習日文」來傳達自己對每次交流的看重與珍惜，並且希望能在未來交流的過程中，用日文找到更多與對方的共同話題，有此能夠更快速的化解尷尬、融入。——阿公</p>
                     </div>
                     <div class="full-text" style="display: none;" data-i18n="event-202501-full-text">
                         <p>「兩個月後福島的學生跟老師就要來將軍村跟我們交流了!」聽到這句話的大家都開始期待兩個月後的交流，這次的交流地點很不一樣，我們交流的地點在——「將軍村」。</p>
@@ -515,9 +516,22 @@
 <div id="detail-modal" class="modal">
     <div class="modal-content">
         <span class="close-btn" onclick="closeModal()"></span>
-        <div id="modal-title" class="modal-header-title"></div>
-        <div id="modal-body" class="modal-body-container">
+        <div class="modal-header" style="display: flex; align-items: center; gap: 15px;">
+            <h2 id="modal-title"></h2>
+            <button id="tts-btn" onclick="toggleAudio()" class="audio-btn">
+                <span id="audio-icon-container">
+                    <svg id="svg-play" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    <svg id="svg-pause" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" style="display:none;">
+                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                    </svg>
+                </span>
+                <span id="tts-text">朗讀全文</span>
+            </button>
         </div>
+        <div id="modal-body"></div>
+        <audio id="timeline-audio" onended="audioEnded()"></audio>
     </div>
 </div>
 <div id="image-modal" class="modal">
