@@ -140,16 +140,73 @@ function closeMobileMenu() {
         }
     }
 }
+// script.js
+
+let currentAudio = null;
+
 function openModal(element) {
     currentOpenEventKey = element.getAttribute('data-event-id');
     const title = element.querySelector('h2').textContent;
     const fullTextHtml = element.querySelector('.full-text').innerHTML;
+    
     document.getElementById("modal-title").textContent = title;
-    const modalBody = document.getElementById("modal-body");
-    modalBody.innerHTML = `<div class="modal-full-text">${fullTextHtml}</div>`;
-    const modal = document.getElementById("detail-modal");
-    modal.style.display = "block";
+    document.getElementById("modal-body").innerHTML = fullTextHtml;
+
+    // 設定音訊來源 (假設是 mp3)
+    const audioPlayer = document.getElementById("timeline-audio");
+    audioPlayer.src = `audio/${currentOpenEventKey}.mp3`;
+    resetAudioButton();
+
+    document.getElementById("detail-modal").style.display = "block";
     document.body.style.overflow = "hidden";
+}
+
+function toggleAudio() {
+    const audio = document.getElementById("timeline-audio");
+    const playSvg = document.getElementById("svg-play");
+    const pauseSvg = document.getElementById("svg-pause");
+    const btnText = document.getElementById("tts-text");
+
+    if (audio.paused) {
+        audio.play();
+        // 顯示暫停，隱藏播放
+        playSvg.style.display = "none";
+        pauseSvg.style.display = "inline-block";
+        btnText.textContent = "停止播放";
+    } else {
+        audio.pause();
+        audio.currentTime = 0; 
+        resetAudioButton();
+    }
+}
+
+function audioEnded() {
+    resetAudioButton();
+}
+
+function resetAudioButton() {
+    const playSvg = document.getElementById("svg-play");
+    const pauseSvg = document.getElementById("svg-pause");
+    const btnText = document.getElementById("tts-text");
+
+    if (playSvg && pauseSvg && btnText) {
+        playSvg.style.display = "inline-block";
+        pauseSvg.style.display = "none";
+        btnText.textContent = "朗讀全文";
+    }
+}
+
+// 記得在 closeModal 也要呼叫 resetAudioButton()
+function closeModal() {
+    const detailModal = document.getElementById("detail-modal");
+    if (detailModal) {
+        detailModal.style.display = "none";
+        const audio = document.getElementById("timeline-audio");
+        audio.pause();
+        audio.currentTime = 0;
+        resetAudioButton(); // 確保下次打開時按鈕狀態正確
+    }
+    document.body.style.overflow = "auto";
 }
 function updateModalContent(eventKey, lang) {
     const titleKey = `${eventKey}-title`;
@@ -162,17 +219,6 @@ function updateModalContent(eventKey, lang) {
         if (translations[lang][textKey]) {
             const modalBody = document.getElementById("modal-body");
             modalBody.innerHTML = `<div class="modal-full-text">${translations[lang][textKey]}</div>`;
-        }
-    }
-}
-function closeModal() {
-    const modal = document.getElementById("detail-modal");
-    if (modal && modal.style.display === 'block') {
-        modal.style.display = "none";
-        const navLinksContainer = document.querySelector('.nav-links');
-        const imageModal = document.getElementById("image-modal");
-        if (!navLinksContainer.classList.contains('active') && imageModal.style.display !== 'block') {
-            document.body.style.overflow = "auto"; 
         }
     }
 }
