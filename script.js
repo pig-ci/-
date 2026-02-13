@@ -1,15 +1,9 @@
 let galleryImagesLoaded = false;
 let currentOpenEventKey = "";
 const translations = {};
-
-// Web Speech API 全域變數
 let synth = window.speechSynthesis;
 let utteranceQueue = []; // 存放長文本拆分後的句子
 let isManualStopping = false;
-
-/**
- * 設定語言並切換內容
- */
 async function setLanguage(lang) {
     try {
         const response = await fetch(`lang/${lang}.json`);
@@ -41,10 +35,6 @@ async function setLanguage(lang) {
         console.error("翻譯錯誤:", error);
     }
 }
-
-/**
- * 頁面切換邏輯
- */
 function switchPage(pageName) {
     const sections = document.querySelectorAll('.page-section');
     sections.forEach(section => {
@@ -73,79 +63,71 @@ function switchPage(pageName) {
     stopTTS(); // 切換頁面停止朗讀
     window.scrollTo({ top: 0, behavior: 'instant' });
 }
-
-/**
- * Web Speech API 核心朗讀邏輯
- */
 function toggleAudio() {
     const ttsBtn = document.getElementById("tts-btn");
-    // 檢查是否有 HTML 屬性控制開關
-    const isEnabled = ttsBtn.getAttribute('data-tts-enabled') !== "false";
-    if (!isEnabled) return;
+    // 檢查屬性開關
+    if (ttsBtn.getAttribute('data-tts-enabled') === "false") return;
 
-    // 如果正在讀，再次點擊則停止
     if (synth.speaking) {
         stopTTS();
         return;
     }
-
     const modalBody = document.getElementById("modal-body");
-    const fullText = modalBody.innerText.trim();
+    // 1. 抓取文字並進行初步清理
+    let fullText = modalBody.innerText.trim();
     const currentLang = document.documentElement.lang || 'zh-TW';
-
     if (!fullText) return;
-
-    // --- 解決長文本中斷問題的核心：分段處理 ---
-    // 使用正則表達式根據標點符號或換行拆分句子，避免單次讀取字數過多
-    utteranceQueue = fullText.split(/[。！？\?\!\n\r]/g).filter(s => s.trim().length > 0);
+    utteranceQueue = fullText.split(/[。！？\?\!\n\r;；]/g)
+                             .map(s => s.trim())
+                             .filter(s => s.length > 0);
     
+    if (utteranceQueue.length === 0) return;
+
     isManualStopping = false;
     speakNextPart(currentLang);
 }
-
-/**
- * 遞迴播放隊列中的文字
- */
 function speakNextPart(langCode) {
+    // 如果隊列空了或手動停止，則恢復 UI
     if (utteranceQueue.length === 0 || isManualStopping) {
         updateTTSButtonState(false);
         return;
     }
-
     const textPart = utteranceQueue.shift();
     const utterance = new SpeechSynthesisUtterance(textPart);
-    
-    // 語言對應
     const langMap = {
         'zh-TW': 'zh-TW',
         'zh-CN': 'zh-CN',
         'en': 'en-US',
         'ja': 'ja-JP'
     };
-    utterance.lang = langMap[langCode] || langCode;
-    utterance.rate = 1.0;  // 語速
-    utterance.pitch = 1.0; // 音調
-
+    const targetLang = langMap[langCode] || langCode;
+    utterance.lang = targetLang;
+    if (targetLang.startsWith('en')) {
+        utterance.rate = 0.95;
+        utterance.pitch = 1.05;
+    } else {
+        utterance.rate = 1.0;
+        utterance.pitch = 1.0;
+    }
     utterance.onstart = () => updateTTSButtonState(true);
     
     utterance.onend = () => {
-        // 當前片段結束，自動播放下一段
         if (!isManualStopping) {
-            speakNextPart(langCode);
+            // 稍微延遲 100ms 再讀下一句，聽起來更自然，也能避開瀏覽器連續請求的 bug
+            setTimeout(() => speakNextPart(langCode), 100);
         }
     };
 
     utterance.onerror = (event) => {
-        console.error("SpeechSynthesisUtterance 發生錯誤:", event);
-        stopTTS();
+        // 排除掉手動取消導致的錯誤，避免 Console 出現紅字
+        if (event.error !== 'interrupted') {
+            console.error("TTS 播放出錯:", event.error);
+        }
+        updateTTSButtonState(false);
     };
 
     synth.speak(utterance);
 }
-
-/**
- * 停止所有語音行為
- */
 function stopTTS() {
     isManualStopping = true;
     utteranceQueue = []; 
@@ -154,10 +136,6 @@ function stopTTS() {
         updateTTSButtonState(false);
     }
 }
-
-/**
- * UI 按鈕狀態切換 (SVG 圖示與文字)
- */
 function updateTTSButtonState(speaking) {
     const playSvg = document.getElementById("svg-play");
     const pauseSvg = document.getElementById("svg-pause");
@@ -181,10 +159,6 @@ function updateTTSButtonState(speaking) {
         }
     }
 }
-
-/**
- * Modal 視窗控制
- */
 function openModal(element) {
     currentOpenEventKey = element.getAttribute('data-event-id');
     const title = element.querySelector('h2').textContent;
@@ -198,7 +172,6 @@ function openModal(element) {
     document.getElementById("detail-modal").style.display = "block";
     document.body.style.overflow = "hidden";
 }
-
 function closeModal() {
     const detailModal = document.getElementById("detail-modal");
     if (detailModal) {
@@ -207,7 +180,6 @@ function closeModal() {
     }
     document.body.style.overflow = "auto";
 }
-
 function updateModalContent(eventKey, lang) {
     const titleKey = `${eventKey}-title`;
     const textKey = `${eventKey}-full-text`;
@@ -222,10 +194,6 @@ function updateModalContent(eventKey, lang) {
         }
     }
 }
-
-/**
- * 圖片燈箱邏輯
- */
 function openImageModal(element) {
     const imageModal = document.getElementById("image-modal");
     const modalImg = document.getElementById("modal-img-src");
@@ -244,7 +212,6 @@ function openImageModal(element) {
         document.body.style.overflow = "hidden";
     }
 }
-
 function closeImageModal() {
     const imageModal = document.getElementById("image-modal");
     if (imageModal && imageModal.style.display === 'block') {
@@ -265,10 +232,6 @@ function closeImageModal() {
         }
     }
 }
-
-/**
- * 手機選單控制
- */
 function closeMobileMenu() {
     const menuToggle = document.getElementById('mobile-menu');
     const navLinksContainer = document.querySelector('.nav-links');
@@ -278,10 +241,6 @@ function closeMobileMenu() {
     if (navLinksContainer) navLinksContainer.classList.remove('active');
     if (overlay) overlay.classList.remove('active');
 }
-
-/**
- * 初始化與事件監聽
- */
 document.addEventListener("DOMContentLoaded", () => {
     // 1. 語系初始化
     const savedLang = localStorage.getItem('preferredLang') || 'zh-TW';
@@ -342,10 +301,6 @@ document.addEventListener("DOMContentLoaded", () => {
         document.addEventListener('mouseenter', () => cursor.style.opacity = '1');
     }
 });
-
-/**
- * 全域點擊與按鍵監聽
- */
 window.onclick = function(event) {
     const detailModal = document.getElementById("detail-modal");
     const imageModal = document.getElementById("image-modal");
