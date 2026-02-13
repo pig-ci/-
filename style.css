@@ -9,6 +9,7 @@
 }
 :root {
     --primary-color: #a63434; 
+    --primary-light: #bb5353;
     --secondary-color: #3e3e3e;
     --bg-color: #f7f5f0; 
     --card-bg: #fff;
@@ -745,12 +746,13 @@ footer {
 html, body, a, button, .timeline-content, .gallery-item {
     cursor: none !important;
 }
-
-/* 自定義光標基礎樣式 */
+*, *::before, *::after {
+    cursor: none !important;
+}
 .custom-cursor {
     width: 20px;
     height: 20px;
-    border: 3px solid var(--primary-color); /* 使用您定義的紅色 */
+    border: 3px solid var(--primary-light); /* 使用您定義的紅色 */
     position: fixed;
     pointer-events: none; /* 確保不干擾點擊 */
     z-index: 9999;
@@ -763,7 +765,7 @@ html, body, a, button, .timeline-content, .gallery-item {
 .custom-cursor.active {
     width: 16px;
     height: 16px;
-    background-color: var(--primary-color);
+    background-color: var(--primary-light);
     transform: translate(-50%, -50%) rotate(45deg) scale(0.8);
 }
 @media screen and (max-width: 768px) {
