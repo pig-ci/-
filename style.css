@@ -10,6 +10,7 @@
 :root {
     --primary-color: #a63434; 
     --primary-light: #bb5353;
+    --primary-dark: #863030;
     --secondary-color: #3e3e3e;
     --bg-color: #f7f5f0; 
     --card-bg: #fff;
@@ -82,10 +83,25 @@ a:hover {
     color: var(--secondary-color);
     font-weight: 500;
     transition: color 0.3s;
+    position: relative;
+}
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background: var(--primary-light);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
 }
 .nav-links a.active, .nav-links a:hover {
     color: var(--primary-color);
-    border-bottom: 2px solid var(--primary-color);
 }
 .page-section {
     display: none;
@@ -731,7 +747,9 @@ footer {
 }
 
 .audio-btn:hover {
-    background: #8b2b2b; /* 深一點的紅色 */
+    background: var(--primary-dark);
+    box-shadow: 0 5px 15px rgba(187, 83, 83, 0.4);
+    transform: translateY(-2px);
 }
 .audio-btn svg {
     display: block;
@@ -830,6 +848,10 @@ html, body, a, button, .timeline-content, .gallery-item {
         text-align: center;
         padding: 15px 0;
     }
+}
+::selection {
+    background-color: var(--primary-light);
+    color: #fff;
 }
 ::-webkit-scrollbar {
     width: 8px;
