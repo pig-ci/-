@@ -760,32 +760,6 @@ footer {
     align-items: center;
     justify-content: center;
 }
-/* 隱藏原生光標 */
-html, body, a, button, .timeline-content, .gallery-item {
-    cursor: none !important;
-}
-*, *::before, *::after {
-    cursor: none !important;
-}
-.custom-cursor {
-    width: 20px;
-    height: 20px;
-    border: 3px solid var(--primary-light); /* 使用您定義的紅色 */
-    position: fixed;
-    pointer-events: none; /* 確保不干擾點擊 */
-    z-index: 9999;
-    transform: translate(-50%, -50%) rotate(45deg);
-    transition: transform 0.1s ease-out, background-color 0.2s, width 0.2s, height 0.2s;
-    background-color: transparent;
-}
-
-/* 點按或按住時的狀態：稍微縮小的實心菱形 */
-.custom-cursor.active {
-    width: 16px;
-    height: 16px;
-    background-color: var(--primary-light);
-    transform: translate(-50%, -50%) rotate(45deg) scale(0.8);
-}
 @media screen and (max-width: 768px) {
     .timeline-container::after {
         left: 31px;
