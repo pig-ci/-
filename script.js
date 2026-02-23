@@ -287,19 +287,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
     if (overlay) overlay.addEventListener('click', closeMobileMenu);
-
-    // 4. 客製化游標邏輯
-    const cursor = document.querySelector('.custom-cursor');
-    if (cursor) {
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
-        document.addEventListener('mousedown', () => cursor.classList.add('active'));
-        document.addEventListener('mouseup', () => cursor.classList.remove('active'));
-        document.addEventListener('mouseleave', () => cursor.style.opacity = '0');
-        document.addEventListener('mouseenter', () => cursor.style.opacity = '1');
-    }
 });
 window.onclick = function(event) {
     const detailModal = document.getElementById("detail-modal");
