@@ -39,7 +39,7 @@
     <title data-i18n="site-title">台日共學平台</title>
 <link rel="icon"type="image/png" href="images/favicon.png">
     <link rel="preload"as="image" href="images/24.01.avif">
-    <link rel="stylesheet"href="style.css">
+    <link rel="stylesheet"href="style.min.css">
 </head>
 <body>
     <div id="menu-overlay" class="menu-overlay"></div>
@@ -54,6 +54,7 @@
             <li><a href="#" class="active" onclick="switchPage('home')">首頁</a></li>
             <li><a href="#" onclick="switchPage('exchange')" data-i18n="nav-exchange">台日共學</a></li>
             <li><a href="#" onclick="switchPage('education')" data-i18n="nav-education">實人教育</a></li>
+            <li><a href="#" onclick="switchPage('methods')" data-i18n="nav-methods">共學方式</a></li>
             <!-- <li><a href="#" onclick="switchPage('interview')" data-i18n="nav-interview">特殊採訪</a></li> -->
             <li><a href="#" onclick="switchPage('gallery')" data-i18n="nav-gallery">影像專區</a></li>
             <li><a href="#" onclick="switchPage('contact')" data-i18n="nav-contact">聯絡我們</a></li>
@@ -243,6 +244,36 @@
             <div class="card">
                 <h3 data-i18n="edu-card3-title"></h3>
                 <p data-i18n="edu-card3-content"></p>
+            </div>
+        </div>
+    </main>
+    <main id="page-methods" class="page-section">
+        <header class="hero">
+            <h1 data-i18n="methods-hero-title">多樣化的共學模式</h1>
+            <p data-i18n="methods-hero-subtitle">打破空間與語言的限制，打造全方位的學習體驗</p>
+        </header>
+    
+        <div class="methods-grid">
+            
+            <div class="card">
+                <div class="method-icon">🌐</div>
+                <h3>線上英文主題交流</h3>
+                <p>定期以英語進行主題式討論與發表。例如文化介紹、生活議題、地方特色等</p>
+            </div>
+            <div class="card">
+                <div class="method-icon">✉️</div>
+                <h3>交換學生計畫</h3>
+                <p>短期或中期互訪、深入體驗當地學校與文化</p>
+            </div>
+            <div class="card">
+                <div class="method-icon">📖</div>
+                <h3>入班上課</h3>
+                <p>雙方學生進入實體課堂並共同參與學習活動</p>
+            </div>
+            <div class="card">
+                <div class="method-icon">✈️</div>
+                <h3>國家互訪</h3>
+                <p>組織實體交流行程，透過導覽、發表、共作活動深化理解</p>
             </div>
         </div>
     </main>
@@ -450,6 +481,7 @@
             <h3>聯繫學校團隊</h3>
             <p><strong>電話：</strong>03-5585675 分機33</p>
             <p><strong data-i18n="Email">信箱：</strong>shirenschool@gmail.com</p>
+            <p>我們期待與您一同打造持續且有深度的國際共學行動。</p>
         </div>
         <div class="card contact-card">
             <h3 data-i18n="contact-credits-title">製作人員名單</h3>
