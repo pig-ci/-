@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <script>
         (function() {
-            var isIE = !!window.MSInputMethodContext && !!document.documentMode;
+            var isIE = !!window.MSUint8Array || !!window.ActiveXObject || /Trident\/7\./.test(navigator.userAgent);
             if (isIE) {
                 window.location.href = "browser-update.html";
             }
@@ -113,10 +113,7 @@
                     <span class="date">2024.01</span>
                     <h2 data-i18n="event-202401-title">「台日共學的起點，一封信！」</h2>
                     <p class="details" data-i18n="event-202401-details">——手寫信關心能登半島</p>
-                    <div class="thoughts" data-i18n="event-202401-thought">
-                        <p>有意義，可以關心其他國際的事情——可可</p>
-                        <p>這次可以去關心日本人，並且寫信跟他們說，或許在之後如果台灣發生地震，他們也會幫助我們吧！——菇台銘</p>
-                    </div>
+                    <div class="thoughts" data-i18n="event-202401-thought"></div>
                     <div class="full-text" style="display: none;" data-i18n="event-202401-full-text"></div>
                 </div>
                 <div class="timeline-img">
@@ -129,10 +126,7 @@
                     <span class="date">2024.05</span>
                     <h2 data-i18n="event-202405-title">「福島地獄共學挑戰記——用三個月學會日文」</h2>
                     <p class="details" data-i18n="event-202405-details">——日本福島共學</p>
-                    <div class="thoughts" data-i18n="event-202405-thought">
-                        <p>第一次去日本跟那麼多人共學，我體驗到了當地的文化，還有認識了一些日本人，也到了當地有名的地方，這成為我一個很重要的經驗，之前去日本時，都只去了市區，到了日本比較鄉下的地方，發現那邊有很多新的事物。——貝貝</p>
-                        <p>在聽到市政府各位官員的掌聲後，才意識到我們做了一件多麼厲害的事。——8+9妍</p>
-                    </div>
+                    <div class="thoughts" data-i18n="event-202405-thought"></div>
                     <div class="full-text" style="display: none;" data-i18n="event-202405-full-text"></div>
                 </div>
                 <div class="timeline-img">
@@ -161,10 +155,7 @@
                     <span class="date">2025.09</span>
                     <h2 data-i18n="event-202509-title">「從崩潰到成功：一場使用魔法語言的共學」</h2>
                     <p class="details" data-i18n="event-202509-details">——三崎小學教師來台</p>
-                    <div class="thoughts" data-i18n="event-202509-thought">
-                        <p>在之前共學經驗中，都比較偏向我們去日本，所以就會是我們去體驗日本他們學校是怎麼教學生的，但是這次是讓日本的老師們來台灣，可以讓我們練習到日文，同時也可以讓日本的老師看看我們在台灣是甚麼樣子。——小涅</p>
-                        <p>因為我們有分組去說那組要說的東西，而我們這組最有特色的就是，我們跳舞給日本人看，這次的共學也讓我們學到了很多東西。——宥</p>
-                    </div>
+                    <div class="thoughts" data-i18n="event-202509-thought"></div>
                     <div class="full-text" style="display: none;" data-i18n="event-202509-full-text"></div>
                 </div>
                 <div class="timeline-img">
@@ -191,10 +182,7 @@
                     <span class="date">2025.12</span>
                     <h2 data-i18n="event-202512-title">直接體驗日本小學——三崎小學校入班學習</h2>
                     <p class="details" data-i18n="event-202512-details">三崎小學入班學習和拜訪三浦市教育長</p>
-                    <div class="thoughts" data-i18n="event-202512-thought">
-                        <p>交到日本朋友我很開心，可以跟他們打球、上課、聊天，還有跟教育長介紹台灣、講簡報。——魚子醬</p>
-                        <p>能去日本交到朋友很開心，去日本的這段時間體驗到很多日本的文化，也跟很多日本人共學，我會永遠記得和日本人互動的那段時光。——睿</p> 
-                    </div>
+                    <div class="thoughts" data-i18n="event-202512-thought"></div>
                 </div>
                 <div class="timeline-img">
                     <img src="images/25.12.avif"alt="三崎小學入班學習和和拜訪三浦市教育長"decoding="async"loading="lazy"width="600"height="400">
@@ -204,13 +192,13 @@
                 <div class="timeline-item">
                 <div class="timeline-content" onclick="openModal(this)" data-event-id="event-202601">
                     <span class="date">2026.01</span>
-                    <h2 data-i18n="event-202601-title">訪問山口廣輝</h2>
+                    <h2 data-i18n="event-202601-title"></h2>
                     <p class="details" data-i18n="event-202601-text"></p>
                     <div class="thoughts">
-                        <p data-i18n="event-202601-text">詳情請至「特殊採訪」頁面查看</p> 
+                        <p data-i18n="event-202601-text"></p> 
                     </div>
                     <div class="full-text" style="display: none;">
-                        <p data-i18n="event-202601-text">詳情請至「特殊採訪」頁面查看</p>
+                        <p data-i18n="event-202601-text"></p>
                     </div>
                 </div>
                 <div class="timeline-img">
@@ -236,29 +224,25 @@
     <!-- 頁面二：實人教育 -->
     <main id="page-education" class="page-section">
         <header class="hero">
-            <h1 data-i18n="edu-hero-title">實人教育</h1>
-            <p data-i18n="edu-hero-subtitle">探討教育理念與實踐哲學</p>
+            <h1 data-i18n="edu-hero-title"></h1>
+            <p data-i18n="edu-hero-subtitle"></p>
         </header>
         <div class="education-content">
             <div class="card">
-                <h3 data-i18n="edu-card1-title">教育理念</h3>
-                <p data-i18n="edu-card1-content">實人教育是一個以「原型教育」為核心的非學制態實驗教育團體，目前由 30 位小四至國三的孩子組成。實人強調三種核心生命動力：生存力、生活力、生命力，並以五實原則作為學習根本：誠實、踏實、實驗、實踐、真實</p>
+                <h3 data-i18n="edu-card1-title"></h3>
+                <p data-i18n="edu-card1-content"></p>
             </div>
             <div class="card">
-                <h3 data-i18n="edu-card2-title">簡介</h3>
-                <p data-i18n="edu-card2-content1">一、課程重視學科紮根，也積極探索多元領域，包括：樂高創造、街舞律動、食農烹飪、自然探索、創業行動等，讓孩子在真實中學習、在挑戰中成長。</p>
-                <p data-i18n="edu-card2-content2">二、以「走入生活、走入社會、走入世界」的學習實踐，透過：</p>
-                <ui data-i18n="edu-card2-content2-1">
-                    <li>戶外走讀——將課程帶入場域，讓孩子以身體與感官打開學習的深度。</li>
-                    <li>少年導覽——孩子成為知識轉譯者與故事講述者，自主設計導覽任務。</li>
-                    <li>國際共學——與國內外教育者與青年互動連結，培養全球視野與文化理解。</li>
-                </ui>
-                <p data-i18n="edu-card2-content3">三、回歸考試本質，重視學習檢核，但不打成績、不排名、不採用獎勵制度，而是啟動內在動機，並激發個人特質，才是學習真正的起點與動力來源。</p>
-                <p data-i18n="edu-card2-content4">四、實人以親師之間的信任與共同合作為基礎，建立溝通透明、互相支持的教育夥伴關係，讓家庭與教育團隊共同陪伴孩子走向真實的成長旅程。</p>
+                <h3 data-i18n="edu-card2-title"></h3>
+                <p data-i18n="edu-card2-content1"></p>
+                <p data-i18n="edu-card2-content2"></p>
+                <ui data-i18n="edu-card2-content2-1"></ui>
+                <p data-i18n="edu-card2-content3"></p>
+                <p data-i18n="edu-card2-content4"></p>
             </div>
             <div class="card">
-                <h3 data-i18n="edu-card3-title">結語</h3>
-                <p data-i18n="edu-card3-content">在實人，每一個孩子都被看見、被理解，並被引導發揮潛力，在真實學習中建立信心，發展屬於自己的生命力與未來能力。</p>
+                <h3 data-i18n="edu-card3-title"></h3>
+                <p data-i18n="edu-card3-content"></p>
             </div>
         </div>
     </main>
