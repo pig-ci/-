@@ -1,3 +1,8 @@
+/**
+Author: Lynx
+Description: Proprietary code. Usage granted to Shiren Education.
+License: Full ownership remains with the author.
+*/
 let galleryImagesLoaded = false;
 let currentOpenEventKey = "";
 const translations = {};
