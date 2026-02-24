@@ -21,22 +21,22 @@
         <meta http-equiv="refresh" content="0; url=browser-update.html">
     </noscript>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="實人教育的台日交流平台，分享交流經驗與教育理念">
+    <meta name="description" content="實人教育的台日共學平台，分享共學經驗與教育理念">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://pig-ci.github.io/-/">
-    <meta property="og:title" content="台日交流平台 | 實人教育">
-    <meta property="og:description" content="分享台日交流經驗與教育理念，建立跨國界的深厚友誼。">
+    <meta property="og:title" content="台日共學平台 | 實人教育">
+    <meta property="og:description" content="分享台日共學經驗與教育理念，建立跨國界的深厚友誼。">
     <meta property="og:image" content="https://pig-ci.github.io/-/images/25.11.avif">
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="台日交流平台 | 實人教育">
-    <meta property="twitter:description" content="分享台日交流經驗與教育理念。">
+    <meta property="twitter:title" content="台日共學平台 | 實人教育">
+    <meta property="twitter:description" content="分享台日共學經驗與教育理念。">
     <meta property="twitter:image" content="https://pig-ci.github.io/-/images/25.11.avif">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="images/icon-192.png">
     <meta name="theme-color" content="#a63434">
-    <title data-i18n="site-title">台日交流平台</title>
+    <title data-i18n="site-title">台日共學平台</title>
 <link rel="icon"type="image/png" href="images/favicon.png">
     <link rel="preload"as="image" href="images/24.01.avif">
     <link rel="stylesheet"href="style.min.css">
@@ -44,14 +44,15 @@
 <body>
     <div id="menu-overlay" class="menu-overlay"></div>
     <nav class="navbar">
-        <div class="logo" data-i18n="logo">台日交流</div>
+        <div class="logo" data-i18n="logo">台日共學</div>
         <div class="menu-toggle" id="mobile-menu">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
         </div>
         <ul class="nav-links">
-            <li><a href="#" class="active" onclick="switchPage('exchange')" data-i18n="nav-exchange">台日交流</a></li>
+            <li><a href="#" class="active" onclick="switchPage('home')">首頁</a></li>
+            <li><a href="#" onclick="switchPage('exchange')" data-i18n="nav-exchange">台日共學</a></li>
             <li><a href="#" onclick="switchPage('education')" data-i18n="nav-education">實人教育</a></li>
             <!-- <li><a href="#" onclick="switchPage('interview')" data-i18n="nav-interview">特殊採訪</a></li> -->
             <li><a href="#" onclick="switchPage('gallery')" data-i18n="nav-gallery">影像專區</a></li>
@@ -65,18 +66,52 @@
             </li>
         </ul>
     </nav>
-    <!-- 頁面一：台日交流經驗 (預設顯示) -->
-    <main id="page-exchange" class="page-section active-section">
+    <main id="page-home" class="page-section active-section">
         <header class="hero">
-            <h1 data-i18n="exchange-hero-title">台日交流歷程</h1>
-            <p data-i18n="exchange-hero-subtitle">台日交流</p>
+            <h1>《不只是參訪：以「共學」驅動的台日雙向成長永續計畫》</h1>
+            <p></p>
+        </header>
+        <div class="education-content">
+            <div class="card">
+                <h3>「共學」取代「共學」</h3>
+                <p>不是參訪，而是共同成長，我們重視台灣與日本學生一起討論、一起發表、一起解決問題；不是單向參觀，而是雙向學習 </p>
+                <img src="images/NotFound.avif" alt="">
+            </div>
+        </div>
+        <div class="education-content">
+            <div class="card">
+                <h3>善用線上平台，長期經營市集活動</h3>
+                <p>定期共學，持續影響。透過線上會議與固定主題討論，讓共學成為長期計畫，而不是一次性活動。</p>
+                <img src="images/NotFound.avif" alt="">
+            </div>
+        </div>
+        <div class="education-content">
+            <div class="card">
+                <h3>國際 × 在地</h3>
+                <p>認識世界，也重新認識自己。在介紹台灣文化給日本的同時，我們更深入理解自己的土地與歷史。國際視野，來自深厚的在地認識。</p>
+                <img src="images/NotFound.avif" alt="">
+            </div>
+        </div>
+        <div class="education-content">
+            <div class="card">
+                <h3>英語是工具，不是考試</h3>
+                <p>用英語溝通，而不是為考試準備</p>
+                <img src="images/NotFound.avif" alt="">
+            </div>
+        </div>
+    </main>
+    <!-- 頁面一：台日共學經驗 (預設顯示) -->
+    <main id="page-exchange" class="page-section">
+        <header class="hero">
+            <h1 data-i18n="exchange-hero-title">台日共學歷程</h1>
+            <p data-i18n="exchange-hero-subtitle">台日共學</p>
         </header>
         <section class="timeline-container">
             <!-- 時間軸項目 1 -->
             <div class="timeline-item">
                 <div class="timeline-content" onclick="openModal(this)" data-event-id="event-202401" > <!-- 加上data-event-id="event-202401" -->
                     <span class="date">2024.01</span>
-                    <h2 data-i18n="event-202401-title">「台日交流的起點，一封信！」</h2>
+                    <h2 data-i18n="event-202401-title">「台日共學的起點，一封信！」</h2>
                     <p class="details" data-i18n="event-202401-details">——手寫信關心能登半島</p>
                     <div class="thoughts" data-i18n="event-202401-thought">
                         <p>有意義，可以關心其他國際的事情——可可</p>
@@ -92,16 +127,16 @@
             <div class="timeline-item">
                 <div class="timeline-content" onclick="openModal(this)" data-event-id="event-202405">
                     <span class="date">2024.05</span>
-                    <h2 data-i18n="event-202405-title">「福島地獄交流挑戰記——用三個月學會日文」</h2>
-                    <p class="details" data-i18n="event-202405-details">——日本福島交流</p>
+                    <h2 data-i18n="event-202405-title">「福島地獄共學挑戰記——用三個月學會日文」</h2>
+                    <p class="details" data-i18n="event-202405-details">——日本福島共學</p>
                     <div class="thoughts" data-i18n="event-202405-thought">
-                        <p>第一次去日本跟那麼多人交流，我體驗到了當地的文化，還有認識了一些日本人，也到了當地有名的地方，這成為我一個很重要的經驗，之前去日本時，都只去了市區，到了日本比較鄉下的地方，發現那邊有很多新的事物。——貝貝</p>
+                        <p>第一次去日本跟那麼多人共學，我體驗到了當地的文化，還有認識了一些日本人，也到了當地有名的地方，這成為我一個很重要的經驗，之前去日本時，都只去了市區，到了日本比較鄉下的地方，發現那邊有很多新的事物。——貝貝</p>
                         <p>在聽到市政府各位官員的掌聲後，才意識到我們做了一件多麼厲害的事。——8+9妍</p>
                     </div>
                     <div class="full-text" style="display: none;" data-i18n="event-202405-full-text"></div>
                 </div>
                 <div class="timeline-img">
-                    <img src="images/24.05.avif"alt="日本福島交流"decoding="async"loading="lazy"width="600"height="400">
+                    <img src="images/24.05.avif"alt="日本福島共學"decoding="async"loading="lazy"width="600"height="400">
                 </div>
             </div>
             <!-- 時間軸項目 3 -->
@@ -111,8 +146,8 @@
                     <h2 data-i18n="event-202501-title">「童玩大作戰!——台灣童玩v.s.日本童玩」</h2> 
                     <p class="details" data-i18n="event-202501-details">——福島學生來台</p>
                     <div class="thoughts">
-                        <p>在這次的交流中，我們練習到了日文，也讓日本人了解在台灣將軍村的文化，希望之後可以讓更多人認識台灣，讓台灣被更多人看見。——Andrew</p> 
-                        <p>這次日本童玩的交流讓我們，通過「同年時期」的玩具進行交流體驗。由日本帶來的劍玉、紙相撲、及福笑來傳達他們日本獨有的文化。我們這邊也拿出眷村童玩：盎仔標、彈珠、沙包等與他們來了一場「深度體驗」對方的文化。經由用僅有的日文分享，讓我們能夠在互動中獲得更多切磋的機會，我們也用「努力學習日文」來傳達自己對每次交流的看重與珍惜，並且希望能在未來交流的過程中，用日文找到更多與對方的共同話題，有此能夠更快速的化解尷尬、融入。——阿公</p>
+                        <p>在這次的共學中，我們練習到了日文，也讓日本人了解在台灣將軍村的文化，希望之後可以讓更多人認識台灣，讓台灣被更多人看見。——Andrew</p> 
+                        <p>這次日本童玩的共學讓我們，通過「同年時期」的玩具進行共學體驗。由日本帶來的劍玉、紙相撲、及福笑來傳達他們日本獨有的文化。我們這邊也拿出眷村童玩：盎仔標、彈珠、沙包等與他們來了一場「深度體驗」對方的文化。經由用僅有的日文分享，讓我們能夠在互動中獲得更多切磋的機會，我們也用「努力學習日文」來傳達自己對每次共學的看重與珍惜，並且希望能在未來共學的過程中，用日文找到更多與對方的共同話題，有此能夠更快速的化解尷尬、融入。——阿公</p>
                     </div>
                     <div class="full-text" style="display: none;" data-i18n="event-202501-full-text"></div>
                 </div>
@@ -124,11 +159,11 @@
                 <div class="timeline-item">
                 <div class="timeline-content" onclick="openModal(this)" data-event-id="event-202509">
                     <span class="date">2025.09</span>
-                    <h2 data-i18n="event-202509-title">「從崩潰到成功：一場使用魔法語言的交流」</h2>
+                    <h2 data-i18n="event-202509-title">「從崩潰到成功：一場使用魔法語言的共學」</h2>
                     <p class="details" data-i18n="event-202509-details">——三崎小學教師來台</p>
                     <div class="thoughts" data-i18n="event-202509-thought">
-                        <p>在之前交流經驗中，都比較偏向我們去日本，所以就會是我們去體驗日本他們學校是怎麼教學生的，但是這次是讓日本的老師們來台灣，可以讓我們練習到日文，同時也可以讓日本的老師看看我們在台灣是甚麼樣子。——小涅</p>
-                        <p>因為我們有分組去說那組要說的東西，而我們這組最有特色的就是，我們跳舞給日本人看，這次的交流也讓我們學到了很多東西。——宥</p>
+                        <p>在之前共學經驗中，都比較偏向我們去日本，所以就會是我們去體驗日本他們學校是怎麼教學生的，但是這次是讓日本的老師們來台灣，可以讓我們練習到日文，同時也可以讓日本的老師看看我們在台灣是甚麼樣子。——小涅</p>
+                        <p>因為我們有分組去說那組要說的東西，而我們這組最有特色的就是，我們跳舞給日本人看，這次的共學也讓我們學到了很多東西。——宥</p>
                     </div>
                     <div class="full-text" style="display: none;" data-i18n="event-202509-full-text"></div>
                 </div>
@@ -140,14 +175,14 @@
                 <div class="timeline-item">
                 <div class="timeline-content" onclick="openModal(this)">
                     <span class="date">2025.11</span>
-                    <h2 data-i18n="event-202511-title">壓力超大——三浦市百位教師線上觀摩台日交流</h2>
-                    <p class="details" data-i18n="event-202511-details">線上英文交流</p>
+                    <h2 data-i18n="event-202511-title">壓力超大——三浦市百位教師線上觀摩台日共學</h2>
+                    <p class="details" data-i18n="event-202511-details">線上英文共學</p>
                     <div class="thoughts">
-                        <p>這是我的一次拉琴在外國人面前，在之前的交流我只有說英文，沒有什麼特色所以我想說來一點不一樣的。——企鵝姐姐</p> 
+                        <p>這是我的一次拉琴在外國人面前，在之前的共學我只有說英文，沒有什麼特色所以我想說來一點不一樣的。——企鵝姐姐</p> 
                     </div>
                 </div>
                 <div class="timeline-img">
-                    <img src="images/25.11.avif"alt="三浦市百位老師觀摩英文交流"decoding="async"loading="lazy"width="600"height="400">
+                    <img src="images/25.11.avif"alt="三浦市百位老師觀摩英文共學"decoding="async"loading="lazy"width="600"height="400">
                 </div>
             </div>
             <!-- 時間軸項目 6 -->
@@ -158,7 +193,7 @@
                     <p class="details" data-i18n="event-202512-details">三崎小學入班學習和拜訪三浦市教育長</p>
                     <div class="thoughts" data-i18n="event-202512-thought">
                         <p>交到日本朋友我很開心，可以跟他們打球、上課、聊天，還有跟教育長介紹台灣、講簡報。——魚子醬</p>
-                        <p>能去日本交到朋友很開心，去日本的這段時間體驗到很多日本的文化，也跟很多日本人交流，我會永遠記得和日本人互動的那段時光。——睿</p> 
+                        <p>能去日本交到朋友很開心，去日本的這段時間體驗到很多日本的文化，也跟很多日本人共學，我會永遠記得和日本人互動的那段時光。——睿</p> 
                     </div>
                 </div>
                 <div class="timeline-img">
@@ -183,6 +218,20 @@
                 </div>
             </div>
         </section>
+        <div style="text-align: center; padding: 40px 20px;">
+            <p style="font-size: 1.2rem; color: var(--primary-dark); font-style: italic;">
+                「交流未完待續，下列為預告交流行程」
+            </p>
+        </div>
+        <div class="education-content" style="margin-top: 40px;">
+            <div class="card">
+                <ul style="margin-top: 15px; padding-left: 20px; line-height: 2;">
+                    <li data-i18n="preview-item1">2026.03 沖繩文化（邀請留台沖繩大學生）</li>
+                    <li data-i18n="preview-item2">2026.03 寫信給日本朋友</li>
+                    <li data-i18n="preview-item3">2026.05 沖繩市交流</li>
+                </ul>
+            </div>
+        </div>
     </main>
     <!-- 頁面二：實人教育 -->
     <main id="page-education" class="page-section">
@@ -202,7 +251,7 @@
                 <ui data-i18n="edu-card2-content2-1">
                     <li>戶外走讀——將課程帶入場域，讓孩子以身體與感官打開學習的深度。</li>
                     <li>少年導覽——孩子成為知識轉譯者與故事講述者，自主設計導覽任務。</li>
-                    <li>國際交流——與國內外教育者與青年互動連結，培養全球視野與文化理解。</li>
+                    <li>國際共學——與國內外教育者與青年互動連結，培養全球視野與文化理解。</li>
                 </ui>
                 <p data-i18n="edu-card2-content3">三、回歸考試本質，重視學習檢核，但不打成績、不排名、不採用獎勵制度，而是啟動內在動機，並激發個人特質，才是學習真正的起點與動力來源。</p>
                 <p data-i18n="edu-card2-content4">四、實人以親師之間的信任與共同合作為基礎，建立溝通透明、互相支持的教育夥伴關係，讓家庭與教育團隊共同陪伴孩子走向真實的成長旅程。</p>
@@ -232,7 +281,7 @@
 <main id="page-gallery" class="page-section">
         <header class="hero">
             <h1 data-i18n="gallery-hero-title">影像專區</h1>
-            <p data-i18n="gallery-hero-subtitle">捕捉交流的精彩瞬間</p>
+            <p data-i18n="gallery-hero-subtitle">捕捉共學的精彩瞬間</p>
         </header>
         <div class="gallery-container">
             <div class="gallery-grid">
@@ -275,7 +324,7 @@
                 <div class="gallery-item">
                     <img data-src="images/2024 05/4.avif" alt="" loading="lazy" decoding="async">
                     <div class="caption">
-                        <h3 data-i18n="img-2024-05-4-title">內心緊張，因為這是我們第一次跟政府交流!</h3>
+                        <h3 data-i18n="img-2024-05-4-title">內心緊張，因為這是我們第一次跟政府共學!</h3>
                         <p>2024.05</p>
                     </div>
                 </div>
@@ -303,7 +352,7 @@
                 <div class="gallery-item">
                     <img data-src="images/2024 05/8.avif" alt="" loading="lazy" decoding="async">
                     <div class="caption">
-                        <h3 data-i18n="img-2024-05-8-title">我們的台日交流登上了報紙!</h3>
+                        <h3 data-i18n="img-2024-05-8-title">我們的台日共學登上了報紙!</h3>
                         <p>2024.05</p>
                     </div>
                 </div>
@@ -381,14 +430,14 @@
                 <div class="gallery-item">
                     <img data-src="images/2025 12/3.avif" alt="" loading="lazy" decoding="async">
                     <div class="caption">
-                        <h3 data-i18n="img-2025-12-3-title">實人三崎交流簡報現場！</h3>
+                        <h3 data-i18n="img-2025-12-3-title">實人三崎共學簡報現場！</h3>
                         <p>2025.12</p>
                     </div>
                 </div>
                 <div class="gallery-item">
                     <img data-src="images/2025 12/4.avif" alt="" loading="lazy" decoding="async">
                     <div class="caption">
-                        <h3 data-i18n="img-2025-12-4-title">跟國小交流完的大合照!</h3>
+                        <h3 data-i18n="img-2025-12-4-title">跟國小共學完的大合照!</h3>
                         <p>2025.12</p>
                     </div>
                 </div>
@@ -417,10 +466,14 @@
     </header>
     <div class="education-content">
         <div class="card contact-card">
-            <h3 data-i18n="contact-info-title">聯繫資訊</h3>
+            <h3>聯繫網站原始碼作者</h3>
             <p><strong data-i18n="Email">信箱：</strong> pig0911@shininglife-edu.com</p>
         </div>
-        
+        <div class="card contact-card">
+            <h3>聯繫學校團隊</h3>
+            <p><strong>電話：</strong>03-5585675 分機33</p>
+            <p><strong data-i18n="Email">信箱：</strong>shirenschool@gmail.com</p>
+        </div>
         <div class="card contact-card">
             <h3 data-i18n="contact-credits-title">製作人員名單</h3>
             <ul>
@@ -442,21 +495,21 @@
             </div>
         </details>
         <details class="faq-item">
-            <summary data-i18n="faq-q2">去日本交流最有挑戰性的事情是什麼？</summary>
+            <summary data-i18n="faq-q2">去日本共學最有挑戰性的事情是什麼？</summary>
             <div class="faq-answer">
                 <p data-i18n="faq-a2">最挑戰的是在正式場合（如郡山市役所）面對官員進行全日文簡報。</p>
             </div>
         </details>
         <details class="faq-item">
-            <summary data-i18n="faq-q3">除了去日本，還有其他的交流方式嗎？</summary>
+            <summary data-i18n="faq-q3">除了去日本，還有其他的共學方式嗎？</summary>
             <div class="faq-answer">
-                <p data-i18n="faq-a3">有的，我們也會舉辦線上英文交流，或是在台灣接待來自日本的老師與學生。</p>
+                <p data-i18n="faq-a3">有的，我們也會舉辦線上英文共學，或是在台灣接待來自日本的老師與學生。</p>
             </div>
         </details>
         <details class="faq-item">
-            <summary data-i18n="faq-q4">舉辦台日交流的意義是什麼？</summary>
+            <summary data-i18n="faq-q4">舉辦台日共學的意義是什麼？</summary>
             <div class="faq-answer">
-                <p data-i18n="faq-a4">在線上英文交流的部分，我們兩邊的學生也都會為每次交流的主題做出準備(自己擅長的東西、日本台灣的文化、特色零食(超酷，真的寄來了日本的零食))，每次的交流也都會隨之學到英文還有對方的文化。(去日本、日本人來台更不用說學到了東西有多少了!不管是練習到了日文或可以進一步去看看原本不了解的東西，這些都是一個很重要的經驗)</p>
+                <p data-i18n="faq-a4">在線上英文共學的部分，我們兩邊的學生也都會為每次共學的主題做出準備(自己擅長的東西、日本台灣的文化、特色零食(超酷，真的寄來了日本的零食))，每次的共學也都會隨之學到英文還有對方的文化。(去日本、日本人來台更不用說學到了東西有多少了!不管是練習到了日文或可以進一步去看看原本不了解的東西，這些都是一個很重要的經驗)</p>
             </div>
         </details>
     </div>
