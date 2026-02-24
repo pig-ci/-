@@ -773,6 +773,59 @@ footer {
     align-items: center;
     justify-content: center;
 }
+/* 讓四宮格有足夠的呼吸空間 */
+.methods-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px; /* 增加條與條之間的空隙 */
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 30px;
+}
+
+/* 提升卡片質感 */
+.method-card {
+    position: relative;
+    border: 1px solid rgba(166, 52, 52, 0.1); /* 極淡的品牌色邊框 */
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    overflow: hidden; /* 確保裝飾標籤不會超出 */
+}
+
+/* 左上角的小標籤 */
+.method-tag {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--primary-color);
+    color: #fff;
+    font-size: 0.75rem;
+    padding: 4px 12px;
+    border-bottom-right-radius: 10px;
+}
+
+.method-icon {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+}
+
+.method-card h3 {
+    color: var(--primary-dark);
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--bg-color);
+    padding-bottom: 10px;
+}
+
+.method-card p {
+    font-size: 0.95rem;
+    color: var(--secondary-color);
+    line-height: 1.8;
+}
 @media screen and (max-width: 768px) {
     .timeline-container::after {
         left: 31px;
@@ -834,6 +887,10 @@ footer {
         width: 100%;
         text-align: center;
         padding: 15px 0;
+    }
+    .methods-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
     }
 }
 ::selection {
