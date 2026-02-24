@@ -6,7 +6,7 @@
         (function() {
             var ua = navigator.userAgent;
             var isIE = !!window.MSUint8Array || !!window.ActiveXObject || /Trident\/7\./.test(navigator.userAgent) || ua.indexOf('MSIE ');
-            if (!isIE) {
+            if (isIE) {
                 window.location.href = "browser-update.html";
             }
         })();
