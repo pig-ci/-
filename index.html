@@ -39,7 +39,7 @@
     <title data-i18n="site-title">台日共學平台</title>
 <link rel="icon"type="image/png" href="images/favicon.png">
     <link rel="preload"as="image" href="images/24.01.avif">
-    <link rel="stylesheet"href="style.min.css">
+    <link rel="stylesheet"href="style.css">
 </head>
 <body>
     <div id="menu-overlay" class="menu-overlay"></div>
@@ -61,8 +61,8 @@
                 <span onclick="setLanguage('zh-TW')" style="cursor:pointer; color:var(--primary-color);">TW</span> |
                 <span onclick="setLanguage('zh-CN')" style="cursor:pointer; color:var(--primary-color);">CN</span> |
                 <span onclick="setLanguage('en')" style="cursor:pointer; color:var(--primary-color);">EN</span> |
-                <span onclick="setLanguage('ja')" style="cursor:pointer; color:var(--primary-color);">JP</span>
-                
+                <span onclick="setLanguage('ja')" style="cursor:pointer; color:var(--primary-color);">JP</span> |
+                <span onclick="setLanguage('kr')" style="cursor:pointer; color:var(--primary-color);">KR</span>
             </li>
         </ul>
     </nav>
@@ -285,7 +285,7 @@
         </header>
         <div class="gallery-container">
             <div class="gallery-grid">
-                <h2 id="modal-title">日本方佈告類</h2>
+                <h2 class="gallery-subtitle">日本方佈告類</h2>
                 <div class="gallery-item">
                     <img data-src="images/2024 01/1.avif" alt="" loading="lazy" decoding="async">
                     <div class="caption">
@@ -321,7 +321,7 @@
                         <p>2024.05</p>
                     </div>
                 </div>
-                <h2 id="modal-title">大合照類</h2>
+                <h2 class="gallery-subtitle">大合照類</h2>
                 <div class="gallery-item">
                     <img data-src="images/2024 05/1.avif" alt="" loading="lazy" decoding="async">
                     <div class="caption">
@@ -371,7 +371,7 @@
                         <p>2025.12</p>
                     </div>
                 </div>
-                <h2 id="modal-title">交流類</h2>
+                <h2 class="gallery-subtitle">交流類</h2>
                  <div class="gallery-item">
                     <img data-src="images/2024 05/3.avif" alt="" loading="lazy" decoding="async">
                     <div class="caption">
