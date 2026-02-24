@@ -383,6 +383,19 @@ a:hover {
     margin: 0;
     font-size: 0.9rem;
 }
+.gallery-subtitle {
+    grid-column: 1 / -1;          /* 確保標題橫跨整排網格 */
+    color: var(--primary-dark);   /* 使用深紅色 */
+    font-size: 1.6rem;            /* 稍微縮小字體，比原來的 2.2rem 更協調 */
+    margin: 40px 0 20px 0;        /* 增加上下間距 */
+    padding-bottom: 8px;
+    border-bottom: 3px solid var(--primary-color); /* 底部線條 */
+    display: block;               /* 改為塊級元素 */
+    letter-spacing: 0.1rem;       /* 增加字距增加質感 */
+}
+.gallery-grid .gallery-subtitle:first-child {
+    margin-top: 10px;
+}
 .modal {
     display: none; 
     position: fixed;
