@@ -1,4 +1,4 @@
-const CACHE_NAME = 'taiwan-japan-v2';
+const CACHE_NAME = 'taiwan-japan-v1';
 const ONE_DAY = 24 * 60 * 60 * 1000;
 const urlsToCache = [
   '/-/',
