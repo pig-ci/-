@@ -1,15 +1,16 @@
 const CACHE_NAME = 'taiwan-japan-v1';
 const urlsToCache = [
   '/-/',
+  '/-/sw.js',
+  '/-/fonts/noto-sans-tc-400.woff2',
   '/-/index.html',
   '/-/style.min.css',
   '/-/script.js',
+  '/-/images/home/1.avif',
+  '/-/images/home/2.avif',
+  '/-/images/home/3.avif',
+  '/-/images/home/4.avif',
   '/-/images/24.01.avif',
-  '/-/images/24.05.avif',
-  '/-/images/25.01.avif',
-  '/-/images/25.09.avif',
-  '/-/images/25.11.avif',
-  '/-/images/25.12.avif',
   '/-/images/favicon.png'
 ];
 self.addEventListener('install', (event) => {
