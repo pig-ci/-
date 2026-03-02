@@ -40,429 +40,415 @@
     <link rel="stylesheet"href="style.min.css">
 </head>
 <body>
-    <div id="menu-overlay" class="menu-overlay"></div>
-    <nav class="navbar">
-        <div class="logo" data-i18n="logo">台日共學</div>
-        <div class="menu-toggle" id="mobile-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-        <ul class="nav-links">
-            <li><a href="#" class="active" onclick="switchPage('home')">首頁</a></li>
-            <li><a href="#" onclick="switchPage('exchange')" data-i18n="nav-exchange">台日共學</a></li>
-            <li><a href="#" onclick="switchPage('education')" data-i18n="nav-education">實人教育</a></li>
-            <li><a href="#" onclick="switchPage('methods')" data-i18n="nav-methods">共學方式</a></li>
-            <!-- <li><a href="#" onclick="switchPage('interview')" data-i18n="nav-interview">特殊採訪</a></li> -->
-            <li><a href="#" onclick="switchPage('gallery')" data-i18n="nav-gallery">影像專區</a></li>
-            <li><a href="#" onclick="switchPage('contact')" data-i18n="nav-contact">聯絡我們</a></li>
-            <li class="lang-switch" style="margin-left: 15px; font-size: 0.9em;">
-                <span onclick="setLanguage('zh-TW')" style="cursor:pointer; color:var(--primary-color);">TW</span> |
-                <span onclick="setLanguage('zh-CN')" style="cursor:pointer; color:var(--primary-color);">CN</span> |
-                <span onclick="setLanguage('en')" style="cursor:pointer; color:var(--primary-color);">EN</span> |
-                <span onclick="setLanguage('ja')" style="cursor:pointer; color:var(--primary-color);">JP</span> |
-                <span onclick="setLanguage('kr')" style="cursor:pointer; color:var(--primary-color);">KR</span>
-            </li>
-        </ul>
-    </nav>
-    <main id="page-home" class="page-section active-section">
-        <header class="hero">
-            <h1>《不只是參訪：以「共學」驅動的台日雙向成長永續計畫》</h1>
-            <p></p>
-        </header>
-        <div class="education-content">
-            <div class="card">
-                <h2>「共學」取代「交流」</h2>
-                <p>不是參訪，而是共同成長，我們重視台灣與日本學生一起討論、一起發表、一起解決問題；不是單向參觀，而是雙向學習 </p>
-                <img src="images/home/1.avif" alt="" width="1200" height="800"fetchpriority="high">
-            </div>
-        </div>
-        <div class="education-content">
-            <div class="card">
-                <h2>善用線上平台，長期經營市集活動</h2>
-                <p>定期共學，持續影響。透過線上會議與固定主題討論，讓共學成為長期計畫，而不是一次性活動。</p>
-                <img src="images/home/2.avif" alt="" width="1200" height="800">
-            </div>
-        </div>
-        <div class="education-content">
-            <div class="card">
-                <h2>國際 × 在地</h2>
-                <p>認識世界，也重新認識自己。在介紹台灣文化給日本的同時，我們更深入理解自己的土地與歷史。國際視野，來自深厚的在地認識。</p>
-                <img src="images/home/3.avif" alt="" width="1200" height="800">
-            </div>
-        </div>
-        <div class="education-content">
-            <div class="card">
-                <h2>英語是工具</h2>
-                <p>用英語溝通，而不是為考試準備</p>
-                <img src="images/home/4.avif" alt="" width="1200" height="800">
-            </div>
-        </div>
-    </main>
-    <!-- 頁面一：台日共學經驗 (預設顯示) -->
-    <main id="page-exchange" class="page-section">
-        <header class="hero">
-            <h1 data-i18n="exchange-hero-title">台日共學歷程</h1>
-            <p data-i18n="exchange-hero-subtitle">台日共學</p>
-        </header>
-        <section class="timeline-container">
-            <!-- 時間軸項目 1 -->
-            <div class="timeline-item">
-                <div class="timeline-content" onclick="openModal(this)" data-event-id="event-202401" > <!-- 加上data-event-id="event-202401" -->
-                    <span class="date">2024.01</span>
-                    <h2 data-i18n="event-202401-title">「台日共學的起點，一封信！」</h2>
-                    <p class="details" data-i18n="event-202401-details">——手寫信關心能登半島</p>
-                    <div class="thoughts" data-i18n="event-202401-thought"></div>
-                    <div class="full-text" style="display: none;" data-i18n="event-202401-full-text"></div>
-                </div>
-                <div class="timeline-img">
-                    <img src="images/24.01.avif"alt="手寫信關心能登半島"loading="eager"width="600"height="400"decoding="async">
-                </div>
-            </div>
-            <!-- 時間軸項目 2 -->
-            <div class="timeline-item">
-                <div class="timeline-content" onclick="openModal(this)" data-event-id="event-202405">
-                    <span class="date">2024.05</span>
-                    <h2 data-i18n="event-202405-title">「福島地獄共學挑戰記——用三個月學會日文」</h2>
-                    <p class="details" data-i18n="event-202405-details">——日本福島共學</p>
-                    <div class="thoughts" data-i18n="event-202405-thought"></div>
-                    <div class="full-text" style="display: none;" data-i18n="event-202405-full-text"></div>
-                </div>
-                <div class="timeline-img">
-                    <img src="images/24.05.avif"alt="日本福島共學"decoding="async"loading="lazy"width="600"height="400">
-                </div>
-            </div>
-            <!-- 時間軸項目 3 -->
-            <div class="timeline-item">
-                <div class="timeline-content" onclick="openModal(this)" data-event-id="event-202501">
-                    <span class="date">2025.01</span> 
-                    <h2 data-i18n="event-202501-title">「童玩大作戰!——台灣童玩v.s.日本童玩」</h2> 
-                    <p class="details" data-i18n="event-202501-details">——福島學生來台</p>
-                    <div class="thoughts">
-                        <p>在這次的共學中，我們練習到了日文，也讓日本人了解在台灣將軍村的文化，希望之後可以讓更多人認識台灣，讓台灣被更多人看見。——Andrew</p> 
-                        <p>這次日本童玩的共學讓我們，通過「同年時期」的玩具進行共學體驗。由日本帶來的劍玉、紙相撲、及福笑來傳達他們日本獨有的文化。我們這邊也拿出眷村童玩：盎仔標、彈珠、沙包等與他們來了一場「深度體驗」對方的文化。經由用僅有的日文分享，讓我們能夠在互動中獲得更多切磋的機會，我們也用「努力學習日文」來傳達自己對每次共學的看重與珍惜，並且希望能在未來共學的過程中，用日文找到更多與對方的共同話題，有此能夠更快速的化解尷尬、融入。——阿公</p>
-                    </div>
-                    <div class="full-text" style="display: none;" data-i18n="event-202501-full-text"></div>
-                </div>
-                <div class="timeline-img">
-                    <img src="images/25.01.avif"alt="福島學生來台"decoding="async"loading="lazy"width="600"height="400">
-                </div>
-            </div>
-            <!-- 時間軸項目 4 -->
-                <div class="timeline-item">
-                <div class="timeline-content" onclick="openModal(this)" data-event-id="event-202509">
-                    <span class="date">2025.09</span>
-                    <h2 data-i18n="event-202509-title">「從崩潰到成功：一場使用魔法語言的共學」</h2>
-                    <p class="details" data-i18n="event-202509-details">——三崎小學教師來台</p>
-                    <div class="thoughts" data-i18n="event-202509-thought"></div>
-                    <div class="full-text" style="display: none;" data-i18n="event-202509-full-text"></div>
-                </div>
-                <div class="timeline-img">
-                    <img src="images/25.09.avif"alt="三崎小學教師來台"decoding="async"loading="lazy"width="600"height="400">
-                </div>
-            </div> 
-            <!-- 時間軸項目 5 -->
-                <div class="timeline-item">
-                <div class="timeline-content" onclick="openModal(this)">
-                    <span class="date">2025.11</span>
-                    <h2 data-i18n="event-202511-title">壓力超大——三浦市百位教師線上觀摩台日共學</h2>
-                    <p class="details" data-i18n="event-202511-details">線上英文共學</p>
-                    <div class="thoughts">
-                        <p>這是我的一次拉琴在外國人面前，在之前的共學我只有說英文，沒有什麼特色所以我想說來一點不一樣的。——企鵝姐姐</p> 
-                    </div>
-                </div>
-                <div class="timeline-img">
-                    <img src="images/25.11.avif"alt="三浦市百位老師觀摩英文共學"decoding="async"loading="lazy"width="600"height="400">
-                </div>
-            </div>
-            <!-- 時間軸項目 6 -->
-                <div class="timeline-item">
-                <div class="timeline-content" onclick="openModal(this)">
-                    <span class="date">2025.12</span>
-                    <h2 data-i18n="event-202512-title">直接體驗日本小學——三崎小學校入班學習</h2>
-                    <p class="details" data-i18n="event-202512-details">三崎小學入班學習和拜訪三浦市教育長</p>
-                    <div class="thoughts" data-i18n="event-202512-thought"></div>
-                </div>
-                <div class="timeline-img">
-                    <img src="images/25.12.avif"alt="三崎小學入班學習和和拜訪三浦市教育長"decoding="async"loading="lazy"width="600"height="400">
-                </div>
-            </div>
-            <!-- 時間軸項目 7 -->
-                <div class="timeline-item">
-                <div class="timeline-content" onclick="openModal(this)" data-event-id="event-202601">
-                    <span class="date">2026.01</span>
-                    <h2 data-i18n="event-202601-title"></h2>
-                    <p class="details" data-i18n="event-202601-text"></p>
-                    <div class="thoughts">
-                        <p data-i18n="event-202601-text"></p> 
-                    </div>
-                    <div class="full-text" style="display: none;">
-                        <p data-i18n="event-202601-text"></p>
-                    </div>
-                </div>
-                <div class="timeline-img">
-                    <img src="images/NotFound.avif"alt="訪問山口廣輝"decoding="async"loading="lazy"width="600"height="400">
-                </div>
-            </div>
-        </section>
-        <div style="text-align: center; padding: 40px 20px;">
-            <p style="font-size: 1.2rem; color: var(--primary-dark); font-style: italic;">
-                「交流未完待續，下列為預告交流行程」
-            </p>
-        </div>
-        <div class="education-content" style="margin-top: 40px;">
-            <div class="card">
-                <ul style="margin-top: 15px; padding-left: 20px; line-height: 2;">
-                    <li data-i18n="preview-item1">2026.03 沖繩文化（邀請留台沖繩大學生）</li>
-                    <li data-i18n="preview-item2">2026.03 寫信給日本朋友</li>
-                    <li data-i18n="preview-item3">2026.05 沖繩市交流</li>
-                </ul>
-            </div>
-        </div>
-    </main>
-    <!-- 頁面二：實人教育 -->
-    <main id="page-education" class="page-section">
-        <header class="hero">
-            <h1 data-i18n="edu-hero-title"></h1>
-            <p data-i18n="edu-hero-subtitle"></p>
-        </header>
-        <div class="education-content">
-            <div class="card">
-                <h3 data-i18n="edu-card1-title"></h3>
-                <p data-i18n="edu-card1-content"></p>
-            </div>
-            <div class="card">
-                <h3 data-i18n="edu-card2-title"></h3>
-                <p data-i18n="edu-card2-content1"></p>
-                <p data-i18n="edu-card2-content2"></p>
-                <ui data-i18n="edu-card2-content2-1"></ui>
-                <p data-i18n="edu-card2-content3"></p>
-                <p data-i18n="edu-card2-content4"></p>
-            </div>
-            <div class="card">
-                <h3 data-i18n="edu-card3-title"></h3>
-                <p data-i18n="edu-card3-content"></p>
-            </div>
-        </div>
-    </main>
-    <main id="page-methods" class="page-section">
-        <header class="hero">
-            <h1 data-i18n="methods-hero-title">多樣化的共學模式</h1>
-            <p data-i18n="methods-hero-subtitle">打破空間與語言的限制，打造全方位的學習體驗</p>
-        </header>
-    
-        <div class="methods-grid">
-            
-            <div class="card">
-                <div class="method-icon">🌐</div>
-                <h3>線上英文主題交流</h3>
-                <p>定期以英語進行主題式討論與發表。例如文化介紹、生活議題、地方特色等</p>
-            </div>
-            <div class="card">
-                <div class="method-icon">✉️</div>
-                <h3>交換學生計畫</h3>
-                <p>短期或中期互訪、深入體驗當地學校與文化</p>
-            </div>
-            <div class="card">
-                <div class="method-icon">📖</div>
-                <h3>入班上課</h3>
-                <p>雙方學生進入實體課堂並共同參與學習活動</p>
-            </div>
-            <div class="card">
-                <div class="method-icon">✈️</div>
-                <h3>國家互訪</h3>
-                <p>組織實體交流行程，透過導覽、發表、共作活動深化理解</p>
-            </div>
-        </div>
-    </main>
-    <main id="page-interview" class="page-section">
+<div id="menu-overlay" class="menu-overlay"></div>
+<nav class="navbar">
+    <div class="logo" data-i18n="logo">台日共學</div>
+    <div class="menu-toggle" id="mobile-menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+    <ul class="nav-links">
+        <li><a href="#" class="active" onclick="switchPage('home')">首頁</a></li>
+        <li><a href="#" onclick="switchPage('exchange')" data-i18n="nav-exchange">台日共學</a></li>
+        <li><a href="#" onclick="switchPage('education')" data-i18n="nav-education">實人教育</a></li>
+        <li><a href="#" onclick="switchPage('methods')" data-i18n="nav-methods">共學方式</a></li>
+        <li><a href="#" onclick="switchPage('gallery')" data-i18n="nav-gallery">影像專區</a></li>
+        <li><a href="#" onclick="switchPage('contact')" data-i18n="nav-contact">聯絡我們</a></li>
+        <li class="lang-switch" style="margin-left: 15px; font-size: 0.9em;">
+            <span onclick="setLanguage('zh-TW')" style="cursor:pointer; color:var(--primary-color);">TW</span> |
+            <span onclick="setLanguage('zh-CN')" style="cursor:pointer; color:var(--primary-color);">CN</span> |
+            <span onclick="setLanguage('en')" style="cursor:pointer; color:var(--primary-color);">EN</span> |
+            <span onclick="setLanguage('ja')" style="cursor:pointer; color:var(--primary-color);">JP</span> |
+            <span onclick="setLanguage('kr')" style="cursor:pointer; color:var(--primary-color);">KR</span>
+        </li>
+    </ul>
+</nav>
+<main id="page-home" class="page-section active-section">
     <header class="hero">
-        <h1 data-i18n="interview-hero-title">特殊採訪</h1>
-        <p data-i18n="interview-hero-subtitle">深入報導與專訪紀錄</p>
+        <h1>《不只是參訪：以「共學」驅動的台日雙向成長永續計畫》</h1>
+        <p></p>
     </header>
-    <div class="education-content"> 
+    <div class="education-content">
         <div class="card">
-            <p>採訪前，我們討論出要訪問老師的問題，寫出訪綱。</p>
-            <p>當天，我們問了山口老師問題，像是當初為什麼要舉辦台日交流等等問題，這讓我們知道原來老師本來就對教育有興趣，後面發現，不只可以做普通的教育，也可以去嘗試不同的教育方式，發展出更多的可能性。</p>
-            <p>其中我們最印象深刻的是老師選擇讓我們與偏鄉地區交流。原因是老師的家鄉隨著他的成長，人口漸漸變少，某些地方逐漸落寞，所以希望透過交流，能讓大家認識這個地區。</p>
+            <h2>「共學」取代「交流」</h2>
+            <p>不是參訪，而是共同成長，我們重視台灣與日本學生一起討論、一起發表、一起解決問題；不是單向參觀，而是雙向學習 </p>
+            <img src="images/home/1.avif" alt="" width="1200" height="800"fetchpriority="high">
+        </div>
+    </div>
+    <div class="education-content">
+        <div class="card">
+            <h2>善用線上平台，長期經營市集活動</h2>
+            <p>定期共學，持續影響。透過線上會議與固定主題討論，讓共學成為長期計畫，而不是一次性活動。</p>
+            <img src="images/home/2.avif" alt="" width="1200" height="800">
+        </div>
+    </div>
+    <div class="education-content">
+        <div class="card">
+            <h2>國際 × 在地</h2>
+            <p>認識世界，也重新認識自己。在介紹台灣文化給日本的同時，我們更深入理解自己的土地與歷史。國際視野，來自深厚的在地認識。</p>
+            <img src="images/home/3.avif" alt="" width="1200" height="800">
+        </div>
+    </div>
+    <div class="education-content">
+        <div class="card">
+            <h2>英語是工具</h2>
+            <p>用英語溝通，而不是為考試準備</p>
+            <img src="images/home/4.avif" alt="" width="1200" height="800">
+        </div>
+    </div>
+</main>
+<!-- 頁面一：台日共學經驗 (預設顯示) -->
+<main id="page-exchange" class="page-section">
+    <header class="hero">
+        <h1 data-i18n="exchange-hero-title">台日共學歷程</h1>
+        <p data-i18n="exchange-hero-subtitle">台日共學</p>
+    </header>
+    <section class="timeline-container">
+        <!-- 時間軸項目 1 -->
+        <div class="timeline-item">
+            <div class="timeline-content" onclick="openModal(this)" data-event-id="event-202401" > <!-- 加上data-event-id="event-202401" -->
+                <span class="date">2024.01</span>
+                <h2 data-i18n="event-202401-title">「台日共學的起點，一封信！」</h2>
+                <p class="details" data-i18n="event-202401-details">——手寫信關心能登半島</p>
+                <div class="thoughts" data-i18n="event-202401-thought"></div>
+                <div class="full-text" style="display: none;" data-i18n="event-202401-full-text"></div>
+            </div>
+            <div class="timeline-img">
+                <img src="images/24.01.avif"alt="手寫信關心能登半島"loading="eager"width="600"height="400"decoding="async">
+            </div>
+        </div>
+        <!-- 時間軸項目 2 -->
+        <div class="timeline-item">
+            <div class="timeline-content" onclick="openModal(this)" data-event-id="event-202405">
+                <span class="date">2024.05</span>
+                <h2 data-i18n="event-202405-title">「福島地獄共學挑戰記——用三個月學會日文」</h2>
+                <p class="details" data-i18n="event-202405-details">——日本福島共學</p>
+                <div class="thoughts" data-i18n="event-202405-thought"></div>
+                <div class="full-text" style="display: none;" data-i18n="event-202405-full-text"></div>
+            </div>
+            <div class="timeline-img">
+                <img src="images/24.05.avif"alt="日本福島共學"decoding="async"loading="lazy"width="600"height="400">
+            </div>
+        </div>
+        <!-- 時間軸項目 3 -->
+        <div class="timeline-item">
+            <div class="timeline-content" onclick="openModal(this)" data-event-id="event-202501">
+                <span class="date">2025.01</span> 
+                <h2 data-i18n="event-202501-title">「童玩大作戰!——台灣童玩v.s.日本童玩」</h2> 
+                <p class="details" data-i18n="event-202501-details">——福島學生來台</p>
+                <div class="thoughts">
+                    <p>在這次的共學中，我們練習到了日文，也讓日本人了解在台灣將軍村的文化，希望之後可以讓更多人認識台灣，讓台灣被更多人看見。——Andrew</p> 
+                    <p>這次日本童玩的共學讓我們，通過「同年時期」的玩具進行共學體驗。由日本帶來的劍玉、紙相撲、及福笑來傳達他們日本獨有的文化。我們這邊也拿出眷村童玩：盎仔標、彈珠、沙包等與他們來了一場「深度體驗」對方的文化。經由用僅有的日文分享，讓我們能夠在互動中獲得更多切磋的機會，我們也用「努力學習日文」來傳達自己對每次共學的看重與珍惜，並且希望能在未來共學的過程中，用日文找到更多與對方的共同話題，有此能夠更快速的化解尷尬、融入。——阿公</p>
+                </div>
+                <div class="full-text" style="display: none;" data-i18n="event-202501-full-text"></div>
+            </div>
+            <div class="timeline-img">
+                <img src="images/25.01.avif"alt="福島學生來台"decoding="async"loading="lazy"width="600"height="400">
+            </div>
+        </div>
+        <!-- 時間軸項目 4 -->
+        <div class="timeline-item">
+            <div class="timeline-content" onclick="openModal(this)" data-event-id="event-202509">
+                <span class="date">2025.09</span>
+                <h2 data-i18n="event-202509-title">「從崩潰到成功：一場使用魔法語言的共學」</h2>
+                <p class="details" data-i18n="event-202509-details">——三崎小學教師來台</p>
+                <div class="thoughts" data-i18n="event-202509-thought"></div>
+                <div class="full-text" style="display: none;" data-i18n="event-202509-full-text"></div>
+            </div>
+            <div class="timeline-img">
+                <img src="images/25.09.avif"alt="三崎小學教師來台"decoding="async"loading="lazy"width="600"height="400">
+            </div>
+        </div> 
+        <!-- 時間軸項目 5 -->
+        <div class="timeline-item">
+            <div class="timeline-content" onclick="openModal(this)">
+                <span class="date">2025.11</span>
+                <h2 data-i18n="event-202511-title">壓力超大——三浦市百位教師線上觀摩台日共學</h2>
+                <p class="details" data-i18n="event-202511-details">線上英文共學</p>
+                <div class="thoughts">
+                    <p>這是我的一次拉琴在外國人面前，在之前的共學我只有說英文，沒有什麼特色所以我想說來一點不一樣的。——企鵝姐姐</p> 
+                </div>
+            </div>
+            <div class="timeline-img">
+                <img src="images/25.11.avif"alt="三浦市百位老師觀摩英文共學"decoding="async"loading="lazy"width="600"height="400">
+            </div>
+        </div>
+        <!-- 時間軸項目 6 -->
+        <div class="timeline-item">
+            <div class="timeline-content" onclick="openModal(this)">
+                <span class="date">2025.12</span>
+                <h2 data-i18n="event-202512-title">直接體驗日本小學——三崎小學校入班學習</h2>
+                <p class="details" data-i18n="event-202512-details">三崎小學入班學習和拜訪三浦市教育長</p>
+                <div class="thoughts" data-i18n="event-202512-thought"></div>
+            </div>
+            <div class="timeline-img">
+                <img src="images/25.12.avif"alt="三崎小學入班學習和和拜訪三浦市教育長"decoding="async"loading="lazy"width="600"height="400">
+            </div>
+        </div>
+        <!-- 時間軸項目 7 -->
+        <div class="timeline-item">
+            <div class="timeline-content" onclick="openModal(this)" data-event-id="event-202601">
+                <span class="date">2026.01</span>
+                <h2 data-i18n="event-202601-title"></h2>
+                <p class="details"></p>
+                <div class="full-text" style="display: none;" data-i18n="event-202601-full-text"></div>
+            </div>
+            <div class="timeline-img">
+                <img src="images/NotFound.avif"alt="訪問山口廣輝"decoding="async"loading="lazy"width="600"height="400">
+            </div>
+        </div>
+        <!-- 時間軸項目 8 -->
+        <div class="timeline-item">
+            <div class="timeline-content" onclick="openModal(this)">
+                <span class="date">2026.01</span>
+                <h2>日本女兒節文化摺紙</h2>
+                <p class="details"></p>
+                <div class="thoughts">
+                </div>
+            </div>
+            <div class="timeline-img">
+                <img src="images/NotFound.avif"alt="日本女兒節文化摺紙"decoding="async"loading="lazy"width="600"height="400">
+            </div>
+        </div>
+    </section>
+    <div style="text-align: center; padding: 40px 20px;">
+        <p style="font-size:1.2rem;color:var(--primary-dark);font-style:italic;" data-i18n="coming-soon">交流未完待續，下列為預告交流行程</p>
+    </div>
+    <div class="education-content" style="margin-top:40px;">
+        <div class="card">
+            <ul style="margin-top: 15px; padding-left: 20px; line-height: 2;">
+                <li data-i18n="preview-item1">2026.03 沖繩文化（邀請留台沖繩大學生）</li>
+                <li data-i18n="preview-item2">2026.03 寫信給日本朋友</li>
+                <li data-i18n="preview-item3">2026.05 沖繩市交流</li>
+            </ul>
+        </div>
+    </div>
+</main>
+<!-- 頁面二：實人教育 -->
+<main id="page-education" class="page-section">
+    <header class="hero">
+        <h1 data-i18n="edu-hero-title"></h1>
+        <p data-i18n="edu-hero-subtitle"></p>
+    </header>
+    <div class="education-content">
+        <div class="card">
+            <h3 data-i18n="edu-card1-title"></h3>
+            <p data-i18n="edu-card1-content"></p>
+        </div>
+        <div class="card">
+            <h3 data-i18n="edu-card2-title"></h3>
+            <p data-i18n="edu-card2-content1"></p>
+            <p data-i18n="edu-card2-content2"></p>
+            <ui data-i18n="edu-card2-content2-1"></ui>
+            <p data-i18n="edu-card2-content3"></p>
+            <p data-i18n="edu-card2-content4"></p>
+        </div>
+        <div class="card">
+            <h3 data-i18n="edu-card3-title"></h3>
+            <p data-i18n="edu-card3-content"></p>
+        </div>
+    </div>
+</main>
+<main id="page-methods" class="page-section">
+    <header class="hero">
+        <h1 data-i18n="methods-hero-title">多樣化的共學模式</h1>
+        <p data-i18n="methods-hero-subtitle">打破空間與語言的限制，打造全方位的學習體驗</p>
+    </header>
+    <div class="methods-grid">
+        <div class="card">
+            <div class="method-icon">🌐</div>
+            <h3>線上英文主題交流</h3>
+            <p>定期以英語進行主題式討論與發表。例如文化介紹、生活議題、地方特色等</p>
+        </div>
+        <div class="card">
+            <div class="method-icon">✉️</div>
+            <h3>交換學生計畫</h3>
+            <p>短期或中期互訪、深入體驗當地學校與文化</p>
+        </div>
+        <div class="card">
+            <div class="method-icon">📖</div>
+            <h3>入班上課</h3>
+            <p>雙方學生進入實體課堂並共同參與學習活動</p>
+        </div>
+        <div class="card">
+            <div class="method-icon">✈️</div>
+            <h3>國家互訪</h3>
+            <p>組織實體交流行程，透過導覽、發表、共作活動深化理解</p>
         </div>
     </div>
 </main>
 <main id="page-gallery" class="page-section">
-        <header class="hero">
-            <h1 data-i18n="gallery-hero-title">影像專區</h1>
-            <p data-i18n="gallery-hero-subtitle">捕捉共學的精彩瞬間</p>
-        </header>
-        <div class="gallery-container">
-            <div class="gallery-grid">
-                <h2 class="gallery-subtitle">日本方佈告類</h2>
-                <div class="gallery-item">
-                    <img data-src="images/2024 01/1.avif" alt="" loading="lazy" decoding="async">
-                    <div class="caption">
-                        <h3 data-i18n="img-2024-01-1-title">我們的手寫信居然上報紙了！</h3>
-                        <p>2024.01</p>
-                    </div>
+    <header class="hero">
+        <h1 data-i18n="gallery-hero-title">影像專區</h1>
+        <p data-i18n="gallery-hero-subtitle">捕捉共學的精彩瞬間</p>
+    </header>
+    <div class="gallery-container">
+        <div class="gallery-grid">
+            <h2 class="gallery-subtitle">日本方佈告類</h2>
+            <div class="gallery-item">
+                <img data-src="images/2024 01/1.avif" alt="" loading="lazy" decoding="async">
+                <div class="caption">
+                    <h3 data-i18n="img-2024-01-1-title">我們的手寫信居然上報紙了！</h3>
+                    <p>2024.01</p>
                 </div>
-                <div class="gallery-item">
-                    <img data-src="images/2024 01/2.avif" alt="" loading="lazy" decoding="async">
-                    <div class="caption">
-                        <h3 data-i18n="img-2024-01-2-title">佈告欄上都是我們的照片！</h3>
-                        <p>2024.01</p>
-                    </div>
+            </div>
+            <div class="gallery-item">
+                <img data-src="images/2024 01/2.avif" alt="" loading="lazy" decoding="async">
+                <div class="caption">
+                    <h3 data-i18n="img-2024-01-2-title">佈告欄上都是我們的照片！</h3>
+                    <p>2024.01</p>
                 </div>
-                <div class="gallery-item">
-                    <img data-src="images/2024 05/8.avif" alt="" loading="lazy" decoding="async">
-                    <div class="caption">
-                        <h3 data-i18n="img-2024-05-8-title">我們的台日共學登上了報紙!</h3>
-                        <p>2024.05</p>
-                    </div>
+            </div>
+            <div class="gallery-item">
+                <img data-src="images/2024 05/8.avif" alt="" loading="lazy" decoding="async">
+                <div class="caption">
+                    <h3 data-i18n="img-2024-05-8-title">我們的台日共學登上了報紙!</h3>
+                    <p>2024.05</p>
                 </div>
-                <div class="gallery-item">
-                    <img data-src="images/2024 05/9.avif" alt="" loading="lazy" decoding="async">
-                    <div class="caption">
-                        <h3 data-i18n="img-2024-05-9-title">(報紙另一面)</h3>
-                        <p>2024.05</p>
-                    </div>
+            </div>
+            <div class="gallery-item">
+                <img data-src="images/2024 05/9.avif" alt="" loading="lazy" decoding="async">
+                <div class="caption">
+                    <h3 data-i18n="img-2024-05-9-title">(報紙另一面)</h3>
+                    <p>2024.05</p>
                 </div>
-                <div class="gallery-item">
-                    <img data-src="images/2024 05/10.avif" alt="" loading="lazy" decoding="async">
-                    <div class="caption">
-                        <h3 data-i18n="img-2024-05-10-title">(報紙細部)</h3>
-                        <p>2024.05</p>
-                    </div>
+            </div>
+            <div class="gallery-item">
+                <img data-src="images/2024 05/10.avif" alt="" loading="lazy" decoding="async">
+                <div class="caption">
+                    <h3 data-i18n="img-2024-05-10-title">(報紙細部)</h3>
+                    <p>2024.05</p>
                 </div>
-                <h2 class="gallery-subtitle">大合照類</h2>
-                <div class="gallery-item">
-                    <img data-src="images/2024 05/1.avif" alt="" loading="lazy" decoding="async">
-                    <div class="caption">
-                        <h3 data-i18n="img-2024-05-1-title">語言不通，還是可以交到朋友喔。</h3>
-                        <p>2024.05</p>
-                    </div>
+            </div>
+            <h2 class="gallery-subtitle">大合照類</h2>
+            <div class="gallery-item">
+                <img data-src="images/2024 05/1.avif" alt="" loading="lazy" decoding="async">
+                <div class="caption">
+                    <h3 data-i18n="img-2024-05-1-title">語言不通，還是可以交到朋友喔。</h3>
+                    <p>2024.05</p>
                 </div>
-                 <div class="gallery-item">
-                    <img data-src="images/2024 05/2.avif" alt="" loading="lazy" decoding="async">
-                    <div class="caption">
-                        <h3 data-i18n="img-2024-05-2-title">我們在日本的大合照!</h3>
-                        <p>2024.05</p>
-                    </div>
+            </div>
+             <div class="gallery-item">
+                <img data-src="images/2024 05/2.avif" alt="" loading="lazy" decoding="async">
+                <div class="caption">
+                    <h3 data-i18n="img-2024-05-2-title">我們在日本的大合照!</h3>
+                    <p>2024.05</p>
                 </div>
-                <div class="gallery-item">
-                    <img data-src="images/2024 05/5.avif" alt="" loading="lazy" decoding="async">
-                    <div class="caption">
-                        <h3 data-i18n="img-2024-05-5-title">人生中又有幾次能在市政府裡面拍照呢？</h3>
-                        <p>2024.05</p>
-                    </div>
+            </div>
+            <div class="gallery-item">
+                <img data-src="images/2024 05/5.avif" alt="" loading="lazy" decoding="async">
+                <div class="caption">
+                    <h3 data-i18n="img-2024-05-5-title">人生中又有幾次能在市政府裡面拍照呢？</h3>
+                    <p>2024.05</p>
                 </div>
-                <div class="gallery-item">
-                    <img data-src="images/2024 05/6.avif" alt="" loading="lazy" decoding="async">
-                    <div class="caption">
-                        <h3 data-i18n="img-2024-05-6-title">我們的全校(25人)V.S他們的全校(500人)</h3>
-                        <p>2024.05</p>
-                    </div>
+            </div>
+            <div class="gallery-item">
+                <img data-src="images/2024 05/6.avif" alt="" loading="lazy" decoding="async">
+                <div class="caption">
+                    <h3 data-i18n="img-2024-05-6-title">我們的全校(25人)V.S他們的全校(500人)</h3>
+                    <p>2024.05</p>
                 </div>
-                <div class="gallery-item">
-                    <img data-src="images/2025 01/1.avif" alt="" loading="lazy" decoding="async">
-                    <div class="caption">
-                        <h3 data-i18n="img-2025-01-1-title">福島學生來台的大合照!</h3>
-                        <p>2025.01</p>
-                    </div>
+            </div>
+            <div class="gallery-item">
+                <img data-src="images/2025 01/1.avif" alt="" loading="lazy" decoding="async">
+                <div class="caption">
+                    <h3 data-i18n="img-2025-01-1-title">福島學生來台的大合照!</h3>
+                    <p>2025.01</p>
                 </div>
-                <div class="gallery-item">
-                    <img data-src="images/2025 12/2.avif" alt="" loading="lazy" decoding="async">
-                    <div class="caption">
-                        <h3 data-i18n="img-2025-12-2-title">跟三浦市教育委員會的大合照!</h3>
-                        <p>2025.12</p>
-                    </div>
+            </div>
+            <div class="gallery-item">
+                <img data-src="images/2025 12/2.avif" alt="" loading="lazy" decoding="async">
+                <div class="caption">
+                    <h3 data-i18n="img-2025-12-2-title">跟三浦市教育委員會的大合照!</h3>
+                    <p>2025.12</p>
                 </div>
-                <div class="gallery-item">
-                    <img data-src="images/2025 12/4.avif" alt="" loading="lazy" decoding="async">
-                    <div class="caption">
-                        <h3 data-i18n="img-2025-12-4-title">跟國小共學完的大合照!</h3>
-                        <p>2025.12</p>
-                    </div>
+            </div>
+            <div class="gallery-item">
+                <img data-src="images/2025 12/4.avif" alt="" loading="lazy" decoding="async">
+                <div class="caption">
+                    <h3 data-i18n="img-2025-12-4-title">跟國小共學完的大合照!</h3>
+                    <p>2025.12</p>
                 </div>
-                <h2 class="gallery-subtitle">交流類</h2>
-                 <div class="gallery-item">
-                    <img data-src="images/2024 05/3.avif" alt="" loading="lazy" decoding="async">
-                    <div class="caption">
-                        <h3 data-i18n="img-2024-05-3-title">與日本官員介紹台灣</h3>
-                        <p>2024.05</p>
-                    </div>
+            </div>
+            <h2 class="gallery-subtitle">交流類</h2>
+             <div class="gallery-item">
+                <img data-src="images/2024 05/3.avif" alt="" loading="lazy" decoding="async">
+                <div class="caption">
+                    <h3 data-i18n="img-2024-05-3-title">與日本官員介紹台灣</h3>
+                    <p>2024.05</p>
                 </div>
-                <div class="gallery-item">
-                    <img data-src="images/2024 05/4.avif" alt="" loading="lazy" decoding="async">
-                    <div class="caption">
-                        <h3 data-i18n="img-2024-05-4-title">內心緊張，因為這是我們第一次跟政府共學!</h3>
-                        <p>2024.05</p>
-                    </div>
+            </div>
+            <div class="gallery-item">
+                <img data-src="images/2024 05/4.avif" alt="" loading="lazy" decoding="async">
+                <div class="caption">
+                    <h3 data-i18n="img-2024-05-4-title">內心緊張，因為這是我們第一次跟政府共學!</h3>
+                    <p>2024.05</p>
                 </div>
-                <div class="gallery-item">
-                    <img data-src="images/2024 05/7.avif" alt="" loading="lazy" decoding="async">
-                    <div class="caption">
-                        <h3 data-i18n="img-2024-05-7-title">在快要被冷死（4度）的天氣下種田</h3>
-                        <p>2024.05</p>
-                    </div>
+            </div>
+            <div class="gallery-item">
+                <img data-src="images/2024 05/7.avif" alt="" loading="lazy" decoding="async">
+                <div class="caption">
+                    <h3 data-i18n="img-2024-05-7-title">在快要被冷死（4度）的天氣下種田</h3>
+                    <p>2024.05</p>
                 </div>
-                <div class="gallery-item">
-                    <img data-src="images/2025 01/2.avif" alt="" loading="lazy" decoding="async">
-                    <div class="caption">
-                        <h3 data-i18n="img-2025-01-2-title">拉弓超帥的好不好！</h3>
-                        <p>2025.01</p>
-                    </div>
+            </div>
+            <div class="gallery-item">
+                <img data-src="images/2025 01/2.avif" alt="" loading="lazy" decoding="async">
+                <div class="caption">
+                    <h3 data-i18n="img-2025-01-2-title">拉弓超帥的好不好！</h3>
+                    <p>2025.01</p>
                 </div>
-                <div class="gallery-item">
-                    <img data-src="images/2025 01/4.avif" alt="" loading="lazy" decoding="async">
-                    <div class="caption">
-                        <h3 data-i18n="img-2025-01-4-title">向日本人介紹學校特徵！</h3>
-                        <p>2025.01</p>
-                    </div>
+            </div>
+            <div class="gallery-item">
+                <img data-src="images/2025 01/4.avif" alt="" loading="lazy" decoding="async">
+                <div class="caption">
+                    <h3 data-i18n="img-2025-01-4-title">向日本人介紹學校特徵！</h3>
+                    <p>2025.01</p>
                 </div>
-                <div class="gallery-item">
-                    <img data-src="images/2025 09/2.avif" alt="" loading="lazy" decoding="async">
-                    <div class="caption">
-                        <h3 data-i18n="img-2025-09-2-title">緩解尷尬的過場動畫！</h3>
-                        <p>2025.09</p>
-                    </div>
+            </div>
+            <div class="gallery-item">
+                <img data-src="images/2025 09/2.avif" alt="" loading="lazy" decoding="async">
+                <div class="caption">
+                    <h3 data-i18n="img-2025-09-2-title">緩解尷尬的過場動畫！</h3>
+                    <p>2025.09</p>
                 </div>
-                <div class="gallery-item">
-                    <img data-src="images/2025 09/3.avif" alt="" loading="lazy" decoding="async">
-                    <div class="caption">
-                        <h3 data-i18n="img-2025-09-3-title">向日本人介紹少年導覽隊！</h3>
-                        <p>2025.09</p>
-                    </div>
+            </div>
+            <div class="gallery-item">
+                <img data-src="images/2025 09/3.avif" alt="" loading="lazy" decoding="async">
+                <div class="caption">
+                    <h3 data-i18n="img-2025-09-3-title">向日本人介紹少年導覽隊！</h3>
+                    <p>2025.09</p>
                 </div>
-                <div class="gallery-item">
-                    <img data-src="images/2025 09/4.avif" alt="" loading="lazy" decoding="async">
-                    <div class="caption">
-                        <h3 data-i18n="img-2025-09-4-title">介紹新竹的特徵!</h3>
-                        <p>2025.09</p>
-                    </div>
+            </div>
+            <div class="gallery-item">
+                <img data-src="images/2025 09/4.avif" alt="" loading="lazy" decoding="async">
+                <div class="caption">
+                    <h3 data-i18n="img-2025-09-4-title">介紹新竹的特徵!</h3>
+                    <p>2025.09</p>
                 </div>
-                <div class="gallery-item">
-                    <img data-src="images/2025 12/3.avif" alt="" loading="lazy" decoding="async">
-                    <div class="caption">
-                        <h3 data-i18n="img-2025-12-3-title">實人三崎共學簡報現場！</h3>
-                        <p>2025.12</p>
-                    </div>
+            </div>
+            <div class="gallery-item">
+                <img data-src="images/2025 12/3.avif" alt="" loading="lazy" decoding="async">
+                <div class="caption">
+                    <h3 data-i18n="img-2025-12-3-title">實人三崎共學簡報現場！</h3>
+                    <p>2025.12</p>
                 </div>
-                <div class="gallery-item">
-                    <img data-src="images/2025 12/5.avif" alt="" loading="lazy" decoding="async">
-                    <div class="caption">
-                        <h3 data-i18n="img-2025-12-5-title">小紅帽跟小紅帽見面了!</h3>
-                        <p>2025.12</p>
-                    </div>
+            </div>
+            <div class="gallery-item">
+                <img data-src="images/2025 12/5.avif" alt="" loading="lazy" decoding="async">
+                <div class="caption">
+                    <h3 data-i18n="img-2025-12-5-title">小紅帽跟小紅帽見面了!</h3>
+                    <p>2025.12</p>
                 </div>
-                <div class="gallery-item">
-                    <img data-src="images/2025 12/6.avif" alt="" loading="lazy" decoding="async">
-                    <div class="caption">
-                        <h3 data-i18n="img-2025-12-6-title">2號小紅帽</h3>
-                        <p>2025.12</p>
-                    </div>
+            </div>
+            <div class="gallery-item">
+                <img data-src="images/2025 12/6.avif" alt="" loading="lazy" decoding="async">
+                <div class="caption">
+                    <h3 data-i18n="img-2025-12-6-title">2號小紅帽</h3>
+                    <p>2025.12</p>
                 </div>
             </div>
         </div>
-    </main>
-    <main id="page-contact" class="page-section">
+    </div>
+</main>
+<main id="page-contact" class="page-section">
     <header class="hero">
         <h1 data-i18n="contact-hero-title">聯絡我們</h1>
         <p data-i18n="contact-hero-subtitle">如有任何問題或建議，歡迎與我們聯繫</p>
@@ -476,7 +462,7 @@
             <h3>聯繫學校團隊</h3>
             <p><strong>電話：</strong>03-5585675 分機33</p>
             <p><strong data-i18n="Email">信箱：</strong>shirenschool@gmail.com</p>
-            <p><a href="https://docs.google.com/forms/d/e/1FAIpQLScrNwHihkjbDgwhojq9I-qzFi-CHyss3EiAJcLnpy3UuFCvrA/viewform">合作表單</a>
+            <p><a href="https://forms.gle/V3u92sgTKrHuwRoS6">合作表單</a>
             <p>我們期待與您一同打造持續且有深度的國際共學行動。</p>
         </div>
         <div class="card contact-card">
@@ -520,9 +506,7 @@
     </div>
 </div>
 </main>
-    <footer>
-        <p>&copy; 實人教育</p>
-    </footer>
+<footer><p>&copy; 實人教育</p></footer>
 <div id="detail-modal" class="modal">
     <div class="modal-content">
         <span class="close-btn" onclick="closeModal()"></span>
