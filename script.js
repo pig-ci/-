@@ -3,6 +3,17 @@ Author: Lynx
 Description: Proprietary code. Usage granted to Shiren Education.
 License: Full ownership remains with the author.
 */
+var isModern = typeof Promise !== "undefined" && !!window.fetch;
+if (!isModern) {
+    window.location.href = "browser-update.html";
+}
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js', { scope: '/-/' })
+            .then(reg => console.log('Service Worker 註冊成功'))
+            .catch(err => console.log('註冊失敗', err));
+    });
+}
 let galleryImagesLoaded = false;
 let currentOpenEventKey = "";
 const translations = {};

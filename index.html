@@ -2,19 +2,6 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <script>
-        var isModern = typeof Promise !== "undefined" && !!window.fetch;
-        if (!isModern) {
-            window.location.href = "browser-update.html";
-        }
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js', { scope: '/-/' })
-                    .then(reg => console.log('Service Worker 註冊成功'))
-                    .catch(err => console.log('註冊失敗', err));
-            });
-        }
-    </script>
     <noscript>
         <meta http-equiv="refresh" content="0; url=browser-update.html">
     </noscript>
@@ -196,15 +183,27 @@
         </div>
         <!-- 時間軸項目 8 -->
         <div class="timeline-item">
-            <div class="timeline-content" onclick="openModal(this)">
+            <div class="timeline-content" onclick="openModal(this)" data-event-id="event-202601-2">
+                <span class="date">2026.01</span>
+                <h2>引響力市集</h2>
+                <p class="details"></p>
+                <div class="full-text" style="display: none;" data-i18n="event-202601-2-full-text"></div>
+            </div>
+            <div class="timeline-img">
+                <img src="images/NotFound.avif"alt="引響力市集"decoding="async"loading="lazy"width="600"height="400">
+            </div>
+        </div>
+        <!-- 時間軸項目 9 -->
+        <div class="timeline-item">
+            <div class="timeline-content" onclick="openModal(this)" data-event-id="event-202601-3">
                 <span class="date">2026.01</span>
                 <h2>日本女兒節文化摺紙</h2>
                 <p class="details"></p>
-                <div class="thoughts">
-                </div>
+                <div class="thoughts"></div>
+                <div class="full-text" style="display: none;" data-i18n="event-202601-3-full-text"></div>
             </div>
             <div class="timeline-img">
-                <img src="images/26.01-2.avif"alt="日本女兒節文化摺紙"decoding="async"loading="lazy"width="600"height="400">
+                <img src="images/26.01-3.avif"alt="日本女兒節文化摺紙"decoding="async"loading="lazy"width="600"height="400">
             </div>
         </div>
     </section>
