@@ -11,7 +11,7 @@ const urlsToCache = [
   '/-/images/home/3.avif',
   '/-/images/home/4.avif',
   '/-/images/24.01.avif',
-  '/-/images/favicon.png'
+  '/-/images/favicon.webp'
 ];
 
 self.addEventListener('install', (event) => {
