@@ -1,7 +1,1 @@
-self.addEventListener('install', (event) => {
-  console.log('SW 安裝中...');
-  self.skipWaiting();
-});
-self.addEventListener('activate', (event) => {
-  console.log('SW 已啟動！');
-});
+self.addEventListener("install",t=>{console.log("安裝中..."),self.skipWaiting()}),self.addEventListener("activate",t=>{console.log("已啟動！")});
