@@ -1,1 +1,0 @@
-self.addEventListener("install",t=>{console.log("安裝中..."),self.skipWaiting()}),self.addEventListener("activate",t=>{console.log("已啟動！")});
