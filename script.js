@@ -1,5 +1,5 @@
 /**
-Author: Lynx
+Author: Lynx(pig-ci)
 Description: Proprietary code. Usage granted to Shiren Education.
 License: Full ownership remains with the author.
 */
@@ -11,7 +11,7 @@ if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('./sw.js', { scope: '/-/' })
             .then(reg => console.log('Service Worker 註冊成功'))
-            .catch(err => console.log('註冊失敗', err));
+            .catch(err => console.warn('Service Worker 註冊失敗', err));
     });
 }
 let galleryImagesLoaded = false;
